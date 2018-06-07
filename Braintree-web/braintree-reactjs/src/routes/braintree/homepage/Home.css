@@ -1,0 +1,44 @@
+body{
+	background-color: black;
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+#logo{
+
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	margin-top: 2%;
+}
+
+
+.text-center{
+
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	margin-top: -25%;
+}
+
+#mid{
+
+	margin-top: 6%;
+	height: 100%;
+	width: 50%;
+	position: relative;
+}
+
+#foot{
+
+margin-top: 10%;
+
+}
+
+.bg{
+
+    height: auto; 
+    width: 110%;
+}
+
+

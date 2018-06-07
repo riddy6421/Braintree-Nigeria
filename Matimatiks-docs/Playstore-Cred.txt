@@ -1,0 +1,4 @@
+            keyAlias 'Key'
+            keyPassword 'Matimatiks123'
+            storeFile file('C:/Users/ridwan/Documents/key.jks')
+            storePassword 'Matimatiks123'

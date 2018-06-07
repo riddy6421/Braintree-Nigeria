@@ -1,0 +1,32 @@
+#app1{
+	margin-top:2%;
+	font-family: 'Montserrat', sans-serif;
+	background-color: white;
+	color: black;
+	font-size: 20px;
+}
+
+.mlogo{
+
+	height: 5%;
+	width: 5%;
+}
+
+#ft{
+		margin-top: 5%;
+}
+
+
+#android{
+	width: 20%;
+	margin-bottom: 10%;
+}
+
+a:visited {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}

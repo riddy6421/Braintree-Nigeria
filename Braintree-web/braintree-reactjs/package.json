@@ -1,0 +1,33 @@
+{
+  "name": "matimatiks",
+  "version": "0.1.0",
+  "private": true,
+   "main":"entry.js",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2018": "^1.0.0",
+    "babel-preset-react": "^6.24.1",
+    "jquery": "^3.3.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-renderif": "^1.0.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "render-if": "^0.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "webpack": "^2.1.0-beta.22",
+    "webpack-config": "^7.5.0",
+    "webpack-dev-server": "^2.1.0-beta.10"
+  }
+}
