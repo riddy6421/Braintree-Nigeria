@@ -7,6 +7,24 @@ import img from './Blogo.png';
 
 class Home extends Component {
 
+    constructor(props) {
+    super(props);
+  }
+
+
+  componentDidMount(){
+
+    var x =window.innerHeight;
+    var y = document.getElementById("foot");
+
+    if(x <= 1650)
+      y.style.marginTop="15%";
+
+    else
+      y.style.marginTop="20%";
+
+  }
+
   render(){
     return ( 
         <div>
@@ -20,11 +38,8 @@ class Home extends Component {
             <img src={img} className="rounded mx-auto d-block" alt="logo"/>
          </div>
 
-
-
               <img src={pic} className="bg" alt="logo"/>
            
-
            <div className="container text-center">
             <h1>Serving and Preparing Thousands of Students</h1>
             <h1>For The Utmost Best</h1>
@@ -33,7 +48,7 @@ class Home extends Component {
           
 
        <div id="mid"  className="container justify-content-center align-items-center">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Get started</button>
+        <button type="button" className="btn btn-primary btn-lg btn-block">Get started</button>
        </div>
 
 

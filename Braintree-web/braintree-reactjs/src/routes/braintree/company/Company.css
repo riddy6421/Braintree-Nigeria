@@ -1,0 +1,16 @@
+
+.jumbotron{
+	background-color: white;
+}
+
+
+#about{
+	font-family: 'Montserrat', sans-serif;
+	color: black;
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.lead{
+	text-decoration: none;
+}
