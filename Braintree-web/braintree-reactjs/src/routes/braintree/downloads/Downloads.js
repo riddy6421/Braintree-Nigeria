@@ -4,7 +4,7 @@ import andlogo from './google-play-badge.png'
 import matlogo from './img_launch.png'
 import Header from '../../Header/Header.js';
 import Footer from '../../Footer/Footer.js';
-import { NavLink, Link } from 'react-router-dom';
+
 
 
 class Downloads extends Component {
@@ -21,8 +21,8 @@ class Downloads extends Component {
       <div id="app1" className="jumbotron">
             <h1 className="display-8">Matimatiks</h1>
             <img src={matlogo} className="mlogo" alt="logo"/>
-            <p className="lead">A personalized Mathematics tutorial app for <a href="https://www.waecdirect.org/" target="_blank">W.A.E.C</a> <a href="http://www.mynecoexams.com/" target="_blank">N.E.C.O</a>
-                &nbsp; and  <a href="https://www.jamb.org.ng/" target="_blank">U.T.M.E</a> Examinations.
+            <p className="lead">A personalized Mathematics tutorial app for <a href="https://www.waecdirect.org/" target="_blank" rel="noopener noreferrer" >W.A.E.C</a> <a href="http://www.mynecoexams.com/" target="_blank" rel="noopener noreferrer" >N.E.C.O</a>
+                &nbsp; and  <a href="https://www.jamb.org.ng/" target="_blank" rel="noopener noreferrer">U.T.M.E</a> Examinations.
             </p>
               
             <hr className="my-4"/>

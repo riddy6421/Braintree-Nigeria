@@ -1,5 +1,5 @@
 #app1{
-	margin-top:2%;
+	margin-top:0.5%;
 	font-family: 'Montserrat', sans-serif;
 	background-color: white;
 	color: black;
@@ -28,5 +28,4 @@ a:visited {
 }
 
 a:hover {
-	text-decoration: none;
-}
+	text-decoration: none;
