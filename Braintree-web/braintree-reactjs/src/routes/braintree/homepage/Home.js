@@ -4,11 +4,13 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import pic from './apple.jpg';
 import img from './Blogo.png';
+import {Link} from 'react-router-dom';
 
 class Home extends Component {
 
     constructor(props) {
     super(props);
+    this.start = this.start.bind(this);
   }
 
 
@@ -16,13 +18,14 @@ class Home extends Component {
 
     var x =window.innerHeight;
     var y = document.getElementById("foot");
+    var z = x-450;
 
-    if(x <= 1650)
-      y.style.marginTop="15%";
+    y.style.marginTop=z+"px";
 
-    else
-      y.style.marginTop="20%";
+  }
 
+  start(){
+    window.location.href="/getStarted";
   }
 
   render(){
@@ -48,7 +51,9 @@ class Home extends Component {
           
 
        <div id="mid"  className="container justify-content-center align-items-center">
-        <button type="button" className="btn btn-primary btn-lg btn-block">Get started</button>
+        <button onClick={this.start} type="button" className="btn btn-primary btn-lg btn-block">
+        Get Started
+        </button>
        </div>
 
 

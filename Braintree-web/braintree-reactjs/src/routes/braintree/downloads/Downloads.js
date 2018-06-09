@@ -9,6 +9,15 @@ import Footer from '../../Footer/Footer.js';
 
 class Downloads extends Component {
 
+componentDidMount(){
+
+    var x =window.innerHeight;
+    var y = document.getElementById("ft");
+    var z = x-500;
+
+    y.style.marginTop=z+"px";
+
+  }
 
   render(){
     return ( 

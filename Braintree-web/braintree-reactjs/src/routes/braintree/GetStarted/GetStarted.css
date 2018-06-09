@@ -1,0 +1,41 @@
+#select{
+
+font-family: 'Montserrat', sans-serif;
+color:black;
+margin-top: 1%;
+
+}
+
+#body{
+
+	background-color: white;
+}
+
+.card-title{
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+
+.card-text{
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+}
+
+
+.card-img-top{
+height: 20%;
+width: 20%;
+}
+
+.card{
+	width: 20rem;
+	margin-top: 7%;
+	background-color: #40bcff;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
