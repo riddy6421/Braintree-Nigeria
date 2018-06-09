@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Downloads.css';
-import andlogo from './google-play-badge.png'
-import matlogo from './img_launch.png'
+import andlogo from './mat-google-play-badge.png'
+import matlogo from './mat_img_launch.png'
 import Header from '../../Header/Header.js';
 import Footer from '../../Footer/Footer.js';
 

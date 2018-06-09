@@ -1,0 +1,28 @@
+#mat-title{
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+	background-color: #40bcff;
+	margin-top: 0.04%;
+	font-size:80px;
+}
+
+#by{
+  margin-top: -31%;
+  font-size: 20px;
+}
+
+#start{
+	margin-top: 10%;
+}
+
+#start_button{
+
+	width:50%;
+	color: Navy;
+}
+
+
+#mat-foot{
+	margin-top: 13%;
+}
+

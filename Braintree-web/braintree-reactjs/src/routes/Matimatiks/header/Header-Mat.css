@@ -1,0 +1,44 @@
+#matlog{
+
+	width: 10%;
+	height: 10%;
+}
+
+
+.mdown{
+	width: 45%;
+	margin-left: -1%;
+}
+
+#ls{
+
+	color: #40bcff; 
+	font-family: 'Open Sans', sans-serif;
+}
+
+#link1{
+
+	color: #40bcff;
+	font-family: 'Open Sans', sans-serif;
+	background-color: Navy;
+}
+
+#link2,#link3,#link4,#link5{
+
+	color: #40bcff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#app{
+	font-family: 'Open Sans', sans-serif;
+	color: #40bcff;
+	font-size: 25px;
+}
+
+#mat-bar{
+	background-color: white;
+	width: 110%;
+	margin-left: -2%;
+
+
+}

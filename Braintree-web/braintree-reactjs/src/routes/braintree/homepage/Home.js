@@ -44,7 +44,7 @@ class Home extends Component {
               <img src={pic} className="bg" alt="logo"/>
            
            <div className="container text-center">
-            <h1>Serving and Preparing Thousands of Students</h1>
+            <h1>Serving and Preparing Millions of Students</h1>
             <h1>For The Utmost Best</h1>
            </div>
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './GetStarted.css';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
-import matlogo from '../downloads/img_launch.png'
+import matlogo from '../downloads/mat_img_launch.png'
 
 class GetStarted extends Component {
 
@@ -35,7 +35,7 @@ class GetStarted extends Component {
   			<div className="card-body">
    				 <h4 className="card-title">Matimatiks</h4>
     			 <p className="card-text">A personalized Mathematics tutorial app for W.A.E.C, U.T.M.E, and N.E.C.O Examinations</p>
-    		<a href="#" className="btn btn-primary">Launch</a>
+    		<a href="/Matimatiks" className="btn btn-primary">Launch</a>
   			</div>
 		</div>
 
