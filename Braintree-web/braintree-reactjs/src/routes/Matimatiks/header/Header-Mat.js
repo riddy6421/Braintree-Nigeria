@@ -3,6 +3,25 @@ import './Header-Mat.css';
 import andlogo from '../../braintree/downloads/mat-google-play-badge.png';
 import matlogo from '../../braintree/downloads/mat_img_launch.png';
 import { NavLink } from 'react-router-dom';
+import firebase, { auth, provider } from '../firebase-config.js';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+
+
+const uiConfig = {
+  // Popup signin flow rather than redirect flow.
+  signInFlow: 'popup',
+  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+ // signInSuccessUrl: '/Matimatiks/mode',
+  // We will display Google and Facebook as auth providers.
+  signInOptions: [
+    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID
+  ]
+};
 
 class Header_Mat extends Component {
 
@@ -21,8 +40,22 @@ class Header_Mat extends Component {
        <div className="container justify-content-center">
           <ul  className="navbar-nav active">
           <li  className="nav-item">
-            <button id="ls" type="button" class="btn btn-outline-primary">Login/Signup</button>
+            <button id="si"  type="button" class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">Sign in</button>
+
+             <div className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-lg">
+            <div className="modal-content">
+            <div id="lgn-cont" className="container text-center">
+           <p id="lgn">Login Below</p>
+            <hr className="my-4"/>
+           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
+          <p id="pt">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
+        </div>
+       </div>
+     </div>
+      </div>
           </li>
+
           <li className="nav-item">
             <NavLink id="link2" className="nav-link" to="">Contribute</NavLink>
           </li>

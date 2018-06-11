@@ -5,6 +5,60 @@
 	margin-top: 0.04%;
 	font-size:80px;
 }
+#naij{
+	margin-left: 2px;
+	margin-top: -2px;
+}
+#pt{
+color: black;
+margin-top: 5%;
+}
+
+#load{
+	color: #40bcff
+}
+
+#next{
+
+margin-top: -52%;
+margin-left: 19%;
+
+
+}
+
+#prev{
+
+margin-top: -52%;
+margin-right: 17%;
+
+}
+
+
+.progress-bar{
+	width: 100%;
+}
+
+
+#q1,#test{
+	color: #40bcff;
+
+}
+
+#q2{
+	color: #40bcff;
+
+}
+
+
+#exampleModalLongTitle{
+
+	color: #40bcff;
+}
+
+#A1{
+
+	margin-top: 2%;
+}
 
 #by{
   margin-top: -31%;
@@ -15,14 +69,30 @@
 	margin-top: 10%;
 }
 
+#lgn{
+	color: black;
+	margin-top: 2%;
+}
+
+#Qimg1,#Qimg2{
+
+	width: 60%;
+}
+
 #start_button{
 
 	width:50%;
 	color: Navy;
 }
-
+.modal-content{
+	height: 500px;
+	margin-top: 15%;
+	background-color: white;
+}
 
 #mat-foot{
 	margin-top: 13%;
 }
+
+
 
