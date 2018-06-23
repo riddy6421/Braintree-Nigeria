@@ -15,7 +15,7 @@
 
 
 .mdown{
-	width: 45%;
+	width: 150px;
 	margin-left: -1%;
 }
 
@@ -45,9 +45,103 @@
 }
 
 #mat-bar{
-	background-color: white;
-	width: 110%;
+	width: 100%;
 	margin-left: -2%;
 
+
+}
+
+
+
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px) {  
+
+
+}
+
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {  
+
+
+
+}
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) { 
+
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+
+
+
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+	#matlog{
+
+	width: 10%;
+	height: 10%;
+}
+
+#lgn-cont{
+	margin-top: 2%;
+}
+
+#si{
+
+	color: #40bcff;
+}
+
+
+.mdown{
+	width: 150px;
+	margin-left: -1%;
+}
+
+#ls{
+
+	color: #40bcff; 
+	font-family: 'Open Sans', sans-serif;
+}
+
+#link1{
+
+	color: #40bcff;
+	font-family: 'Open Sans', sans-serif;
+	background-color: Navy;
+}
+
+#link2,#link3,#link4,#link5{
+
+	color: #40bcff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#app{
+	font-family: 'Open Sans', sans-serif;
+	color: #40bcff;
+	font-size: 25px;
+}
+
+#mat-bar{
+	width: 100%;
+	margin-left: -2%;
+
+
+}
 
 }

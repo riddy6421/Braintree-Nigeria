@@ -35,14 +35,14 @@ class Homepage extends Component {
     super();
     this.state = {
       user: null,
-      counter:0 
+      counter:0,
+      ques:0
     }
     
   }
 
 
   componentWillMount(){
-
 
   /*Check if User is signed in*/
   auth.onAuthStateChanged((user) => {
@@ -95,6 +95,14 @@ class Homepage extends Component {
     var z = x-88;
     y.style.height=z+"px";
 
+    var foot1 = document.getElementById("heading1");
+    var foot2 = document.getElementById("heading2");
+    var foot3 = document.getElementById("heading3");
+
+    foot1.style.color= "black";
+    foot2.style.color= "black";
+    foot3.style.color= "black";
+
 
   var Qimg1, Qimg2, Aimg1, Aimg2, BA1, str, topic, arr1, arr2;
 
@@ -112,25 +120,45 @@ class Homepage extends Component {
 
    let that = this;
 
-
-   if(this.state.counter == 0)
+   if(this.state.ques == 0)
       arr1.style.visibility = "hidden";
-
-
 
       arr2.addEventListener("click", function(){
 
-        if(that.state.counter == 0){
+        if(that.state.ques == 0){
             
-            Qimg1.src = Q2
+            Qimg1.src = Q2;
 
             arr1.style.visibility = "visible";
 
-          }
+            arr2.style.visibility = "hidden";
 
+            topic.innerHTML="Question 2";
+
+            that.setState({ques:1});
+
+          }
 
     });
 
+
+   arr1.addEventListener("click", function(){
+
+        if(that.state.ques == 1){
+            
+            Qimg1.src = Q1;
+
+            arr1.style.visibility = "hidden";
+
+            arr2.style.visibility = "visible";
+
+            topic.innerHTML="Question 1";
+
+            that.setState({ques:0});
+
+          }
+
+    });
 
    
 
@@ -138,23 +166,56 @@ class Homepage extends Component {
 
    
     if(that.state.counter == 0){
-     
-      Qimg1.src = A1
-      BA1.innerHTML = "Back to Question";
-      topic.innerHTML = "Answer 1";
-      that.setState({counter:1});
 
+
+      if(that.state.ques == 0){
+
+        Qimg1.src = A1
+        BA1.innerHTML = "Back to Question";
+        topic.innerHTML = "Answer 1";
+        that.setState({counter:1});
+        arr1.style.visibility = "hidden";
+        arr2.style.visibility = "hidden";
+
+
+      }
+
+      else{
+
+        Qimg1.src = A2
+        BA1.innerHTML = "Back to Question";
+        topic.innerHTML = "Answer 2";
+        that.setState({counter:1});
+        arr1.style.visibility = "hidden";
+        arr2.style.visibility = "hidden";
+
+      }
+     
     }
        
 
     else{
 
-      Qimg1.src = Q1
-      BA1.innerHTML = "See Answer";
-      topic.innerHTML = "Question 1";
-      that.setState({counter:0});
+      if(that.state.ques == 0){
 
+        Qimg1.src = Q1
+        BA1.innerHTML = "See Answer";
+        topic.innerHTML = "Question 1";
+        that.setState({counter:0});
+        arr2.style.visibility = "visible";
+
+      }
+
+      else{
+
+        Qimg1.src = Q2
+        BA1.innerHTML = "See Answer";
+        topic.innerHTML = "Question 2";
+        that.setState({counter:0});
+        arr1.style.visibility = "visible";
+      
     }
+  }
 
         
   });
@@ -211,9 +272,6 @@ class Homepage extends Component {
     <button id="next" type="button" className="btn btn-outline-primary">&raquo;</button>
 
    
-
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

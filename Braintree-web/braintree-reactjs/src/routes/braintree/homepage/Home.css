@@ -1,38 +1,340 @@
-body{
-	background-color: black;
+
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px) {  
+
+	body{
 	overflow-x: hidden;
 	height: 100%;
 	width: 100%;
 }
 
-#logo{
 
-	height: 100%;
+.jumbotron-fluid{
+
 	width: 100%;
-	position: absolute;
-	margin-top: 2%;
+	height: 400px;
+}
+
+
+#bg{
+
+	height: 380px;
 }
 
 
 .text-center{
 
+	margin-top: -90%;
 	color: white;
 	font-family: 'Open Sans', sans-serif;
-	margin-top: -25%;
 }
 
-#mid{
 
-	margin-top: 6%;
+
+#btn{
+
+	margin-top: 10%;
+	width: 80%;
+	margin-left: 10%;
+	font-family: 'Open Sans', sans-serif;
+	background-color: white;
+}
+
+
+#btn:hover{
+	background-color: DarkSlateBlue;
+}
+
+
+#nj{
+
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+}
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {  
+
+	body{
+	overflow-x: hidden;
 	height: 100%;
+	width: 100%;
+}
+
+
+.jumbotron-fluid{
+
+	width: 100%;
+	height: 430px;
+	
+}
+
+
+#bg{
+
+ width: 100%;
+height: 420px;
+	
+}
+
+
+.text-center{
+
+margin-top: -90%;
+color: white;
+font-family: 'Open Sans', sans-serif;
+}
+
+
+#btn{
+
+	margin-top: 25%;
+	width: 80%;
+	margin-left: 10%;
+	background-color: white;
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+#nj{
+
+	font-family: 'Montserrat', sans-serif;
+}
+
+}
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+	body{
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+.jumbotron-fluid{
+
+	width: 100%;
+	height: 430px;
+	
+}
+
+
+#bg{
+
+ width: 100%;
+height: 420px;
+	
+}
+
+
+.text-center{
+
+margin-top: -50%;
+color: white;
+font-family: 'Open Sans', sans-serif;
+font-size: 23px;
+}
+
+
+#btn{
+
+	margin-top: 13%;
+	width: 80%;
+	margin-left: 10%;
+	background-color: white;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+#nj{
+
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) { 
+
+ 		body{
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+
+
+.jumbotron-fluid{
+
+	width: 100%;
+	height: 430px;
+	
+}
+
+
+#bg{
+
+ width: 100%;
+height: 420px;
+	
+}
+
+
+.text-center{
+
+margin-top: -40%;
+color: white;
+font-family: 'Open Sans', sans-serif;
+font-size: 23px;
+}
+
+
+#btn{
+
+	margin-top: 13%;
+	width: 80%;
+	margin-left: 10%;
+	font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+#nj{
+
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+body{
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+.jumbotron-fluid{
+
+	width: 100%;
+	height: 540px;
+	
+}
+
+
+
+#bg{
+
+ width: 100%;
+ height: 520px;
+	
+}
+
+
+.text-center{
+
+margin-top: -35%;
+color: white;
+font-family: 'Open Sans', sans-serif;
+font-size: 40px;
+}
+
+
+#btn{
+
+	margin-top: 9%;
+	width: 80%;
+	margin-left: 10%;
+	font-family: 'Open Sans', sans-serif;
+	background-color: white;
+
+}
+
+#nj{
+
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+ }
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+
+		body{
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+
+
+
+.jumbotron-fluid{
+
+	width: 100%;
+	height: auto;
+	
+}
+
+
+#bg{
+
+ width: 100%;
+
+	
+}
+
+.text-center{
+
+margin-top: -33%;
+color: white;
+font-family: 'Open Sans', sans-serif;
+font-size: 50px;
+}
+
+
+#btn{
+
+	margin-top: 8%;
 	width: 50%;
-	position: relative;
+	background-color: white;
+	margin-left: 24%;
+	font-family: 'Open Sans', sans-serif;
+
 }
 
-.bg{
 
-    height: auto; 
-    width: 110%;
+#btn:hover{
+
+	
+	background-color: DarkSlateBlue;
+
 }
 
+
+#nj{
+
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+#foot{
+
+	margin-top: 7%;
+}
+
+
+}
 

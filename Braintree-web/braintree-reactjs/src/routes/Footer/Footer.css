@@ -1,10 +1,192 @@
-.col{
+
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px) {  
+
+#info2{
+	display: none;
+}
+
+
+#info1{
+
+	width: 100%;
+	height: auto;
+}
+
+#list{
+
+	margin-left: 10%;
+}
+
+#doc{
 
 	color: white;
-	font-family: 'Montserrat', sans-serif;
+
+}
+
+#ptr{
+
+	margin-left: 25%;
+}
+
+#pi,#pi2{
+
+	margin-left: 5%;
+}
+
+}
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {  
+
+	#info2{
+	display: none;
+}
+
+
+#info1{
+
+	width: 100%;
+	height: auto;
+}
+
+#list{
+
+	margin-left: 15%;
+}
+
+#doc{
+
+	color: white;
+	margin-left: 5%;
+
+}
+
+#ptr{
+
+	margin-left: 28%;
+}
+
+#pi,#pi2{
+
+	margin-left: 5%;
+}
+
+}
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+#info2{
+
+	width: 100%;
+	height: auto;
+}
+
+
+#info1{
+
+    display:none ;
+	
+}
+
+#heading1,#heading2,#heading3{
+
+	color: white;
 }
 
 .pi2,.pi3{
 
 	margin-left: 5%;
 }
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) { 
+
+#info2{
+
+	width: 100%;
+	height: auto;
+}
+
+
+#info1{
+
+    display:none ;
+	
+}
+
+#heading1,#heading2,#heading3{
+
+	color: white;
+}
+
+.pi2,.pi3{
+
+	margin-left: 5%;
+}
+
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+#info2{
+
+	width: 100%;
+	height: auto;
+}
+
+
+#info1{
+
+    display:none ;
+	
+}
+
+#heading1,#heading2,#heading3{
+
+	color: white;
+}
+
+.pi2,.pi3{
+
+	margin-left: 5%;
+}
+
+ }
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+
+#info2{
+
+	width: 100%;
+	height: auto;
+}
+
+
+#info1{
+
+    display:none ;
+	
+}
+
+#heading1,#heading2,#heading3{
+
+	color: white;
+}
+
+.pi2,.pi3{
+
+	margin-left: 5%;
+}
+
+}
+

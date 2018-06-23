@@ -3,7 +3,7 @@
 	color: white;
 	background-color: #40bcff;
 	margin-top: 0.04%;
-	font-size:80px;
+	font-size:85px;
 }
 #naij{
 	margin-left: 2px;
@@ -12,11 +12,13 @@
 #pt{
 color: black;
 margin-top: 5%;
+font-size: 25%;
 }
 
 #load{
 	color: #40bcff
 }
+
 
 #next{
 
@@ -24,6 +26,11 @@ margin-top: -52%;
 margin-left: 19%;
 
 
+}
+
+#mat-foot{
+
+	margin-top: 13%;
 }
 
 #prev{
@@ -81,7 +88,7 @@ margin-right: 17%;
 
 #start_button{
 
-	width:50%;
+	width:55%;
 	color: Navy;
 }
 .modal-content{
@@ -90,9 +97,7 @@ margin-right: 17%;
 	background-color: white;
 }
 
-#mat-foot{
-	margin-top: 13%;
-}
+
 
 
 

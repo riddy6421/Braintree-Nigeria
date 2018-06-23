@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Company.css';
-import Header from '../../Header/Header.js';
-import Footer from '../../Footer/Footer.js';
+import Header from '../../Header/Header';
+import Footer from '../../Footer/Footer';
 
 
 
@@ -14,6 +14,8 @@ class Company extends Component {
     var z = x-450;
 
     y.style.marginTop=z+"px";
+
+    document.body.style.backgroundColor = "DarkSlateBlue";
 
   }
 

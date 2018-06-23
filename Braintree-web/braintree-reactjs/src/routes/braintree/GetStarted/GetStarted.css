@@ -9,6 +9,8 @@ margin-top: 1%;
 #body{
 
 	background-color: white;
+	height: auto;
+	width: 100%;
 }
 
 .card-title{

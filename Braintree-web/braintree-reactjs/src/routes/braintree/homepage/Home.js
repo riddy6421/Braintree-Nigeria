@@ -4,6 +4,7 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import pic from './apple.jpg';
 import img from './Blogo.png';
+import $ from 'jquery';
 import {Link} from 'react-router-dom';
 
 class Home extends Component {
@@ -16,12 +17,8 @@ class Home extends Component {
 
   componentDidMount(){
 
-    var x =window.innerHeight;
-    var y = document.getElementById("foot");
-    var z = x-450;
-
-    y.style.marginTop=z+"px";
-
+    document.body.style.backgroundColor = "DarkSlateBlue";
+    
   }
 
   start(){
@@ -32,29 +29,24 @@ class Home extends Component {
     return ( 
         <div>
      
-      <div className="container-fluid">
+      <div id="head" className="container-fluid">
         <Header/>
       </div>
 
 
-         <div id="logo">
-            <img src={img} className="rounded mx-auto d-block" alt="logo"/>
-         </div>
+        <div className="jumbotron-fluid">
 
-              <img src={pic} className="bg" alt="logo"/>
-           
-           <div className="container text-center">
-            <h1>Serving and Preparing Millions of Students</h1>
-            <h1>For The Utmost Best</h1>
-           </div>
+          <img id="bg" src={pic} className="img-fluid" alt="Responsive image"/>
 
-          
+         <div className="container-fluid text-center">
+            <p> Serving and Preparing Millions Of Students</p>
+            <p> For the utmost best</p>
+            <p id="nj"> By Nigerians. For Everyone.</p>
+        </div>
 
-       <div id="mid"  className="container justify-content-center align-items-center">
-        <button onClick={this.start} type="button" className="btn btn-primary btn-lg btn-block">
-        Get Started
-        </button>
-       </div>
+        <button id="btn" onClick={this.start} className="container-fluid btn justify-content-center" type="submit">Get Started</button>
+
+      </div>
 
 
         <div id="foot" className="container-fluid">

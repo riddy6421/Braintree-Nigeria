@@ -25,6 +25,14 @@ const uiConfig = {
 
 class Header_Mat extends Component {
 
+
+
+
+  componentDidMount(){
+
+    document.body.style.backgroundColor = "white";
+  }
+
   render() {
     return (
   <div>{/* root div begin*/}

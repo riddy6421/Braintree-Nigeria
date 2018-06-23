@@ -4,6 +4,7 @@ import andlogo from './mat-google-play-badge.png'
 import matlogo from './mat_img_launch.png'
 import Header from '../../Header/Header.js';
 import Footer from '../../Footer/Footer.js';
+import $ from 'jquery';
 
 
 
@@ -11,13 +12,10 @@ class Downloads extends Component {
 
 componentDidMount(){
 
-    var x =window.innerHeight;
-    var y = document.getElementById("ft");
-    var z = x-500;
+  // $( "#app1" ).after( $( "#ft" ) );
+  document.body.style.backgroundColor = "DarkSlateBlue";
 
-    y.style.marginTop=z+"px";
-
-  }
+}
 
   render(){
     return ( 

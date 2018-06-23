@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import './GetStarted.css';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
-import matlogo from '../downloads/mat_img_launch.png'
+import matlogo from '../downloads/mat_img_launch.png';
+import $ from 'jquery';
 
 class GetStarted extends Component {
 
 	componentDidMount(){
 
-    var x =window.innerHeight;
-    var y = document.getElementById("ftg");
-    var z = x-550;
-
-    y.style.marginTop=z+"px";
+   // $( "#body" ).after( $( "#ftg" ) );
+    document.body.style.backgroundColor = "DarkSlateBlue";
 
   }
 
@@ -26,7 +24,7 @@ class GetStarted extends Component {
 
         <div id="body" className="jumbotron">
       	 <div id="select" className="container text-center">
-            <h1>Select From Our Applications</h1>
+            <h1>Select From Our Application(s)</h1>
             <h1>Below!</h1>
            </div>
 
