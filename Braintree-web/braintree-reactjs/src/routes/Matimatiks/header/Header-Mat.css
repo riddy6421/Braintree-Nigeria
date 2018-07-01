@@ -1,60 +1,53 @@
+
+
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px){
+
+
 #matlog{
 
-	width: 10%;
-	height: 10%;
+width: 15%;
+height: 15%;
 }
 
-#lgn-cont{
-	margin-top: 2%;
+#app{
+
+	font-family: 'Open Sans', sans-serif;
+    color: #40bcff;
+    width: 100%;
+    margin-left: 20%;
+
 }
+
 
 #si{
 
 	color: #40bcff;
+	width: 20%;
+	font-size: 9px;
+	margin-left: -10%;
+	margin-right: 3%;
 }
 
+#link5{
+
+	display: none;
+}
+
+#link2,#link3,#link4{
+
+	color: #40bcff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 10px;
+	margin-left: -6%;
+}
 
 .mdown{
-	width: 150px;
-	margin-left: -1%;
+
+	width: 20%;
+	height: 20%;
 }
 
-#ls{
-
-	color: #40bcff; 
-	font-family: 'Open Sans', sans-serif;
-}
-
-#link1{
-
-	color: #40bcff;
-	font-family: 'Open Sans', sans-serif;
-	background-color: Navy;
-}
-
-#link2,#link3,#link4,#link5{
-
-	color: #40bcff;
-	font-family: 'Open Sans', sans-serif;
-}
-
-#app{
-	font-family: 'Open Sans', sans-serif;
-	color: #40bcff;
-	font-size: 25px;
-}
-
-#mat-bar{
-	width: 100%;
-	margin-left: -2%;
-
-
-}
-
-
-
-/* specially small devices (portrait phones, less than 576px)*/
-@media (max-width: 359px) {  
 
 
 }

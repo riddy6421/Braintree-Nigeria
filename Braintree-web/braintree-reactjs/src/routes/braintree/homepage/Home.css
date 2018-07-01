@@ -272,13 +272,11 @@ font-size: 40px;
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) { 
 
-		body{
+body{
 	overflow-x: hidden;
 	height: 100%;
 	width: 100%;
 }
-
-
 
 
 .jumbotron-fluid{

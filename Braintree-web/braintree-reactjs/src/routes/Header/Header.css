@@ -226,14 +226,14 @@ color: white;
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) { 
 
-  #head{
+#head{
 	color: white;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 35px;
+	margin-left: -10%;
 }
 
 #links{
-
 display: inline;
 font-size: 20px;
 font-family: 'Open Sans', sans-serif;
@@ -242,7 +242,6 @@ width: 15%;
 }
 
 #links:hover{
-
 
 color: white;
 

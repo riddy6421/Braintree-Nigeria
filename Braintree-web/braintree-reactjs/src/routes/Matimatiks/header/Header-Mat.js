@@ -45,9 +45,8 @@ class Header_Mat extends Component {
       </div>
           
 
-       <div className="container justify-content-center">
-          <ul  className="navbar-nav active">
-          <li  className="nav-item">
+       <div id="stf" className="container-fluid justify-content-center align-items-center">
+
             <button id="si"  type="button" class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">Sign in</button>
 
              <div className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -62,23 +61,18 @@ class Header_Mat extends Component {
        </div>
      </div>
       </div>
-          </li>
 
-          <li className="nav-item">
+          
             <NavLink id="link2" className="nav-link" to="">Contribute</NavLink>
-          </li>
-          <li className="nav-item">
+          
             <NavLink id="link3" className="nav-link" to="">Community</NavLink>
-          </li>
-          <li className="nav-item">
+          
             <NavLink id="link4" className="nav-link" to="">FAQ's</NavLink>
-          </li>
-          <li  className="nav-item active">
+          
             <a id="link5"  href="https://play.google.com/store/apps/details?id=matimatiks.matimatiks">
               <img  src={andlogo} className="mdown" alt="Get it on Google Play" />
           </a>
-          </li>
-        </ul>
+    
       </div>
      </nav>
       </div>
