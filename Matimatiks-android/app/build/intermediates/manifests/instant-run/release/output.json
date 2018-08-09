@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":20,"versionName":"2.9","enabled":true,"outputFile":"app-release-unsigned.apk","fullName":"release","baseName":"release"},"path":"AndroidManifest.xml","properties":{"packageId":"matimatiks.matimatiks","split":"","minSdkVersion":"16"}}]

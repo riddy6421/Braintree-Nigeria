@@ -1,0 +1,26 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Waec_jamb_View">
+   <SurfaceView
+       android:id="@+id/surface"
+       android:layout_width="match_parent"
+       android:layout_height="430dp" />
+
+   <ListView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/Waeclist">
+   </ListView>
+
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/snack"
+       android:background="@color/light_font">
+   </FrameLayout>
+
+</FrameLayout>

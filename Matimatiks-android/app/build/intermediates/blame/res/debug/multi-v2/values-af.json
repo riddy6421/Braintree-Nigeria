@@ -1,0 +1,130 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\ridwan\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-af\\values-af.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\167468c5ce4953bf43ab9d5ac598b39c\\res\\values-af\\values-af.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,309,415,500,603,721,797,874,955,1062,1165,1262,1370,1472,1574,1728,1826",
+                        "endColumns": "103,99,105,84,102,117,75,76,80,106,102,96,107,101,101,153,97,79",
+                        "endOffsets": "204,304,410,495,598,716,792,869,950,1057,1160,1257,1365,1467,1569,1723,1821,1901"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,69",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,309,415,500,603,721,797,874,955,1062,1165,1262,1370,1472,1574,1728,7333",
+                        "endColumns": "103,99,105,84,102,117,75,76,80,106,102,96,107,101,101,153,97,79",
+                        "endOffsets": "204,304,410,495,598,716,792,869,950,1057,1160,1257,1365,1467,1569,1723,1821,7408"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\42c1d8af57aa2511f12f4f1afaf6df8c\\res\\values-af\\values-af.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "70",
+                        "startColumns": "4",
+                        "startOffsets": "7413",
+                        "endColumns": "100",
+                        "endOffsets": "7509"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-15.0.1.aar\\e12c0e15d656c9b8a98ab2d457d5e419\\res\\values-af\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "197,265,377,442,506,588,702",
+                        "endColumns": "67,111,64,63,81,113,73",
+                        "endOffsets": "264,376,441,505,587,701,775"
+                    },
+                    "to": {
+                        "startLines": "62,63,64,65,66,67,68",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "6726,6798,6914,6983,7051,7137,7255",
+                        "endColumns": "71,115,68,67,85,117,77",
+                        "endOffsets": "6793,6909,6978,7046,7132,7250,7328"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.22.1.aar\\efe3508d4d4f2858e227146c1d12a37c\\res\\values-af\\values-af.xml",
+                    "from": {
+                        "startLines": "2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,206,326,451,545,612,683,743,819,893,991,1083,1157,1231,1314,1413,1477,1541,1725,1802,1887,1980,2106",
+                        "endLines": "2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                        "endColumns": "150,23,124,93,66,70,59,75,73,97,91,73,73,82,98,63,63,183,76,84,92,125,60",
+                        "endOffsets": "201,321,446,540,607,678,738,814,888,986,1078,1152,1226,1309,1408,1472,1536,1720,1797,1882,1975,2101,2162"
+                    },
+                    "to": {
+                        "startLines": "19,20,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,61",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1826,1977,2097,2222,2316,2383,2454,2514,2590,2664,2762,2854,2928,3002,3085,3184,3248,3312,3496,3573,3658,3751,6665",
+                        "endLines": "19,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,61",
+                        "endColumns": "150,23,124,93,66,70,59,75,73,97,91,73,73,82,98,63,63,183,76,84,92,125,60",
+                        "endOffsets": "1972,2092,2217,2311,2378,2449,2509,2585,2659,2757,2849,2923,2997,3080,3179,3243,3307,3491,3568,3653,3746,3872,6721"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-15.0.1.aar\\22cb8cf112ef3b8b3b1dfd4a9ba199d6\\res\\values-af\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,350,538,662,770,979,1099,1246,1373,1598,1704,1892,2017,2215,2395,2487,2576",
+                        "endColumns": "104,187,123,107,208,119,146,126,224,105,187,124,197,179,91,88,103",
+                        "endOffsets": "349,537,661,769,978,1098,1245,1372,1597,1703,1891,2016,2214,2394,2486,2575,2679"
+                    },
+                    "to": {
+                        "startLines": "42,43,44,45,46,47,48,49,51,52,53,54,55,56,57,58,59",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3877,3986,4174,4302,4414,4623,4747,4898,5231,5456,5566,5754,5883,6081,6265,6361,6454",
+                        "endColumns": "108,187,127,111,208,123,150,130,224,109,187,128,197,183,95,92,107",
+                        "endOffsets": "3981,4169,4297,4409,4618,4742,4893,5024,5451,5561,5749,5878,6076,6260,6356,6449,6557"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-gcm-15.0.1.aar\\7a192c6b3d5c522003b03452c58e6638\\res\\values-af\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "190",
+                        "endColumns": "98",
+                        "endOffsets": "288"
+                    },
+                    "to": {
+                        "startLines": "60",
+                        "startColumns": "4",
+                        "startOffsets": "6562",
+                        "endColumns": "102",
+                        "endOffsets": "6660"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-15.0.1.aar\\1812e8ca99031073027250075bf671ef\\res\\values-af\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "50",
+                        "startColumns": "4",
+                        "startOffsets": "5029",
+                        "endColumns": "201",
+                        "endOffsets": "5226"
+                    }
+                }
+            ]
+        }
+    ]
+}

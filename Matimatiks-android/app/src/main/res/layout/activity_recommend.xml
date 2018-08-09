@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolBar_prog"
+            android:background="@color/company_color"
+            app:theme="@style/AppTheme">
+        </android.support.v7.widget.Toolbar>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:id="@+id/graph" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:shadowDx="1"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:shadowDy="1"
+            android:shadowColor="@color/light_font"
+            android:text="Score Obtained"
+            android:id="@+id/series2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/series1"
+            android:layout_gravity="start"
+            android:textColor="@color/material_purple_a700"
+            android:shadowDx="1"
+            android:gravity="center"
+            android:layout_marginTop="3dp"
+            android:shadowDy="1"
+            android:shadowColor="@color/light_font"
+            android:text="Question(s) Attempted"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/graph_explanation"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:shadowColor="@color/light_font"
+            android:textSize="15sp"
+            android:id="@+id/ttl"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="start"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:textColor="@color/black"
+            android:shadowColor="@color/light_font"
+            android:textSize="12sp"
+            android:shadowRadius="2"
+            android:id="@+id/det"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rec2"
+        android:layout_gravity="center_horizontal"
+        android:shadowDx="1"
+        android:layout_marginTop="5dp"
+        android:shadowColor="@color/light_font"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"/>
+
+   <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/rec3"
+        android:shadowColor="@color/light_font"
+        android:layout_gravity="center_horizontal"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        android:typeface="serif"/>
+    </LinearLayout>
+
+</LinearLayout>

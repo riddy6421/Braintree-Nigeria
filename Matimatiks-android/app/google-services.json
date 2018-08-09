@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "802946512222",
+    "firebase_url": "https://matmatiks-6b999.firebaseio.com",
+    "project_id": "matmatiks-6b999",
+    "storage_bucket": "matmatiks-6b999.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802946512222:android:4d08cbf3f3b9a801",
+        "android_client_info": {
+          "package_name": "matimatiks.matimatiks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802946512222-4rupkn5khmqnefj65g8k988ohvr13veo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxefGmn0Gd89Nv_j5Lo5lUYFPN-qyiZ8Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

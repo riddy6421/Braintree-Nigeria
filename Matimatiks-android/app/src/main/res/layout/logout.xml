@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/company_color"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src = "@mipmap/img_launch"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/logoutlogo" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/progressBar" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:gravity="center"
+        android:text="@string/logging_out"
+        android:textColor="@color/light_font"
+        android:typeface="sans"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDy="1"
+        android:shadowDx="1"
+        android:shadowRadius="2"
+        android:id="@+id/textView5"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
