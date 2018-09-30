@@ -8,34 +8,34 @@ package com.twitter.sdk.android.core;
 
 public final class R {
     public static final class color {
-        public static final int tw__blue_default = 0x7f0600a0;
-        public static final int tw__blue_pressed = 0x7f0600a1;
-        public static final int tw__light_gray = 0x7f0600a2;
-        public static final int tw__solid_white = 0x7f0600a3;
+        public static final int tw__blue_default = 0x7f0600bd;
+        public static final int tw__blue_pressed = 0x7f0600be;
+        public static final int tw__light_gray = 0x7f0600bf;
+        public static final int tw__solid_white = 0x7f0600c0;
     }
     public static final class dimen {
-        public static final int tw__login_btn_drawable_padding = 0x7f0700c6;
-        public static final int tw__login_btn_height = 0x7f0700c7;
-        public static final int tw__login_btn_left_padding = 0x7f0700c8;
-        public static final int tw__login_btn_radius = 0x7f0700c9;
-        public static final int tw__login_btn_right_padding = 0x7f0700ca;
-        public static final int tw__login_btn_text_size = 0x7f0700cb;
+        public static final int tw__login_btn_drawable_padding = 0x7f070102;
+        public static final int tw__login_btn_height = 0x7f070103;
+        public static final int tw__login_btn_left_padding = 0x7f070104;
+        public static final int tw__login_btn_radius = 0x7f070105;
+        public static final int tw__login_btn_right_padding = 0x7f070106;
+        public static final int tw__login_btn_text_size = 0x7f070107;
     }
     public static final class drawable {
-        public static final int tw__ic_logo_default = 0x7f0800bf;
-        public static final int tw__login_btn = 0x7f0800c0;
-        public static final int tw__login_btn_default = 0x7f0800c1;
-        public static final int tw__login_btn_disabled = 0x7f0800c2;
-        public static final int tw__login_btn_pressed = 0x7f0800c3;
+        public static final int tw__ic_logo_default = 0x7f0800c5;
+        public static final int tw__login_btn = 0x7f0800c6;
+        public static final int tw__login_btn_default = 0x7f0800c7;
+        public static final int tw__login_btn_disabled = 0x7f0800c8;
+        public static final int tw__login_btn_pressed = 0x7f0800c9;
     }
     public static final class id {
-        public static final int tw__spinner = 0x7f090156;
-        public static final int tw__web_view = 0x7f090157;
+        public static final int tw__spinner = 0x7f090163;
+        public static final int tw__web_view = 0x7f090164;
     }
     public static final class layout {
-        public static final int tw__activity_oauth = 0x7f0b0077;
+        public static final int tw__activity_oauth = 0x7f0c007a;
     }
     public static final class string {
-        public static final int tw__login_btn_txt = 0x7f1000fb;
+        public static final int tw__login_btn_txt = 0x7f11010d;
     }
 }

@@ -29,13 +29,13 @@ public final class R {
         public static final int tw__login_btn_pressed = 0x7f0800c3;
     }
     public static final class id {
-        public static final int tw__spinner = 0x7f090151;
-        public static final int tw__web_view = 0x7f090152;
+        public static final int tw__spinner = 0x7f090155;
+        public static final int tw__web_view = 0x7f090156;
     }
     public static final class layout {
         public static final int tw__activity_oauth = 0x7f0b0077;
     }
     public static final class string {
-        public static final int tw__login_btn_txt = 0x7f1000fa;
+        public static final int tw__login_btn_txt = 0x7f1000fd;
     }
 }

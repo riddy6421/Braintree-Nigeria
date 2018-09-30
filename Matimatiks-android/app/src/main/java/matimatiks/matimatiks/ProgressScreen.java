@@ -1,10 +1,13 @@
 package matimatiks.matimatiks;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -21,7 +24,6 @@ public class ProgressScreen extends AppCompatActivity{
     private Button b1,b2,b3,b4,b5,b6;
     private String type,score,time_t,doe,nqa;
     private Animation slide;
-    private ImageButton imageButton;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +43,16 @@ public class ProgressScreen extends AppCompatActivity{
         type = intent.getStringExtra("Exam");
 
 
-        imageButton = findViewById(R.id.progsc_back);
+        Toolbar tb = findViewById(R.id.toolBar_prog);
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        tb.setTitle("REPORT DETAILS");
+        tb.setTitleTextColor(getResources().getColor(R.color.company_color));
 
-                ProgressScreen.this.finish();
-            }
-        });
+        setSupportActionBar(tb);
+
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         b1 = findViewById(R.id.Details1);
         b2 = findViewById(R.id.Details2);
@@ -84,6 +87,16 @@ public class ProgressScreen extends AppCompatActivity{
         b5.startAnimation(slide);
         b6.startAnimation(slide);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home)
+            finish();
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -13,7 +13,7 @@ public final class R {
         public static final int adUnitId = 0x7f040024;
     }
     public static final class style {
-        public static final int Theme_IAPTheme = 0x7f110165;
+        public static final int Theme_IAPTheme = 0x7f110166;
     }
     public static final class styleable {
         public static final int[] AdsAttrs = { 0x7f040022, 0x7f040023, 0x7f040024 };

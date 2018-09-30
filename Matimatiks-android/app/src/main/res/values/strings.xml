@@ -174,4 +174,7 @@
     <string name="analysis">Analysis</string>
     <string name="report_details">Report Details</string>
     <string name="graph_explanation">Graph Explanation</string>
+    <string name="refresh">Refresh</string>
+    <string name="clear_list">Clear List</string>
+    <string name="no_result_recorded">No Result Recorded</string>
 </resources>
