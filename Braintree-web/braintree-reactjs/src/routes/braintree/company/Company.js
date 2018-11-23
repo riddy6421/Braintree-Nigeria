@@ -9,13 +9,13 @@ class Company extends Component {
 
   componentDidMount(){
 
-    var x =window.innerHeight;
-    var y = document.getElementById("ft");
-    var z = x-450;
+  var  x = document.getElementById("jum")
+  var  y = document.getElementById("ft")
 
-    y.style.marginTop=z+"px";
-
-    document.body.style.backgroundColor = "DarkSlateBlue";
+ if(window.screen.availHeight >= 728){
+      x.style.height = window.screen.availHeight+"px";
+     y.style.marginTop = 60+"px";
+    }
 
   }
 
@@ -23,11 +23,11 @@ class Company extends Component {
     return ( 
         <div>
 
-        <div className="container-fluid">
+        <div id="hd" className="container-fluid">
            <Header/>
         </div>
 
-      <div className="jumbotron">
+      <div id="jum" className="jumbotron">
            <h1 id="about" className="display-8">About us</h1>
             <p id="statement" className="lead">
                 &nbsp; &nbsp; We are a group of concerned Nigerians who are passionate about the enhancement of the quality of education in Nigeria and

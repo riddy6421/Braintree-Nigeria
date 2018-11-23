@@ -2,9 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_font"
-    android:orientation="vertical"
-     xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/tl"
@@ -13,46 +11,5 @@
         android:background="@color/company_color"
         app:theme="@style/AppTheme" >
     </android.support.v7.widget.Toolbar>
-
-    <ListView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:id="@+id/lv_p">
-    </ListView>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_result_recorded"
-        android:textColor="@color/tw__light_gray"
-        android:shadowColor="@color/light_font"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:id="@+id/tv"/>
-    
-    
-    <ProgressBar
-        style="@style/Widget.AppCompat.ProgressBar"
-        android:id="@+id/progressBar_p"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="50dp"
-        android:minWidth="50dp"
-        android:visibility="invisible"
-        android:layout_gravity="center_vertical"/>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/snack_p"
-        android:background="@color/light_font">
-    </FrameLayout>
 
 </LinearLayout>

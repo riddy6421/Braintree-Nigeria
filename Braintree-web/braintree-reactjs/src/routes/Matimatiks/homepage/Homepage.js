@@ -9,7 +9,7 @@ import Q1 from './Q1.JPG';
 import Q2 from './Q2.jpg';
 import A1 from './A1.jpg';
 import A2 from './A2.jpg';
-import $ from "jquery";
+
 
 
 
@@ -88,12 +88,23 @@ class Homepage extends Component {
 
 
   componentDidMount(){
+
+     var y = document.getElementById("mat-foot");
+     var a = document.getElementById("by");
+
+     console.log(window.screen.height)
+
+     console.log(a.offsetHeight)
+
+    if(window.screen.availHeight >= 728){
+      a.style.height = window.screen.availHeight+"px";
+     y.style.marginTop = 60+"px";
+    }
     
     var x =window.innerHeight;
-    var y = document.getElementById("mat-title");
-    var foot = document.getElementById("mat-foot");
+    var j = document.getElementById("mat-title");
     var z = x-88;
-    y.style.height=z+"px";
+    j.style.height=z+"px";
 
     var foot1 = document.getElementById("heading1");
     var foot2 = document.getElementById("heading2");
@@ -104,11 +115,9 @@ class Homepage extends Component {
     foot3.style.color= "black";
 
 
-  var Qimg1, Qimg2, Aimg1, Aimg2, BA1, str, topic, arr1, arr2;
+  var Qimg1, BA1, topic, arr1, arr2;
 
    Qimg1 = document.getElementById('Qimg1'); 
-
-   Qimg2 = document.getElementById('Qimg2'); 
 
    BA1 = document.getElementById('A1');
 
@@ -119,12 +128,12 @@ class Homepage extends Component {
    arr2 = document.getElementById('next');
 
    let that = this;
-
+// eslint-disable-next-line
    if(this.state.ques == 0)
       arr1.style.visibility = "hidden";
 
       arr2.addEventListener("click", function(){
-
+// eslint-disable-next-line
         if(that.state.ques == 0){
             
             Qimg1.src = Q2;
@@ -143,7 +152,7 @@ class Homepage extends Component {
 
 
    arr1.addEventListener("click", function(){
-
+// eslint-disable-next-line
         if(that.state.ques == 1){
             
             Qimg1.src = Q1;
@@ -164,10 +173,10 @@ class Homepage extends Component {
 
    BA1.addEventListener("click", function(){
 
-   
+   // eslint-disable-next-line
     if(that.state.counter == 0){
 
-
+// eslint-disable-next-line
       if(that.state.ques == 0){
 
         Qimg1.src = A1
@@ -195,7 +204,7 @@ class Homepage extends Component {
        
 
     else{
-
+// eslint-disable-next-line
       if(that.state.ques == 0){
 
         Qimg1.src = Q1
@@ -286,8 +295,8 @@ class Homepage extends Component {
     
 <button id="start_button" type="button" class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">I am Ready to Start!</button>
 
-    <div className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div className="modal-dialog modal-lg">
+    <div  className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="log" className="modal-dialog modal-lg">
     <div className="modal-content">
         <div className="container">
           <p id="lgn">Login Below</p>

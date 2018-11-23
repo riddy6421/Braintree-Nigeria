@@ -20,24 +20,24 @@ public class welcomescreen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.company_color));
-        }
-        Button b1 = findViewById(R.id.im1);
-       // textView = (TextView)findViewById(R.id.com);
-       // textView.setText(j);
-
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i1 = new Intent(welcomescreen.this,Mainactivity.class);
-                startActivity(i1);
-            }
-        });
+//        setContentView(R.layout.welcome);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getWindow();
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(getResources().getColor(R.color.company_color));
+//        }
+//     //   Button b1 = findViewById(R.id.im1);
+//       // textView = (TextView)findViewById(R.id.com);
+//       // textView.setText(j);
+//
+//        b1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent i1 = new Intent(welcomescreen.this,Mainactivity.class);
+//                startActivity(i1);
+//            }
+//        });
     }
 
     @Override

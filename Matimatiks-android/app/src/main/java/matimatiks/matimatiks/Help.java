@@ -11,6 +11,7 @@ import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
 /**

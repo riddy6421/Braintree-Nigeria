@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\ridwan\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\331d0fe5f7668d1b07d53ec880721c4f\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\8ff77ff62fc72fb20c84ad1479c0440c\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\1d2d85d59d3c4887530d653708db2c6a\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\805c0a3ac9f048621c84e0775522ce92\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

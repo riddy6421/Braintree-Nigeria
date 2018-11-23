@@ -4,7 +4,6 @@ import andlogo from './mat-google-play-badge.png'
 import matlogo from './mat_img_launch.png'
 import Header from '../../Header/Header.js';
 import Footer from '../../Footer/Footer.js';
-import $ from 'jquery';
 
 
 
@@ -12,8 +11,15 @@ class Downloads extends Component {
 
 componentDidMount(){
 
-  // $( "#app1" ).after( $( "#ft" ) );
   document.body.style.backgroundColor = "DarkSlateBlue";
+
+     var y = document.getElementById("ft");
+     var a = document.getElementById("app1");
+
+    if(window.screen.availHeight >= 728){
+      a.style.height = window.screen.availHeight+"px";
+     y.style.marginTop = 60+"px";
+    }
 
 }
 
@@ -37,7 +43,6 @@ componentDidMount(){
               <img id="android"  src={andlogo} className="rounded mx-auto d-block" alt="Get it on Google Play" />
           </a>
       </div>
-
 
      <div id="ft" className="container-fluid">
           <Footer/>

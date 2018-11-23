@@ -24,7 +24,7 @@
 
 .text-center{
 
-	margin-top: -90%;
+	margin-top: -220%;
 	color: white;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -83,7 +83,7 @@ height: 420px;
 
 .text-center{
 
-margin-top: -90%;
+margin-top: -200%;
 color: white;
 font-family: 'Open Sans', sans-serif;
 }
@@ -135,7 +135,7 @@ height: 420px;
 
 .text-center{
 
-margin-top: -50%;
+margin-top: -127%;
 color: white;
 font-family: 'Open Sans', sans-serif;
 font-size: 23px;
@@ -191,7 +191,7 @@ height: 420px;
 
 .text-center{
 
-margin-top: -40%;
+margin-top: -100%;
 color: white;
 font-family: 'Open Sans', sans-serif;
 font-size: 23px;
@@ -244,7 +244,7 @@ body{
 
 .text-center{
 
-margin-top: -35%;
+margin-top: -25%;
 color: white;
 font-family: 'Open Sans', sans-serif;
 font-size: 40px;
@@ -282,7 +282,6 @@ body{
 .jumbotron-fluid{
 
 	width: 100%;
-	height: auto;
 	
 }
 
@@ -291,12 +290,11 @@ body{
 
  width: 100%;
 
-	
 }
 
 .text-center{
 
-margin-top: -33%;
+margin-top: -50%;
 color: white;
 font-family: 'Open Sans', sans-serif;
 font-size: 50px;
@@ -328,10 +326,6 @@ font-size: 50px;
 }
 
 
-#foot{
-
-	margin-top: 7%;
-}
 
 
 }

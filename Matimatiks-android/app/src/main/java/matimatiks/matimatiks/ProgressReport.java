@@ -1,6 +1,5 @@
 package matimatiks.matimatiks;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,28 +7,22 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -47,8 +40,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.view.View.GONE;
-
 /**
  * Created by ridwan on 5/28/2017.
  */
@@ -56,7 +47,7 @@ import static android.view.View.GONE;
 public class ProgressReport extends AppCompatActivity {
 
 
-    private ListView lv;
+    private ListView lv,l_v;
     private ResultAdapter resultAdapter;
     private ArrayList<String> f_str;
     private ArrayList<Result> List;
@@ -64,21 +55,14 @@ public class ProgressReport extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private String getRes = "";
     private Snackbar snackbar;
-    private Animation slide;
+    private ImageButton imb_l,imb_B;
+    private Animation slide,f_out;
     private TextView tv;
     private ProgressBar pbar;
-    private FrameLayout ly;
-    private Handler mHandler;
+    private LinearLayout ly;
+    private boolean touch = true;
 
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.progress_dropdown, menu);
-        return  true;
-    }
-
-    @SuppressLint("HandlerLeak")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +76,7 @@ public class ProgressReport extends AppCompatActivity {
         }
 
 
-
+       // Spinner sp = findViewById(R.id.drop);
         Toolbar tb = findViewById(R.id.tl);
 
         tb.setTitle("PROGRESS REPORT");
@@ -104,23 +88,33 @@ public class ProgressReport extends AppCompatActivity {
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        pbar =findViewById(R.id.progressBar_p);
+
+
 
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
 
+       // imb_B = findViewById(R.id.prog_back);
+      //  pbar = findViewById(R.id.pBar);
+       // lv = findViewById(R.id.list);
+       // tv = findViewById(R.id.record);
+       // pbar.setVisibility(View.INVISIBLE);
 
-       // tv = findViewById(R.id.record
-        lv = findViewById(R.id.lv_p);
-        tv = findViewById(R.id.tv);
-        ly = findViewById(R.id.snack_p);
-        slide = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_down);;
 
-        processList();
+
+        ArrayList<String>al = new ArrayList<>();
+
+        al.add("Clear List");
+        al.add("Refresh List");
+
+        ArrayAdapter<String> listviewAdapter = new ArrayAdapter<String>(getApplicationContext()
+                ,android.R.layout.simple_list_item_1, al);
+
+        listviewAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
     }
-
 
 
     @Override
@@ -130,22 +124,10 @@ public class ProgressReport extends AppCompatActivity {
         if(id == android.R.id.home)
             finish();
 
-        else if(id == R.id.action_refresh){
-            processList();
-
-        }
-
-        else if(id == R.id.action_del){
-            removeList();
-        }
-
-
         return super.onOptionsItemSelected(item);
-
     }
 
     private void processList(){
-        pbar.setVisibility(View.VISIBLE);
 
         if(firebaseAuth.getCurrentUser() != null){
             String id = firebaseAuth.getCurrentUser().getUid();
@@ -157,19 +139,13 @@ public class ProgressReport extends AppCompatActivity {
 
                         getRes = dataSnapshot.getValue().toString();
 
-                        new GetScoreList(getRes).execute();
-
-                        System.out.println("Record "+"something");
+                    //    new GetScoreList(getRes).execute();
 
                     }
 
                     else {
-                        getRes="";
-                        new  GetScoreList(getRes).execute();
-                        System.out.println("Record "+"nothing");
-                        System.out.println("cont "+getRes.length());
-
-
+                       pbar.setVisibility(View.GONE);
+                       tv.setVisibility(View.VISIBLE);
                     }
 
                 }
@@ -184,9 +160,6 @@ public class ProgressReport extends AppCompatActivity {
                 }
             });
         }
-
-        if(pbar.getVisibility() == View.VISIBLE)
-            pbar.setVisibility(View.INVISIBLE);
     }
 
 
@@ -215,7 +188,6 @@ public class ProgressReport extends AppCompatActivity {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 if (dataSnapshot.getValue() != null){
-                                    pbar.setVisibility(View.VISIBLE);
                                     dataSnapshot.getRef().removeValue(new DatabaseReference.CompletionListener() {
                                         @Override
                                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
@@ -224,13 +196,9 @@ public class ProgressReport extends AppCompatActivity {
                                             TextView textView = sbView.findViewById(android.support.design.R.id.snackbar_text);
                                             textView.setTextColor(Color.RED);
                                             snackbar.show();
-                                            processList();
-
-
+                                            lv.setVisibility(View.GONE);
                                         }
                                     });
-
-                                    pbar.setVisibility(View.INVISIBLE);
 
                                 }
                             }
@@ -285,7 +253,7 @@ public class ProgressReport extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Object o) {
-            pbar.setVisibility(GONE);
+            pbar.setVisibility(View.GONE);
         }
 
         @Override
@@ -296,87 +264,67 @@ public class ProgressReport extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
 
-            System.out.println("scores "+scores.length());
+            this.scores = this.scores.replace("{","");
+            this.scores = this.scores.replace("}","");
 
-            if(this.scores.length() > 0) {
+            str_c = this.scores.split(",");
 
-                this.scores = this.scores.replace("{", "");
-                this.scores = this.scores.replace("}", "");
+            for (String aStr_c : str_c) {
 
-                str_c = this.scores.split(",");
+                 spoint = aStr_c.indexOf('=');
 
-                for (String aStr_c : str_c) {
+                f_str.add(aStr_c.substring(spoint + 1, aStr_c.length()));
+            }
 
-                    spoint = aStr_c.indexOf('=');
+            String score="",exam = null,org="";
 
-                    f_str.add(aStr_c.substring(spoint + 1, aStr_c.length()));
-                }
+            months[0] = "Jan";months[1] = "Feb";months[2] = "Mar";
+            months[3] = "Apr";months[4] = "May";months[5] = "Jun";
+            months[6] = "Jul";months[7] = "Aug";months[8] = "Sep";
+            months[9] = "Oct";months[10] = "Nov";months[11] = "Dec";
 
-                String score = "", exam = null, org = "";
+        for (int j = 0; j < f_str.size(); j++){
 
-                months[0] = "Jan";
-                months[1] = "Feb";
-                months[2] = "Mar";
-                months[3] = "Apr";
-                months[4] = "May";
-                months[5] = "Jun";
-                months[6] = "Jul";
-                months[7] = "Aug";
-                months[8] = "Sep";
-                months[9] = "Oct";
-                months[10] = "Nov";
-                months[11] = "Dec";
+            String report = f_str.get(j);
+            info =  report.split(" ");
 
-                for (int j = 0; j < f_str.size(); j++) {
+            score = info[0];
+            exam = info[info.length-1];
 
-                    String report = f_str.get(j);
-                    info = report.split(" ");
-
-                    score = info[0];
-                    exam = info[info.length - 1];
-
-                    attempt.add(info[info.length - 2]);
-                    sc.add(info[0]);
+            attempt.add(info[info.length-2]);
+            sc.add(info[0]);
 
 
-                    if (exam.startsWith("W")) {
+            if(exam.startsWith("W")){
 
-                        String day, mon, year;
+                String day,mon,year;
 
-                        day = info[1].substring(8, 10);
-                        mon = info[1].substring(5, 7);
-                        year = info[1].substring(0, 4);
+                day = info[1].substring(8,10);
+                mon = info[1].substring(5,7);
+                year = info[1].substring(0,4);
 
-                        int m = Integer.parseInt(mon);
+                int m = Integer.parseInt(mon);
 
-                        org = months[m - 1] + " " + day + ", " + year;
+                org = months[m-1]+" "+day+", "+year;
 
-                        List.add(new Result(R.mipmap.waec, org, score));
-
-                    }
-
-                }
+                List.add(new Result(R.mipmap.waec,org ,score));
 
             }
 
+        }
+
+        //  lv = findViewById(R.id.list);
 
             runOnUiThread(new Runnable() {
-              @SuppressLint("ResourceAsColor")
               @Override
               public void run() {
 
-                  if(List.size() < 1){
+                  if(List.size() < 1)
                       tv.setVisibility(View.VISIBLE);
-                      lv.setAdapter(null);
-                      lv.setVisibility(View.GONE);
-                  }
-
 
                   else {
                       resultAdapter = new ResultAdapter(getApplicationContext(), List);
                       lv.setAdapter(resultAdapter);
-
-                      lv.startAnimation(slide);
 
                       lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                           @Override
@@ -413,7 +361,7 @@ public class ProgressReport extends AppCompatActivity {
     class ResultAdapter extends ArrayAdapter<Result>{
 
         private Context context;
-        private List<Result> list;
+        private List<Result> list = new ArrayList<>();
 
         ResultAdapter(@NonNull Context context, ArrayList<Result> list) {
             super(context, 0,list);

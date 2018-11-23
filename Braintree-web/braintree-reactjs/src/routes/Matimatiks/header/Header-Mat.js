@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Header-Mat.css';
 import andlogo from '../../braintree/downloads/mat-google-play-badge.png';
 import matlogo from '../../braintree/downloads/mat_img_launch.png';
+import braintreelogo from '../../braintree/homepage/Blogo.png';
 import { NavLink } from 'react-router-dom';
 import firebase, { auth, provider } from '../firebase-config.js';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -31,6 +32,16 @@ class Header_Mat extends Component {
   componentDidMount(){
 
     document.body.style.backgroundColor = "white";
+
+    var size = window.innerWidth;
+    var opt = document.getElementById("stf");
+    
+     if (/Edge/.test(navigator.userAgent) && size >= 1200)
+        opt.style.marginLeft ="-10%";
+
+     if (/Firefox/.test(navigator.userAgent) && size >= 1200)
+        opt.style.marginLeft ="-10%";
+
   }
 
   render() {
@@ -39,14 +50,22 @@ class Header_Mat extends Component {
     <div  id="mat-bar" className="container-fluid">
        <nav id="mat-nav" className="navbar navbar-expand-lg">
 
-      <div id="app" className="container justify-content-start">
+
+        <div id="app-text" className="container">
         <img id="matlog" src={matlogo} className="mat_pics" alt="logo" /> 
-         MATIMATIKS
+      <div id="app" className="container">
+       MATIMATIKS
       </div>
-          
+      </div>
 
-       <div id="stf" className="container-fluid justify-content-center align-items-center">
+     
+     
+       <div id="stf" className="container-fluid">
 
+          <a  href="/">
+              <img  src={braintreelogo} className="mdownb" alt="Braintree" />
+          </a>
+    
             <button id="si"  type="button" class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">Sign in</button>
 
              <div className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -62,7 +81,6 @@ class Header_Mat extends Component {
      </div>
       </div>
 
-          
             <NavLink id="link2" className="nav-link" to="">Contribute</NavLink>
           
             <NavLink id="link3" className="nav-link" to="">Community</NavLink>

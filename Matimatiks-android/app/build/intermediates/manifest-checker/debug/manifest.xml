@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="21"
-        android:targetSdkVersion="27" />
+        android:targetSdkVersion="28" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -30,15 +30,10 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
-    <permission
-        android:name="matimatiks.matimatiks.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <uses-permission android:name="matimatiks.matimatiks.permission.C2D_MESSAGE" />
-
     <application
         android:name="matimatiks.matimatiks.App"
         android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:debuggable="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/img_launch"
@@ -100,6 +95,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="matimatiks.matimatiks.Login"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="matimatiks.matimatiks.slider_activity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
@@ -229,11 +229,13 @@
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
             android:exported="true"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false" >
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
@@ -287,8 +289,6 @@
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="matimatiks.matimatiks" />
             </intent-filter>
         </receiver>
         <!--
@@ -326,13 +326,7 @@
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:authorities="matimatiks.matimatiks.firebaseinitprovider"
             android:exported="false"
-            android:initOrder="100" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent" />
-
+            android:initOrder="100" />
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
             android:authorities="matimatiks.matimatiks.com.android.tools.ir.server.InstantRunContentProvider"

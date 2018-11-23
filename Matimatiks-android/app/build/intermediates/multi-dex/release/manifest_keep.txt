@@ -1,2 +1,0 @@
-# Referenced at C:\Users\ridwan\Documents\Braintree-Nigeria\Matimatiks-android\app\build\intermediates\manifests\full\release\AndroidManifest.xml:39
--keep class matimatiks.matimatiks.App { <init>(...); }

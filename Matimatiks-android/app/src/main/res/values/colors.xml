@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorAccent">#FF4081</color>
     <color name="company_color">#40bcff</color>
     <color name="white">#fcfdfe</color>
     <color name="grey">#6e7174</color>

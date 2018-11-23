@@ -1,5 +1,5 @@
 
-.jumbotron{
+#jum{
 	background-color: white;
 	height: auto;
 	width: 100%;
@@ -15,4 +15,15 @@
 
 .lead{
 	text-decoration: none;
+}
+
+
+
+
+#ft{
+	background-color: DarkSlateBlue;
+}
+
+#hd{
+	background-color: DarkSlateBlue;
 }

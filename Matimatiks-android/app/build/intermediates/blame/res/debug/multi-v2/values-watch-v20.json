@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\ridwan\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\1d2d85d59d3c4887530d653708db2c6a\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\805c0a3ac9f048621c84e0775522ce92\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-15.0.1.aar\\e1a00f6f7873be830be27712c0d6b75e\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-16.0.1.aar\\6b5d30c0662a05b1a4462cf9ff16b2fe\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

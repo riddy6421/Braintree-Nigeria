@@ -3,19 +3,12 @@
 
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="ThemeOverlay.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
           <item name="colorPrimary">@color/company_color</item>
           <item name="colorAccent">@color/grey</item>
         <item name="colorControlNormal">@color/white</item>
       </style>
-
-    <style name="AppScreen" parent="ThemeOverlay.AppCompat.Dark">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/company_color</item>
-        <item name="colorAccent">@color/grey</item>
-        <item name="colorControlNormal">@color/company_color</item>
-    </style>
 
 
 

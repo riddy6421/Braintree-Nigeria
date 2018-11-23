@@ -1,3 +1,161 @@
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px){
+#mat-title{
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+	background-color: #40bcff;
+	margin-top: 0.04%;
+	width: 100%;
+	height: 5%;
+	font-size:40px;
+}
+#naij{
+	margin-left: 2px;
+	margin-top: -2px;
+}
+#pt{
+color: black;
+margin-top: 35%;
+font-size: 25%;
+}
+
+#load{
+	color: #40bcff
+}
+
+#log{
+
+	width: 30%;
+	height: 30%;
+}
+
+#next{
+
+margin-top: -52%;
+margin-left: 91%;
+
+}
+
+#mat-foot{
+
+	margin-top: 40%;
+}
+
+#prev{
+
+margin-top: -28%;
+margin-left: -44%;
+
+}
+
+
+.progress-bar{
+	width: 100%;
+}
+
+
+#q1,#test{
+	color: #40bcff;
+
+}
+
+#q2{
+	color: #40bcff;
+
+}
+
+
+#exampleModalLongTitle{
+
+	color: #40bcff;
+}
+
+#A1{
+
+	margin-top: 2%;
+	margin-left: 10%;
+	width: 40%;
+	font-size: 70%;
+}
+
+#by{
+  margin-top: -130%;
+  font-size: 15px;
+}
+
+#start{
+	margin-top: 10%;
+}
+
+#lgn{
+	color: black;
+	margin-top: 2%;
+}
+
+#Qimg1,#Qimg2{
+
+	width: 80%;
+}
+
+#start_button{
+
+	width:62%;
+	margin-top: 25%;
+	color: Navy;
+}
+.modal-content{
+	height: 40%;
+	width: 80%; 
+	margin-top: 15%;
+	margin-left: 2%;
+	background-color: white;
+}
+
+#orig-but{
+
+	margin-top: 15%;
+}
+
+.modal-title{
+
+	font-size: 80%;
+	margin-top: 15%;
+}
+}
+
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {  
+
+}
+
+
+
+
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) { 
+
+}
+
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
 #mat-title{
 	font-family: 'Open Sans', sans-serif;
 	color: white;
@@ -28,10 +186,6 @@ margin-left: 19%;
 
 }
 
-#mat-foot{
-
-	margin-top: 13%;
-}
 
 #prev{
 
@@ -90,6 +244,7 @@ margin-right: 17%;
 
 	width:55%;
 	color: Navy;
+	margin-top: -100%;
 }
 .modal-content{
 	height: 500px;
@@ -97,7 +252,6 @@ margin-right: 17%;
 	background-color: white;
 }
 
-
-
+}
 
 

@@ -4,8 +4,7 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import pic from './apple.jpg';
 import img from './Blogo.png';
-import $ from 'jquery';
-import {Link} from 'react-router-dom';
+
 
 class Home extends Component {
 
@@ -18,16 +17,39 @@ class Home extends Component {
   componentDidMount(){
 
     document.body.style.backgroundColor = "DarkSlateBlue";
+    var x = document.getElementById("bg");
+    var y = document.getElementById("foot");
+    var size = window.innerWidth;
     
+
+    if(size >= 1200){
+      x.style.height = window.screen.availHeight+"px";
+       if(/Firefox/.test(navigator.userAgent))
+           y.style.marginTop = 5+"px";
+      else if( !/Edge/.test(navigator.userAgent))
+           y.style.marginTop = 40+"px";
+    }
+    this.wait(1000);
   }
 
   start(){
     window.location.href="/getStarted";
   }
 
+  wait(ms){
+  document.getElementById("page").style.visibility = "hidden";
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+  document.getElementById("page").style.visibility = "visible";
+}
+
   render(){
+
     return ( 
-        <div>
+        <div id="page">
      
       <div className="container-fluid">
         <Header/>
@@ -36,7 +58,10 @@ class Home extends Component {
 
         <div className="jumbotron-fluid">
 
-          <img id="bg" src={pic} className="img-fluid" alt="Responsive image"/>
+          <img id="bg" src={pic} className="img-fluid" alt="Responsive"/>
+          <div id="foot" className="jumbotron-fluid">
+          <Footer/>
+        </div>
 
          <div className="container-fluid text-center">
             <p> Serving and Preparing Millions Of Students</p>
@@ -49,9 +74,7 @@ class Home extends Component {
       </div>
 
 
-        <div id="foot" className="container-fluid">
-          <Footer/>
-        </div>
+        
 
 
        </div>

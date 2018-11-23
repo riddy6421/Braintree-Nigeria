@@ -3,11 +3,16 @@ package matimatiks.matimatiks;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -18,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.io.IOException;
 
 /**
  * Created by ridwan on 9/17/2016.
@@ -89,9 +96,6 @@ public class Exam_category extends AppCompatActivity{
 
             }
         },4000);
-
-
-        //View this later
 
         /*waec_jamb = (Button) findViewById(R.id.cat_butt1);
         jr_waec = (Button) findViewById(R.id.cat_butt2);

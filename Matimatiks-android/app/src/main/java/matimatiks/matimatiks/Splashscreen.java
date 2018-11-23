@@ -121,7 +121,7 @@ public class Splashscreen extends AppCompatActivity {
 
         } else if (savedVersionCode == DOESNT_EXIST) {
             // This is a new install (or the user cleared the shared preferences)
-            Intent i = new Intent(Splashscreen.this, welcomescreen.class);
+            Intent i = new Intent(Splashscreen.this,slider_activity.class);
             startActivity(i);
 
         } else if (currentVersionCode > savedVersionCode) {

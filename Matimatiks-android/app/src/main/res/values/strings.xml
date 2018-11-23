@@ -142,6 +142,16 @@
         <item>3</item>
     </string-array>
 
+
+    <array name="array_dot_active">
+        <item>@color/company_color</item>
+        <item>@color/light_font</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/light_font</item>
+        <item>@color/company_color</item>
+    </array>
+
     <string-array name="multi_select_list_preference_default_value" />
 
     <string name="pref_title_system_sync_settings">System sync settings</string>
@@ -174,7 +184,4 @@
     <string name="analysis">Analysis</string>
     <string name="report_details">Report Details</string>
     <string name="graph_explanation">Graph Explanation</string>
-    <string name="refresh">Refresh</string>
-    <string name="clear_list">Clear List</string>
-    <string name="no_result_recorded">No Result Recorded</string>
 </resources>

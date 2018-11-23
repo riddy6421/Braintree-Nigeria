@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Sun Jul 01 12:39:38 CDT 2018
-0.baseType=DIRECTORY
-0.base=C\:\\Users\\ridwan\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\assets\\debug
-0.path=crashlytics-build.properties
-0.set=ASSET
-count=1

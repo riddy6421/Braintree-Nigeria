@@ -1,4 +1,4 @@
-#Sat Aug 11 11:38:17 CDT 2018
-base.0=C\:\\Users\\ridwan\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\18
+#Wed Oct 31 22:19:58 EDT 2018
+base.0=C\:\\Users\\ridwan\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
 path.0=classes.dex
 renamed.0=classes.dex

@@ -3,7 +3,6 @@ import './GetStarted.css';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import matlogo from '../downloads/mat_img_launch.png';
-import $ from 'jquery';
 
 class GetStarted extends Component {
 
@@ -11,6 +10,18 @@ class GetStarted extends Component {
 
    // $( "#body" ).after( $( "#ftg" ) );
     document.body.style.backgroundColor = "DarkSlateBlue";
+
+     var y = document.getElementById("ftg");
+     var a = document.getElementById("body");
+
+     console.log(window.screen.height)
+
+     console.log(a.offsetHeight)
+
+    if(window.screen.availHeight >= 728){
+      a.style.height = window.screen.availHeight+"px";
+     y.style.marginTop = 60+"px";
+    }
 
   }
 
@@ -29,7 +40,7 @@ class GetStarted extends Component {
            </div>
 
 		<div className="card container justify-content-center">
-  			<img className="card-img-top" src={matlogo} alt="Card image cap"/>
+  			<img className="card-img-top" src={matlogo} alt="Card cap"/>
   			<div className="card-body">
    				 <h4 className="card-title">Matimatiks</h4>
     			 <p className="card-text">A personalized Mathematics tutorial app for W.A.E.C, U.T.M.E, and N.E.C.O Examinations</p>
@@ -40,10 +51,10 @@ class GetStarted extends Component {
 
          </div>
 
-
-     <div id="ftg" className="container-fluid">
+ <div id="ftg" className="container-fluid">
           <Footer/>
      </div>
+
 
       </div>
 	   );
