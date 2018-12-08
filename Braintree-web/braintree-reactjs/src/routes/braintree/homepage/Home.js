@@ -22,14 +22,15 @@ class Home extends Component {
     var size = window.innerWidth;
     
 
-    if(size >= 1200){
+    if(size >= 1200 && size < 1900){
       x.style.height = window.screen.availHeight+"px";
        if(/Firefox/.test(navigator.userAgent))
            y.style.marginTop = 5+"px";
       else if( !/Edge/.test(navigator.userAgent))
            y.style.marginTop = 40+"px";
     }
-    this.wait(1000);
+    this.wait(2000);
+
   }
 
   start(){

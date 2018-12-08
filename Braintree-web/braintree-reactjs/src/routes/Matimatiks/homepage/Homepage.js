@@ -3,7 +3,7 @@ import Header from '../header/Header-Mat';
 import Footer from '../../Footer/Footer'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import './Homepage.css';
-import firebase, { auth, provider } from '../firebase-config.js';
+import firebase, { auth, provider, db} from '../firebase-config.js';
 import naija from '../../Header/nigeria.png'
 import Q1 from './Q1.JPG';
 import Q2 from './Q2.jpg';
@@ -11,13 +11,17 @@ import A1 from './A1.jpg';
 import A2 from './A2.jpg';
 
 
+// Disable deprecated features
+db.settings({
+  timestampsInSnapshots: true
+});
 
 
 const uiConfig = {
   // Popup signin flow rather than redirect flow.
   signInFlow: 'popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
- // signInSuccessUrl: '/Matimatiks/mode',
+  signInSuccessUrl: '/Matimatiks/mode',
   // We will display Google and Facebook as auth providers.
   signInOptions: [
     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -45,62 +49,47 @@ class Homepage extends Component {
   componentWillMount(){
 
   /*Check if User is signed in*/
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-       this.setState({ user:user });
+ 
+  var user =  auth.currentUser;
+
+
+  var users = [];
+
+  if(user){
+
+    this.setState({user:user})
+
+
+     window.location.href="/Matimatiks/mode"
+
+  }
+
+  else{
+
+    console.log("not signed in ");
     
-    /*check if their credentials are in the database*/
-    var database = firebase.database();
-    var userId = auth.currentUser.uid;
+  }
 
-    var userNameRef = database.ref('/users/' + userId + '/Name');
-    userNameRef.on('value', function(snapshot) {
-
-      var value = snapshot.val();
-      
-      /* if they are, save them to the database(it's thier first time)*/
-     if(value == null){
-       
-        database.ref('/users/' + userId).set({
-
-           Name: this.state.user.displayName,
-
-           Email: this.state.user.email
-
-        });
-
-      }
-
-      else{
-
-       //It's not thier first time
-      }
-
-});
-         
- //window.location.href="/Matimatiks/mode";
-    } else {
-      //window.location.href="/Matimatiks";
-    }
-  });
+  
 
   }
 
 
+
   componentDidMount(){
 
-     var y = document.getElementById("mat-foot");
-     var a = document.getElementById("by");
-
-     console.log(window.screen.height)
-
-     console.log(a.offsetHeight)
-
-    if(window.screen.availHeight >= 728){
-      a.style.height = window.screen.availHeight+"px";
-     y.style.marginTop = 60+"px";
-    }
+     var y = document.getElementById("mat-title");
     
+
+      var size = window.innerWidth;
+    
+
+    if(size >= 1200 && size < 1900){
+      y.style.height = window.screen.availHeight+"px";
+    }
+
+
+
     var x =window.innerHeight;
     var j = document.getElementById("mat-title");
     var z = x-88;

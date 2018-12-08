@@ -73,7 +73,7 @@ class Header_Mat extends Component {
             <div className="modal-content">
             <div id="lgn-cont" className="container text-center">
            <p id="lgn">Login Below</p>
-            <hr className="my-4"/>
+            <hr className="my-8"/>
            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
           <p id="pt">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
         </div>
