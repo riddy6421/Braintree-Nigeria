@@ -26,7 +26,7 @@ class GetStarted extends Component {
   }
 
 	  render(){
-    return ( 
+    return (
         <div>
 
         <div className="container-fluid">

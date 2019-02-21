@@ -35,7 +35,7 @@ class Header_Mat extends Component {
 
     var size = window.innerWidth;
     var opt = document.getElementById("stf");
-    
+
      if (/Edge/.test(navigator.userAgent) && size >= 1200)
         opt.style.marginLeft ="-10%";
 
@@ -52,23 +52,21 @@ class Header_Mat extends Component {
 
 
         <div id="app-text" className="container">
-        <img id="matlog" src={matlogo} className="mat_pics" alt="logo" /> 
+        <img id="matlog" src={matlogo} className="mat_pics" alt="logo" />
       <div id="app" className="container">
        MATIMATIKS
       </div>
       </div>
 
-     
-     
        <div id="stf" className="container-fluid">
 
           <a  href="/">
               <img  src={braintreelogo} className="mdownb" alt="Braintree" />
           </a>
-    
-            <button id="si"  type="button" class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">Sign in</button>
 
-             <div className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <button id="si"  type="button" className="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">Sign in</button>
+
+             <div className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-lg">
             <div className="modal-content">
             <div id="lgn-cont" className="container text-center">
@@ -82,15 +80,15 @@ class Header_Mat extends Component {
       </div>
 
             <NavLink id="link2" className="nav-link" to="">Contribute</NavLink>
-          
+
             <NavLink id="link3" className="nav-link" to="">Community</NavLink>
-          
+
             <NavLink id="link4" className="nav-link" to="">FAQ's</NavLink>
-          
+
             <a id="link5"  href="https://play.google.com/store/apps/details?id=matimatiks.matimatiks">
               <img  src={andlogo} className="mdown" alt="Get it on Google Play" />
           </a>
-    
+
       </div>
      </nav>
       </div>

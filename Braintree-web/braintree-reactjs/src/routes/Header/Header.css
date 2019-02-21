@@ -1,172 +1,25 @@
 
 /* specially small devices (portrait phones, less than 576px)*/
-@media (max-width: 359px) {  
-
-	#head{
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	width: 100%;
-	height: 100%;
-	font-size: 15px;
-}
-
-
-#search-bar{
-
-	width: 66%;
-}
-
-#search-btn:hover{
-
-	background-color: orange
-}
-
-#search-btn{
-
-	margin-left: 2%;
-
-	border-color: orange;
-	background-color: white;
-}
-
-.nav-link{
-
-	font-size: 12px;
-	color: LightGray;
-	font-family: 'Open Sans', sans-serif;
-}
-
-.pics{
-
-	width: 15%;
-	margin-top: -4%;
-	margin-left: 2%;
-}
-
-
+@media (max-width: 359px) {
 
 }
-
-
-
 
 
 /* Extra small devices (portrait phones, less than 576px)*/
-@media (min-width: 360px) and  (max-width: 575.98px) {  
-
-	#head{
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	width: 100%;
-	height: 100%;
-	font-size: 25px;
-}
-
-
-#search-bar{
-
-	width: 71%;
-}
-
-
-#search-btn{
-
-	margin-left: 2%;
-	background-color: white;
-}
-
-.nav-link{
-
-	font-size: 61.2%;
-	color: LightGray;
-}
-
-.pics{
-
-	width: 15%;
-	margin-top: -3%;
-	margin-left: 2%;
-}
+@media (min-width: 360px) and  (max-width: 575.98px) {
 
 
 }
 
 
 /* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767.98px) { 
-
-
-	#head{
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	width: 100%;
-	height: 100%;
-	font-size: 35px;
-}
-
-
-
-#search-bar{
-
-	width: 80%;
-}
-
-.pics{
-
-	
-	width: 10%;
-	margin-left: 2%;
-}
-
-#links{
-
-display: inline;
-font-size: 20px;
-color: white;
-color: LightGray;
-
-}
-
-
-
+@media (min-width: 576px) and (max-width: 767.98px) {
 
 }
 
 
 /* Medium devices (tablets, 768px and up)*/
- @media (min-width: 767px) and (max-width: 991.98px) { 
-
- 		#head{
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	width: 100%;
-	height: 100%;
-	margin-left: 7%;
-}
-
-
-#search-bar{
-
-	width: 82%;
-}
-
-.pics{
-
-	margin-top:-2%;
-	margin-left: 2%;
-	width: 10%;
-}
-
-
-#links{
-
-display: inline;
-font-size: 29px;
-color: white;
-font-family: 'Open Sans', sans-serif;
-color: LightGray;
-
-}
+ @media (min-width: 767px) and (max-width: 991.98px) {
 
 
 }
@@ -175,107 +28,54 @@ color: LightGray;
 @media (min-width: 992px) and (max-width: 1199.98px) {
 
 
-#head{
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	width: 100%;
-	height: 100%;
-	font-size: 20px;
-}
-
-
-
-#search-bar{
-
-	width: 84%;
-}
-
-.pics{
-
-	
-	width: 10%;
-	margin-left: 2%;
-}
-
-#links{
-
-display: inline;
-font-size: 20px;
-color: white;
-font-family: 'Open Sans', sans-serif;
-color: LightGray;
-}
-
-#links:hover{
-
-
-color: white;
-
-}
-
-#search-btn{
-
-	border-color: orange;
-	background-color: white;
-
-}
-
-
  }
 
 /*Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
 
 #head{
+		height: 85px;
+}
+
+#brand{
+float: left;
+margin-top: 10px;
+width: 100px;
+height: 65px;
+background-color: DarkSlateBlue;
+border:2px solid white;
+border-radius: 10px;
+}
+
+#logo{
+	width: 60px;
+	margin-left: 6px;
+	margin-top: 10px;
+}
+
+
+li{
+	margin-left: 4%;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 2%;
+	float: left;
+}
+
+a{
+	color: LightGrey;
+}
+
+a:hover{
 	color: white;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 35px;
-	margin-left: -10%;
-}
-
-#links{
-display: inline;
-font-size: 20px;
-font-family: 'Open Sans', sans-serif;
-color: LightGray;
-width: 15%;
-}
-
-#links:hover{
-
-color: white;
-
 }
 
 
-#search-bar{
-
-
-	
+#inp{
+	float: right;
+	width: 30%;
+	margin-top: 17px;
 }
 
-
-
-#search-btn{
-
-	border-color: orange;
-	background-color: white;
-
-}
-
-#search-btn:hover{
-
-	background-color: orange
-}
-
-
-
-.pics{
-
-	margin-top: 1.5%;
-	width: 7%;
-	margin-left: 2%;
-}
 
 
 }

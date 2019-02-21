@@ -105,7 +105,7 @@ margin-left: -44%;
 }
 .modal-content{
 	height: 40%;
-	width: 80%; 
+	width: 80%;
 	margin-top: 15%;
 	margin-left: 2%;
 	background-color: white;
@@ -126,7 +126,7 @@ margin-left: -44%;
 
 
 /* Extra small devices (portrait phones, less than 576px)*/
-@media (min-width: 360px) and  (max-width: 575.98px) {  
+@media (min-width: 360px) and  (max-width: 575.98px) {
 
 }
 
@@ -136,14 +136,14 @@ margin-left: -44%;
 
 
 /* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767.98px) { 
+@media (min-width: 576px) and (max-width: 767.98px) {
 
 
 }
 
 
 /* Medium devices (tablets, 768px and up)*/
- @media (min-width: 767px) and (max-width: 991.98px) { 
+ @media (min-width: 767px) and (max-width: 991.98px) {
 
 }
 
@@ -176,6 +176,7 @@ font-size: 25%;
 #load{
 	color: #40bcff
 }
+
 
 
 #next{
@@ -258,10 +259,4 @@ margin-right: 17%;
 	margin-top: 5%;
 }
 
-
-
-
-
 }
-
-

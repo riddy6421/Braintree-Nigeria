@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './Blogo.png'; 
-import './Header.css'   
-
+import logo from './Blogo.png';
+import './Header.css';
 import { NavLink } from 'react-router-dom';
 
 
@@ -10,28 +9,32 @@ class Header extends Component {
   render() {
     return (
   <div>{/* root div begin*/}
-       <nav className=" container-fluid navbar navbar-expand-lg">
-          
-          <form className="container form-inline my-2 my-lg-0  justify-content-start">
-           <input id="search-bar" className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-           <button id="search-btn" className="btn my-2 my-sm-0" type="submit">Search</button>
-          </form>
-      
-   
-          <div id="head" className="container justify-content-center">Braintree Nigeria
-            <img src={logo} className="pics" alt="logo" />
-          </div>
-                      
-            <NavLink id="links" className="nav-link" to="/">Home</NavLink>
-            <NavLink id="links" className="nav-link" to="/company">Company</NavLink>
-            <NavLink id="links" className="nav-link" to="/downloads">Downloads</NavLink>
-          
-     </nav>
+  <div id="head" className="container-fluid">
+
+  {/*Brand begin*/}
+  <div id="brand" class="container">
+    <img id="logo" src={logo} className="rounded"  alt=""/>
+  </div>
+
+
+
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="/">Home</a></li>
+    <li class="list-inline-item"><a href="/company">Company</a></li>
+    <li class="list-inline-item"><a href="/downloads">Downloads</a></li>
+  </ul>
+
+  <div id="inp" class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="How can we help you?" aria-label="How can we help you" aria-describedby="button-addon2"/>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+
+  </div>
   </div>
     );
   }
 }
 
 export default Header;
-
-  

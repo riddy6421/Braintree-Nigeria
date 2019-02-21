@@ -148,7 +148,8 @@ public class Exam_View extends Fragment implements SurfaceHolder.Callback {
 
         initializeData();
 
-     RVAdapter adapter = new RVAdapter(exam);
+        RVAdapter adapter = new RVAdapter(exam);
+
 
         rv.setAdapter(adapter);
         adapter.hide();

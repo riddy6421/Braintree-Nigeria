@@ -20,7 +20,7 @@ class Home extends Component {
     var x = document.getElementById("bg");
     var y = document.getElementById("foot");
     var size = window.innerWidth;
-    
+
 
     if(size >= 1200 && size < 1900){
       x.style.height = window.screen.availHeight+"px";
@@ -49,9 +49,9 @@ class Home extends Component {
 
   render(){
 
-    return ( 
+    return (
         <div id="page">
-     
+
       <div className="container-fluid">
         <Header/>
       </div>
@@ -65,6 +65,7 @@ class Home extends Component {
         </div>
 
          <div className="container-fluid text-center">
+            <p id="cname"> BRAINTREE NIGERIA</p>
             <p> Serving and Preparing Millions Of Students</p>
             <p> For the utmost best</p>
             <p id="nj"> By Nigerians. For Everyone.</p>
@@ -75,7 +76,7 @@ class Home extends Component {
       </div>
 
 
-        
+
 
 
        </div>

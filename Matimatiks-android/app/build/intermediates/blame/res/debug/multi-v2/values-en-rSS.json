@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ridwan\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSS\\values-en-rSS.xml",
+            "outputFile": "C:\\Users\\riani\\Documents\\Braintree-Nigeria\\Matimatiks-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSS\\values-en-rSS.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ridwan\\.gradle\\caches\\transforms-1\\files-1.1\\twitter-core-3.0.0.aar\\497c50f1ae757f92c5b24d6860d6fbd1\\res\\values-en-rSS\\values-en-rSS.xml",
+                    "source": "C:\\Users\\riani\\.gradle\\caches\\transforms-1\\files-1.1\\twitter-core-3.0.0.aar\\6a399b21f37d9f2e992e9b258dac0edf\\res\\values-en-rSS\\values-en-rSS.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
