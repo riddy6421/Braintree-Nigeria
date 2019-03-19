@@ -20,9 +20,8 @@ class Company extends Component {
   }
 
   render(){
-    return ( 
+    return (
         <div>
-
         <div id="hd" className="container-fluid">
            <Header/>
         </div>
@@ -32,9 +31,9 @@ class Company extends Component {
             <p id="statement" className="lead">
                 &nbsp; &nbsp; We are a group of concerned Nigerians who are passionate about the enhancement of the quality of education in Nigeria and
                 Africa. Our main goal is to provide a technological approach to the way students learn and prepare for academic examinations
-               throughout Africa. 
+               throughout Africa.
             </p>
-  
+
             <hr className="my-4"/>
       </div>
 

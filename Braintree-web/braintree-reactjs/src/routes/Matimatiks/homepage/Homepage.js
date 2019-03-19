@@ -6,6 +6,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import './Homepage.css';
 import firebase, { auth, provider, db} from '../firebase-config.js';
 import naija from '../../Header/nigeria.png'
+import matlogo from '../../braintree/downloads/mat_img_launch.png';
 
 import Q1 from './Q1.JPG';
 import Q2 from './Q2.jpg';
@@ -29,7 +30,6 @@ const uiConfig = {
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
   ]
 };
 
@@ -58,7 +58,7 @@ class Homepage extends Component {
 
               } else {
 
-                  context.setState({currentUser:1})
+                  context.setState({currentUser:2})
               }
 
           });
@@ -86,9 +86,9 @@ class Homepage extends Component {
     var foot2 = document.getElementById("heading2");
     var foot3 = document.getElementById("heading3");
 
-    foot1.style.color= "black";
+   foot1.style.color= "black";
     foot2.style.color= "black";
-    foot3.style.color= "black";
+   foot3.style.color= "black";
 
 
   var Qimg1, BA1, topic, arr1, arr2;
@@ -105,7 +105,7 @@ class Homepage extends Component {
 
    let that = this;
 // eslint-disable-next-line
-   if(this.state.ques == 0)
+  if(this.state.ques == 0)
       arr1.style.visibility = "hidden";
 
       arr2.addEventListener("click", function(){
@@ -203,21 +203,21 @@ class Homepage extends Component {
   }
 
 
-  });
+});
 
 }
 
   render() {
 // eslint-disable-next-line
-    if (this.state.currentUser == 1)
-         return <Mode/>
+  //  if (this.state.currentUser == 1)
+      //   return <Mode/>
 // eslint-disable-next-line
   //  if(this.state.currentUser == 0)
       //   return  <div></div>
 
   //if(this.state.currentUser == 2)
     return (
-  <div id="root">{/* root div begin*/}
+  <div id="root">{/* root div begin */}
     <div className="container-fluid">
       <Header/>
     </div>
@@ -275,12 +275,13 @@ class Homepage extends Component {
 
   <div id="start" className="container justify-content-center text-center">
 
-<button id="start_button" type="button" class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">I am Ready to Start!</button>
+<button id="start_button" type="button" className="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">I am Ready to Start!</button>
 
-    <div  className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="mlogin" className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div id="log" className="modal-dialog modal-lg">
     <div className="modal-content">
         <div className="container">
+          <img id="login_logo" className="rounded" src={matlogo}/>
           <p id="lgn">Login Below</p>
           <hr className="my-4"/>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
@@ -290,7 +291,7 @@ class Homepage extends Component {
   </div>
 </div>
 
-  </div>
+</div>
 
   <div id="mat-foot" className="container-fluid">
       <Footer/>

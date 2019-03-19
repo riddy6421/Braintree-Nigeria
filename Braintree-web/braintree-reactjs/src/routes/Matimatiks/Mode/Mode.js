@@ -36,7 +36,7 @@ class Mode extends Component {
 
        var mSignin = document.getElementById("si");
 
-        mSignin.innerHTML = "Hi "+that.state.name
+      //  mSignin.innerHTML = "Hi "+that.state.name
 
   } else {
     alert("sign in failed")
@@ -47,7 +47,7 @@ class Mode extends Component {
 
   componentDidMount(){
 
-  document.getElementById("si").disabled = true;
+  //document.getElementById("si").disabled = true;
 
   }
 

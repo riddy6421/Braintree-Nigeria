@@ -54,18 +54,18 @@ border-radius: 10px;
 }
 
 
-li{
+#list1,#list2,#list3{
 	margin-left: 4%;
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 2%;
 	float: left;
 }
 
-a{
+#h1,#h2,#h3{
 	color: LightGrey;
 }
 
-a:hover{
+#h1:hover,#h2:hover,#h3:hover{
 	color: white;
 }
 
@@ -75,7 +75,5 @@ a:hover{
 	width: 30%;
 	margin-top: 17px;
 }
-
-
 
 }

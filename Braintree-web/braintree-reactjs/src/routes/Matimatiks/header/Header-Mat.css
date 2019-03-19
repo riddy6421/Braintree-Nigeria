@@ -36,6 +36,7 @@ padding-bottom: 10px;
 #link5{
 
 	display: none;
+
 }
 
 
@@ -72,7 +73,7 @@ padding-bottom: 10px;
 
 
 /* Extra small devices (portrait phones, less than 576px)*/
-@media (min-width: 360px) and  (max-width: 575.98px) {  
+@media (min-width: 360px) and  (max-width: 575.98px) {
 
 #matlog{
 
@@ -142,7 +143,7 @@ padding-bottom: 10px;
 
 
 /* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767.98px) { 
+@media (min-width: 576px) and (max-width: 767.98px) {
 
 #matlog{
 
@@ -212,72 +213,8 @@ padding-bottom: 5px;
 
 
 /* Medium devices (tablets, 768px and up)*/
- @media (min-width: 767px) and (max-width: 991.98px) { 
+@media (min-width: 767px) and (max-width: 991.98px) {
 
-
-#matlog{
-
-width: 15%;
-height: 15%;
-
-}
-
-#app{
-
-	font-family: 'Open Sans', sans-serif;
-    color: #40bcff;
-    width: 100%;
-    height: 100%;
-    margin-top: -15%;
-    margin-left: 11%;
-}
-
-
-.mdownb{
-
-width: 50px;
-height: 40px;
-margin-left: 40px;
-padding-bottom: 5px;
-
-}
-
-
-#app-text{
-
-	margin-left: 38%;
-}
-
-
-#link5{
-
-	display: none;
-}
-
-
-#stf{
-	width: 100%;
-	height: 100%;
-	margin-left: -1%;
-}
-
-
-#si{
-
-	color: #40bcff;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 10px;
-	width: 25%;
-	margin-left: -15%;
-}
-
-#link2,#link3,#link4{
-
-	color: #40bcff;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 10px;
-	margin-left: -20%;
-}
 
 
 }
@@ -285,121 +222,61 @@ padding-bottom: 5px;
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
 
-	#matlog{
-	width: 25%;
-	height: 25%;
+
+ }
+
+ /*Extra large devices (large desktops, 1200px and up)*/
+ @media (min-width: 1200px) {
+
+#mat-logo{
+	width: 8%;
+	height: 8%;
 }
 
-#app-text{
-width: 25%;
-height: 25%;
-margin-left: -2%;
+#andlogo{
+	width: 50%;
+	height: 30%;
+	margin-left: 25%;
 }
 
-#stf{
-
-	margin-left: -5%;
+#exampleModal{
+	height: 45%;
 }
 
-#si{
-
+#exampleModalLabel{
 	color: #40bcff;
 }
 
-
-.mdown{
-	width: 150px;
-	margin-left: -1%;
+#mat-brand{
+font-family: 'Montserrat', sans-serif;
+color: #40bcff;
+font-size: 30px;
+font-style:bold;
+margin-top: -5.3%;
+margin-left: 8%;
 }
 
-.mdownb{
-
-width: 100px;
-height: 40px;
-padding-bottom: 4px;
-margin-left: 180%;
+#mat-li1,#mat-li2,#mat-li3,#mat-li4{
+	 padding: 0px 40px;
 }
 
-
-#link2,#link3,#link4,#link5{
-
-	color: #40bcff;
-	font-family: 'Open Sans', sans-serif;
-	margin-left: -25%;
+#mat-cont{
+	float: left;
 }
 
-#app{
-	font-family: 'Open Sans', sans-serif;
-	color: #40bcff;
-	font-size: 25px;
-	margin-left: -5%;
-}
-
-#mat-bar{
-	width: 100%;
-	height: 100%;
-}
-
-
-
-}
-
-/*Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) { 
-	#matlog{
-	width: 25%;
-	height: 25%;
-}
-
-#app-text{
-width: 25%;
-height: 25%;
-margin-left: -2%;
-}
-
-#stf{
-
-	margin-left: -5%;
-}
-
-#si{
-
+#mat-op{
+	float: right;
+	font-family: 'Montserrat', sans-serif;
+	margin-top:-3.5%;;
+	font-size: 20px;
 	color: #40bcff;
 }
 
+#mat-hd{
 
-.mdown{
-	width: 150px;
-	margin-left: -1%;
-}
-
-.mdownb{
-
-width: 100px;
-height: 40px;
-padding-bottom: 4px;
-margin-left: 320%;
-}
-
-
-#link2,#link3,#link4,#link5{
-
-	color: #40bcff;
-	font-family: 'Open Sans', sans-serif;
-	margin-left: -30%;
-}
-
-#app{
-	font-family: 'Open Sans', sans-serif;
-	color: #40bcff;
-	font-size: 25px;
-	margin-left: -5%;
-}
-
-#mat-bar{
-	width: 100%;
-	height: 100%;
-}
-
+	height: 85px;
+	background-color: white;
 
 }
+
+ }

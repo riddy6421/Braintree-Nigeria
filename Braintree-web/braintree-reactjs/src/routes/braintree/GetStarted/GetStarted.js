@@ -4,11 +4,14 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import matlogo from '../downloads/mat_img_launch.png';
 
+
 class GetStarted extends Component {
+
+
+
 
 	componentDidMount(){
 
-   // $( "#body" ).after( $( "#ftg" ) );
     document.body.style.backgroundColor = "DarkSlateBlue";
 
      var y = document.getElementById("ftg");
@@ -26,6 +29,8 @@ class GetStarted extends Component {
   }
 
 	  render(){
+
+
     return (
         <div>
 

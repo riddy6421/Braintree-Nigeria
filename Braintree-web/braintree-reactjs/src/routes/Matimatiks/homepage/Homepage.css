@@ -170,7 +170,9 @@ margin-left: -44%;
 #pt{
 color: black;
 margin-top: 5%;
-font-size: 25%;
+font-size: 18px;
+margin-left: 3%;
+font-family: 'Montserrat', sans-serif;
 }
 
 #load{
@@ -233,8 +235,10 @@ margin-right: 17%;
 
 #lgn{
 	color: #40bcff;
+	font-size: 50px;
+	font-family: 'Montserrat', sans-serif;
 	margin-top: 2%;
-	margin-top: 55%;
+	margin-left: 30%;
 }
 
 #Qimg1,#Qimg2{
@@ -257,6 +261,13 @@ margin-right: 17%;
 #mat-foot{
 
 	margin-top: 5%;
+}
+
+#login_logo{
+	float: left;
+	width: 20%;
+	height: 30%;
+	margin-top: -2%;
 }
 
 }
