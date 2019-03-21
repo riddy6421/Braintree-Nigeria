@@ -36,10 +36,34 @@
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) /*and (max-width: 1900px)*/ {
-  body{
-    background-color: yellow;
-  }
+@media (min-width: 1200px) {
 
+#sl{
+  margin-top: 5%;
+  font-family: 'Montserrat', sans-serif;
+  color: #40bcff;
+  font-weight: bold;
+}
 
+#mode-ft{
+height: 25vh;
+}
+
+#heading1,#heading2,#heading3{
+margin-top: 2%;
+}
+
+#card2{
+  margin-left: 2%;
+}
+
+}
+
+/*static styling*/
+#mode-main{
+  height: 100vh;
+}
+
+#mode-ft{
+  background-color: #40bcff
 }

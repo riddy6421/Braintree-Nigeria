@@ -53,172 +53,162 @@ class Homepage extends Component {
 
  console.log("componentWillMount()")
 
+ /*Check if user is signed in*/
+  var context = this
+
+  firebase.auth().onAuthStateChanged(function(user) {
+     console.log("componentDidMount() firebase function")
+      if (user) {
+
+       context.setState({currentUser:1})
+
+      } else {
+
+          context.setState({currentUser:2})
+
+          var y = document.getElementById("mat-title");
+          var size = window.innerWidth;
+
+         if(size >= 1200 && size < 1900 ){
+           y.style.height = window.screen.availHeight+"px";
+         }
+
+
+         var x =window.innerHeight;
+         var j = document.getElementById("mat-title");
+         var z = x-88
+         j.style.height=z+"px";
+
+         var foot1 = document.getElementById("heading1");
+         var foot2 = document.getElementById("heading2");
+         var foot3 = document.getElementById("heading3");
+
+        foot1.style.color= "black";
+         foot2.style.color= "black";
+        foot3.style.color= "black";
+
+
+       var Qimg1, BA1, topic, arr1, arr2;
+
+        Qimg1 = document.getElementById('Qimg1');
+
+        BA1 = document.getElementById('A1');
+
+        topic = document.getElementById('q1');
+
+        arr1 = document.getElementById('prev');
+
+        arr2 = document.getElementById('next');
+
+       // eslint-disable-next-line
+       if(context.state.ques == 0)
+           arr1.style.visibility = "hidden";
+
+           arr2.addEventListener("click", function(){
+       // eslint-disable-next-line
+             if(context.state.ques == 0){
+
+                 Qimg1.src = Q2;
+
+                 arr1.style.visibility = "visible";
+
+                 arr2.style.visibility = "hidden";
+
+                 topic.innerHTML="Question 2";
+
+                 context.setState({ques:1});
+
+               }
+
+         });
+
+
+        arr1.addEventListener("click", function(){
+       // eslint-disable-next-line
+             if(context.state.ques == 1){
+
+                 Qimg1.src = Q1;
+
+                 arr1.style.visibility = "hidden";
+
+                 arr2.style.visibility = "visible";
+
+                 topic.innerHTML="Question 1";
+
+                 context.setState({ques:0});
+
+               }
+
+         });
+
+
+
+        BA1.addEventListener("click", function(){
+
+        // eslint-disable-next-line
+         if(context.state.counter == 0){
+
+       // eslint-disable-next-line
+           if(context.state.ques == 0){
+
+             Qimg1.src = A1
+             BA1.innerHTML = "Back to Question";
+             topic.innerHTML = "Answer 1";
+             context.setState({counter:1});
+             arr1.style.visibility = "hidden";
+             arr2.style.visibility = "hidden";
+
+
+           }
+
+           else{
+
+             Qimg1.src = A2
+             BA1.innerHTML = "Back to Question";
+             topic.innerHTML = "Answer 2";
+             context.setState({counter:1});
+             arr1.style.visibility = "hidden";
+             arr2.style.visibility = "hidden";
+
+           }
+
+         }
+
+
+         else{
+       // eslint-disable-next-line
+           if(context.state.ques == 0){
+
+             Qimg1.src = Q1
+             BA1.innerHTML = "See Answer";
+             topic.innerHTML = "Question 1";
+             context.setState({counter:0});
+             arr2.style.visibility = "visible";
+
+           }
+
+           else{
+
+             Qimg1.src = Q2
+             BA1.innerHTML = "See Answer";
+             topic.innerHTML = "Question 2";
+             context.setState({counter:0});
+             arr1.style.visibility = "visible";
+
+         }
+       }
+
+
+       });}/*set up homepage*/
+
+  });
+
 }
 
 
   componentDidMount(){
 
     console.log("componentDidMount()")
-
-   /*Check if user is signed in*/
-    var context = this
-
-    firebase.auth().onAuthStateChanged(function(user) {
-       console.log("componentDidMount() firebase function")
-        if (user) {
-
-
-         context.setState({currentUser:1})
-
-        } else {
-
-            context.setState({currentUser:2})
-
-        }
-
-    });
-    /*user sign-in check en*/
-
-/*Set up homepage*/
-if(this.state.currentUser == 2){
-     var y = document.getElementById("mat-title");
-    var size = window.innerWidth;
-
-    if(size >= 1200 && size < 1900 ){
-      y.style.height = window.screen.availHeight+"px";
-    }
-
-
-    var x =window.innerHeight;
-    var j = document.getElementById("mat-title");
-    var z = x-88
-    j.style.height=z+"px";
-
-    var foot1 = document.getElementById("heading1");
-    var foot2 = document.getElementById("heading2");
-    var foot3 = document.getElementById("heading3");
-
-   foot1.style.color= "black";
-    foot2.style.color= "black";
-   foot3.style.color= "black";
-
-
-  var Qimg1, BA1, topic, arr1, arr2;
-
-   Qimg1 = document.getElementById('Qimg1');
-
-   BA1 = document.getElementById('A1');
-
-   topic = document.getElementById('q1');
-
-   arr1 = document.getElementById('prev');
-
-   arr2 = document.getElementById('next');
-
-   let that = this;
-// eslint-disable-next-line
-  if(this.state.ques == 0)
-      arr1.style.visibility = "hidden";
-
-      arr2.addEventListener("click", function(){
-// eslint-disable-next-line
-        if(that.state.ques == 0){
-
-            Qimg1.src = Q2;
-
-            arr1.style.visibility = "visible";
-
-            arr2.style.visibility = "hidden";
-
-            topic.innerHTML="Question 2";
-
-            that.setState({ques:1});
-
-          }
-
-    });
-
-
-   arr1.addEventListener("click", function(){
-// eslint-disable-next-line
-        if(that.state.ques == 1){
-
-            Qimg1.src = Q1;
-
-            arr1.style.visibility = "hidden";
-
-            arr2.style.visibility = "visible";
-
-            topic.innerHTML="Question 1";
-
-            that.setState({ques:0});
-
-          }
-
-    });
-
-
-
-   BA1.addEventListener("click", function(){
-
-   // eslint-disable-next-line
-    if(that.state.counter == 0){
-
-// eslint-disable-next-line
-      if(that.state.ques == 0){
-
-        Qimg1.src = A1
-        BA1.innerHTML = "Back to Question";
-        topic.innerHTML = "Answer 1";
-        that.setState({counter:1});
-        arr1.style.visibility = "hidden";
-        arr2.style.visibility = "hidden";
-
-
-      }
-
-      else{
-
-        Qimg1.src = A2
-        BA1.innerHTML = "Back to Question";
-        topic.innerHTML = "Answer 2";
-        that.setState({counter:1});
-        arr1.style.visibility = "hidden";
-        arr2.style.visibility = "hidden";
-
-      }
-
-    }
-
-
-    else{
-// eslint-disable-next-line
-      if(that.state.ques == 0){
-
-        Qimg1.src = Q1
-        BA1.innerHTML = "See Answer";
-        topic.innerHTML = "Question 1";
-        that.setState({counter:0});
-        arr2.style.visibility = "visible";
-
-      }
-
-      else{
-
-        Qimg1.src = Q2
-        BA1.innerHTML = "See Answer";
-        topic.innerHTML = "Question 2";
-        that.setState({counter:0});
-        arr1.style.visibility = "visible";
-
-    }
-  }
-
-
-});
-
-}
-/*Set up homepage end*/
 }
   render() {
 
@@ -228,7 +218,6 @@ if(this.state.currentUser == 2){
 if(this.state.currentUser == 0){
        return(
          <div>
-
          <div  id="spin" className="mx-auto">
          <div id="blink" className="spinner-grow" role="status">
             <span class="sr-only">Loading...</span>
@@ -243,7 +232,6 @@ if(this.state.currentUser == 0){
 
 
  else if (this.state.currentUser == 1){
-
    return (<Mode/>)
 
  }
