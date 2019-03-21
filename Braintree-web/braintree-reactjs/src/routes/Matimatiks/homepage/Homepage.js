@@ -24,7 +24,7 @@ const uiConfig = {
   // Popup signin flow rather than redirect flow.
   signInFlow: 'popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: '/',
+//  signInSuccessUrl: '/',
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -42,6 +42,7 @@ class Homepage extends Component {
       user: null,
       counter:0,
       ques:0,
+      shown:0,
       currentUser:0
     }
 
@@ -49,30 +50,41 @@ class Homepage extends Component {
 
 
   componentWillMount(){
-       var context = this
-          firebase.auth().onAuthStateChanged(function(user) {
 
-              if (user) {
-
-               context.setState({currentUser:1})
-
-              } else {
-
-                  context.setState({currentUser:2})
-              }
-
-          });
+ console.log("componentWillMount()")
 
 }
 
 
   componentDidMount(){
 
-     var y = document.getElementById("mat-title");
+    console.log("componentDidMount()")
 
+   /*Check if user is signed in*/
+    var context = this
+
+    firebase.auth().onAuthStateChanged(function(user) {
+       console.log("componentDidMount() firebase function")
+        if (user) {
+
+
+         context.setState({currentUser:1})
+
+        } else {
+
+            context.setState({currentUser:2})
+
+        }
+
+    });
+    /*user sign-in check en*/
+
+/*Set up homepage*/
+if(this.state.currentUser == 2){
+     var y = document.getElementById("mat-title");
     var size = window.innerWidth;
 
-    if(size >= 1200 && size < 1900){
+    if(size >= 1200 && size < 1900 ){
       y.style.height = window.screen.availHeight+"px";
     }
 
@@ -206,101 +218,124 @@ class Homepage extends Component {
 });
 
 }
-
+/*Set up homepage end*/
+}
   render() {
+
 // eslint-disable-next-line
-  //  if (this.state.currentUser == 1)
-      //   return <Mode/>
-// eslint-disable-next-line
-  //  if(this.state.currentUser == 0)
-      //   return  <div></div>
+  console.log("render()");
 
-  //if(this.state.currentUser == 2)
-    return (
-  <div id="root">{/* root div begin */}
-    <div className="container-fluid">
-      <Header/>
-    </div>
+if(this.state.currentUser == 0){
+       return(
+         <div>
 
-    <div id="mat-title"className="container-fluid jumbotron text-center">
-    MATIMATIKS
-    </div>
+         <div  id="spin" className="mx-auto">
+         <div id="blink" className="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+         </div>
+         <div id="ltext">Loading...</div>
+         </div>
 
-   <div id="by" className="container text-center">
-    <p>
-    By Braintree Nigeria
-    <img id="naij" src={naija} className="" alt="logo" />
-    </p>
+        </div>
+
+        );
+}
+
+
+ else if (this.state.currentUser == 1){
+
+   return (<Mode/>)
+
+ }
+ else if (this.state.currentUser == 2){
+
+   return (
+ <div id="root">{/* root div begin */}
+   <div className="container-fluid">
+     <Header/>
+   </div>
+
+   <div id="main">
+   <div id="mat-title"className="container-fluid jumbotron text-center">
+   MATIMATIKS
+   </div>
+
+  <div id="by" className="container text-center">
+   <p>
+   By Braintree Nigeria
+   <img id="naij" src={naija} className="" alt="logo" />
+   </p>
 
 
 <button id="orig-but"  type="button" className="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">
- See sample tutorial Q&A's
+See sample tutorial Q&A's
 </button>
 
 
 <div className="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div className="modal-dialog" role="document">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="exampleModalLongTitle">Sample Questions and Answers</h5>
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div className="modal-body">
+ <div className="modal-dialog" role="document">
+   <div className="modal-content">
+     <div className="modal-header">
+       <h5 className="modal-title" id="exampleModalLongTitle">Sample Questions and Answers</h5>
+       <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div className="modal-body">
 
 
-    <p id="q1">Question 1</p>
+   <p id="q1">Question 1</p>
 
-    <img id ="Qimg1" src={Q1} class="rounded mx-auto d-block" alt="sample question 1"/>
+   <img id ="Qimg1" src={Q1} class="rounded mx-auto d-block" alt="sample question 1"/>
 
-    <button id="prev" type="button" className="btn btn-outline-primary">&laquo;</button>
-
-
-    <button id="A1" type="button" className="btn btn-outline-primary">See Answer</button>
+   <button id="prev" type="button" className="btn btn-outline-primary">&laquo;</button>
 
 
-    <button id="next" type="button" className="btn btn-outline-primary">&raquo;</button>
+   <button id="A1" type="button" className="btn btn-outline-primary">See Answer</button>
 
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+   <button id="next" type="button" className="btn btn-outline-primary">&raquo;</button>
+
+
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     </div>
+   </div>
+ </div>
 </div>
 
 </div>
 
-  <div id="start" className="container justify-content-center text-center">
+ <div id="start" className="container justify-content-center text-center">
 
 <button id="start_button" type="button" className="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">I am Ready to Start!</button>
 
-    <div id="mlogin" className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div id="log" className="modal-dialog modal-lg">
-    <div className="modal-content">
-        <div className="container">
-          <img id="login_logo" className="rounded" src={matlogo}/>
-          <p id="lgn">Login Below</p>
-          <hr className="my-4"/>
-          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
-          <p id="pt">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
-        </div>
-    </div>
-  </div>
+   <div id="mlogin" className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+   <div id="log" className="modal-dialog modal-lg">
+   <div className="modal-content">
+       <div className="container">
+         <img id="login_logo" className="rounded" src={matlogo}/>
+         <p id="lgn">Login Below</p>
+         <hr className="my-4"/>
+         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
+         <p id="pt">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
+       </div>
+   </div>
+ </div>
 </div>
 
 </div>
+</div>
+ <div id="mat-foot" className="container-fluid">
+     <Footer/>
+ </div>
 
-  <div id="mat-foot" className="container-fluid">
-      <Footer/>
-  </div>
+ </div>
+   );
 
-  </div>
-    );
   }
 }
-
+}
 
 export default Homepage;

@@ -49,7 +49,19 @@ class Header_Mat extends Component {
       </div>
 
       <ul id="mat-op" className="list-inline">
-         <li id="mat-li1"  className="list-inline-item"><button id="bt-li" type="button" className="btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Sign In</button></li>
+         <li id="mat-li1"  className="list-inline-item">
+         <div class="btn-group">
+         <button id="bt-li" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</button>
+         <div id="signin-cont" class="dropdown-menu">
+          <div id="signin-item" class="dropdown-item">
+               <div className="container">
+                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
+                 <p id="signin-rule">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
+               </div>
+          </div>
+        </div>
+         </div>
+         </li>
         <a href="#"><li id="mat-li2" className="list-inline-item">Donate</li></a>
         <a href="#"><li id="mat-li3" className="list-inline-item">Community</li></a>
         <li id="mat-li4" className="list-inline-item">
@@ -76,20 +88,6 @@ class Header_Mat extends Component {
     </div>
   </div>
 </div>
-
-      <div id="mlogin" className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div id="log" className="modal-dialog modal-lg">
-      <div className="modal-content">
-          <div className="container">
-            <img id="login_logo" className="rounded" src={matlogo}/>
-            <p id="lgn">Login Below</p>
-            <hr className="my-4"/>
-            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
-            <p id="pt">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
-          </div>
-      </div>
-      </div>
-      </div>
 
    </div>
   </div>

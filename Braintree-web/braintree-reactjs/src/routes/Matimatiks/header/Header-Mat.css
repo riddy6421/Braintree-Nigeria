@@ -40,12 +40,6 @@ padding-bottom: 10px;
 }
 
 
-#stf{
-	width: 100%;
-	height: 100%;
-	margin-left: 3%;
-}
-
 
 #si{
 
@@ -276,6 +270,17 @@ margin-left: 8%;
 
 	height: 85px;
 	background-color: white;
+
+}
+
+#signin-cont{
+	width: 380px;
+	height: 300px;
+}
+
+#signin-rule{
+	font-size: 9px;
+	margin-left: -10%;
 
 }
 

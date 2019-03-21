@@ -156,6 +156,11 @@ margin-left: -44%;
 
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) /*and (max-width: 1900px)*/ {
+
+	body{
+		background-color: white;
+	}
+
 #mat-title{
 	font-family: 'Open Sans', sans-serif;
 	color: white;
@@ -185,7 +190,6 @@ font-family: 'Montserrat', sans-serif;
 
 margin-top: -52%;
 margin-left: 19%;
-
 
 }
 
@@ -268,6 +272,23 @@ margin-right: 17%;
 	width: 20%;
 	height: 30%;
 	margin-top: -2%;
+}
+
+#spin{
+	width: 100px;
+	height: 100px;
+	margin-top: 20%;
+}
+
+#ltext{
+		font-family: 'Open Sans', sans-serif;
+		font-size: 50px;
+		margin-left: -75px;
+}
+
+#blink{
+	height: 60px;
+	width: 60px;
 }
 
 }
