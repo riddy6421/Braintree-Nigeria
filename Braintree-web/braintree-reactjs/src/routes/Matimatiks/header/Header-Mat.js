@@ -38,6 +38,7 @@ class Header_Mat extends Component {
   }
 
   render() {
+    var that = this;
     return (
   <div>{/* root div begin*/}
 
@@ -55,7 +56,7 @@ class Header_Mat extends Component {
          <div id="signin-cont" class="dropdown-menu">
           <div id="signin-item" class="dropdown-item">
                <div className="container">
-                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
+                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
                  <p id="signin-rule">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
                </div>
           </div>

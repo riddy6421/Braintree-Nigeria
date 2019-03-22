@@ -57,13 +57,46 @@ margin-top: 2%;
   margin-left: 2%;
 }
 
+#mode2{
+  height: 60%;
+  width: 50%;
+}
+
+#mode2-cont{
+height: 100vh;
+width: 100%;
+}
+
+#s-mode{
+width: 100%;
+font-family: 'Montserrat', sans-serif;
+font-size: 50px;
+}
+
+#math-cards-1,#math-cards-2,#math-cards-3{
+  width: 100%;
+  margin-top: 5%
+}
+
+.btn-lg{
+  width: 40%;
+}
+
+
 }
 
 /*static styling*/
 #mode-main{
   height: 100vh;
+  margin-top: 1%;
+}
+
+#Qno{
+font-family: 'Montserrat', sans-serif;
+margin-left: 45vw;
 }
 
 #mode-ft{
-  background-color: #40bcff
+  background-color: #40bcff;
+  margin-top: -2%;
 }

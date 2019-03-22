@@ -199,9 +199,13 @@ class Homepage extends Component {
        }
 
 
-       });}/*set up homepage*/
+       });
+
+
+     }/*set up homepage*/
 
   });
+
 
 }
 
@@ -209,6 +213,8 @@ class Homepage extends Component {
   componentDidMount(){
 
     console.log("componentDidMount()")
+
+
 }
   render() {
 
@@ -303,10 +309,7 @@ See sample tutorial Q&A's
    <div id="log" className="modal-dialog modal-lg">
    <div className="modal-content">
        <div className="container">
-         <img id="login_logo" className="rounded" src={matlogo}/>
-         <p id="lgn">Login Below</p>
-         <hr className="my-4"/>
-         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
+         <p id="lgn">Sign In above to start</p>
          <p id="pt">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
        </div>
    </div>

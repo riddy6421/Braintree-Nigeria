@@ -240,9 +240,9 @@ margin-right: 17%;
 #lgn{
 	color: #40bcff;
 	font-size: 50px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	margin-top: 2%;
-	margin-left: 30%;
+	margin-left: 4%;
 }
 
 #Qimg1,#Qimg2{
@@ -257,7 +257,7 @@ margin-right: 17%;
 	margin-top: 10%;
 }
 .modal-content{
-	height: 500px;
+	height: 200px;
 	margin-top: 15%;
 	background-color: white;
 }
@@ -265,13 +265,6 @@ margin-right: 17%;
 #mat-foot{
 
 	margin-top: 5%;
-}
-
-#login_logo{
-	float: left;
-	width: 20%;
-	height: 30%;
-	margin-top: -2%;
 }
 
 #spin{

@@ -3,6 +3,7 @@ import './Mode.css';
 import Header from '../header/Header-Mat.js';
 import Footer from '../../Footer/Footer'
 import $ from 'jquery';
+
 import firebase from '../firebase-config.js';
 
 
@@ -15,7 +16,8 @@ class Mode extends Component {
 
     this.state = {
       name: null,
-      status:-1
+      status:-1,
+      mode:-1
     }
   }
 
@@ -112,12 +114,88 @@ else
   if(that.state.status == 0){
   document.getElementById('card1').addEventListener("click", function(){
 
+   $('#mode-main').addClass('animated fadeOut');
+
+
+   var animationEnd = (function(el) {
+   var animations = {
+     animation: 'animationend',
+     OAnimation: 'oAnimationEnd',
+     MozAnimation: 'mozAnimationEnd',
+     WebkitAnimation: 'webkitAnimationEnd',
+   };
+
+   for (var t in animations) {
+     if (el.style[t] !== undefined) {
+       return animations[t];
+     }
+   }
+ })(document.createElement('div'));
+
+ $('#mode-main').one(animationEnd, function(){
+
+   //<img id="mode2" class="rounded mx-auto d-block">
+   //<div id="mode2-cont" className="container-fluid"><div id="Qno">Q1</div></div>
+   that.setState({mode:0})
+
+     $('#mode2-cont').addClass('animated fadeIn');
+
+  var storageRef = firebase.storage().ref();
+
+  var img = document.getElementById('mode2');
+
+  storageRef.child('Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q1.jpg').getDownloadURL().then(function(url) {
+  // `url` is the download URL for 'images/stars.jpg'
+
+            // This can be downloaded directly:
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob';
+            xhr.onload = function(event) {
+              var blob = xhr.response;
+            };
+            xhr.open('GET', url);
+            xhr.send();
+
+            // Or inserted into an <img> element:
+            img.src = url;
+
+          }).catch(function(error) {
+            // Handle any errors
+          });
+
+
+ });
+
+
 
   })//card 1 click
 
   document.getElementById('card2').addEventListener("click", function(){
+    $('#mode-main').addClass('animated fadeOutLeftBig');
 
 
+    var animationEnd = (function(el) {
+    var animations = {
+      animation: 'animationend',
+      OAnimation: 'oAnimationEnd',
+      MozAnimation: 'mozAnimationEnd',
+      WebkitAnimation: 'webkitAnimationEnd',
+    };
+
+    for (var t in animations) {
+      if (el.style[t] !== undefined) {
+        return animations[t];
+      }
+    }
+  })(document.createElement('div'));
+
+  $('#mode-main').one(animationEnd, function(){
+
+   // $('#mode-main').replaceWith('<img src="..." class="img-fluid" alt="Responsive image">');
+
+
+  });
+//  that.setState({mode:1})
   })//card 2 click
 
 }
@@ -131,6 +209,54 @@ else
 
   render(){
 
+  if(this.state.mode == 0){
+
+     return (
+       <div>
+
+       <div className="container-fluid">
+         <Header/>
+       </div>
+
+       <div id="mode2-cont" className="container-fluid jumbotron">
+
+       <div id ="s-mode" className="d-flex justify-content-center text-primary">Practice Question Mode</div>
+
+{/*card groub 1*/}
+       <div id="math-cards-1" className="d-flex justify-content-center">
+          <button type="button" class="btn btn-primary btn-lg">Algebra</button>
+          <button type="button" class="btn btn-warning btn-lg">Geometry</button>
+      </div>
+
+{/*card groub 2*/}
+     <div id="math-cards-2" className="d-flex justify-content-center">
+
+      <button type="button" class="btn btn-secondary btn-lg">Statistics</button>
+      <button type="button" class="btn btn-info btn-lg">Mensuration</button>
+
+   </div>
+
+{/*card groub 3*/}
+   <div id="math-cards-3" className="d-flex justify-content-center">
+    <button type="button" class="btn btn-danger btn-lg">Trigonometry</button>
+    <button type="button" class="btn btn-success btn-lg">Sets & Logic</button>
+</div>
+{/*card groub end*/}
+
+
+</div>
+
+
+       <div id="mode-ft" className="container-fluid">
+         <Footer/>
+       </div>
+
+       </div>
+     )
+
+  }
+
+
   if(this.state.status == 0){
     return (
         <div>
@@ -140,7 +266,7 @@ else
         </div>
 
 
-        <div  id="mode-main" height="200" className="container-fluid">
+        <div  id="mode-main" height="200" className="jumbotron container-fluid">
 
         <div className="container d-flex justify-content-center">
            <h1 id="sl">Select Exam Mode</h1>
@@ -177,6 +303,10 @@ else
        </div>
 	   );
    }
+
+
+
+
 
 
    else{
