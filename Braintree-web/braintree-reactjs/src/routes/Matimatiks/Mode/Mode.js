@@ -45,7 +45,8 @@ class Mode extends Component {
     if(this.state.status == 0 && this.state.name == null){
 
           this.setState({name:this.props.name});
-          var that = this
+
+           var that = this
 
             document.getElementById('card1').addEventListener("click", function(){
 
@@ -154,8 +155,6 @@ class Mode extends Component {
     if(this.state.dummy != "")
        this.setState({dummy:""}) // just a dummy to make cdu fire ;)
 
-  alert("Mode "+this.state.mode+" status "+this.state.status)
-
     if(this.state.status == 0 && this.state.mode == -1 ){// page status ok?
 
        return (
@@ -229,7 +228,7 @@ else if (this.state.mode == 0 && this.state.status == 0 ){// practice question m
          if(random.length == nof)
             break;
        }
-        return(<Questions mode={this.state.mode} topic={this.state.topic} rand={random}/>)
+        return(<Questions mode={this.state.mode} topic={this.state.topic} rand={random} name={this.props.name} login={this.props.login}/>)
       }
 
     else{

@@ -63,6 +63,8 @@ class Questions extends Component {
 
     }
 
+    //document.getElementById('bt-li').innerHTML = "Hi, "+this.props.name
+
  }
   render() {
 
@@ -71,7 +73,7 @@ class Questions extends Component {
       return(<div>
 
         <div className="container-fluid">
-          <Header/>
+          <Header user={this.props.name} login={this.props.login} name={this.props.name}/>
         </div>
 
         <div id="quest-cont" className="jumbotron">
