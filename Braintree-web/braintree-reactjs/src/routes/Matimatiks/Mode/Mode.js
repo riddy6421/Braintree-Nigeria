@@ -3,8 +3,9 @@ import './Mode.css';
 import Header from '../header/Header-Mat.js';
 import Footer from '../../Footer/Footer'
 import $ from 'jquery';
+import Questions from '../Questions/Questions.js';
 
-import firebase from '../firebase-config.js';
+
 
 
 class Mode extends Component {
@@ -17,199 +18,221 @@ class Mode extends Component {
     this.state = {
       name: null,
       status:-1,
-      mode:-1
+      mode:-1,
+      dummy:null,
+      login:null,
+      topic:0
     }
   }
 
   componentWillMount(){
 
+ this.setState({login:this.props.login})
+
 }
+
+
   componentDidMount(){
 
- let that = this
-
-firebase.auth().onAuthStateChanged(function(user) {
-
-if (user) {
-
-var x = []
-
-x = user.displayName.split(" ")
-
-if(x[0] != null){
- that.setState({name:x[0]})
- that.setState({status:0})
-}
-
-else
-  that.setState({name:"Anonymous"})
-
-  if(that.state.name != null){
-  var mSignin = document.getElementById("bt-li");
-
-   mSignin.innerHTML = "Hi "+that.state.name
-
-  $('#signin-cont').replaceWith('<div class="dropdown-menu"><a id="item1" class="dropdown-item" href="#">Progress Report</a><a id="item2" class="dropdown-item" href="#">Settings</a><a id="item3" class="dropdown-item" href="#">Help</a><div class="dropdown-divider"></div><button id="item4" type="button" class="btn">Log out</button></div>');
-
-  var item1 = document.getElementById('item1');
-  var item2 = document.getElementById('item2');
-  var item3 = document.getElementById('item3');
-  var item4 = document.getElementById('item4');
-
-  item1.addEventListener("mouseover", function () {
-
-     item1.style.color = "#40bcff"
-
-  })
-  item1.addEventListener("mouseout", function () {
-
-   item1.style.color = "black"
-
-  })
-
-  item2.addEventListener("mouseover", function () {
-
-     item2.style.color = "#40bcff"
-
-  })
-  item2.addEventListener("mouseout", function () {
-
-   item2.style.color = "black"
-
-  })
-
-  item3.addEventListener("mouseover", function () {
-
-     item3.style.color = "#40bcff"
-
-  })
-  item3.addEventListener("mouseout", function () {
-
-   item3.style.color = "black"
-
-  })
-
-  item4.addEventListener("mouseover", function () {
-
-     item4.style.color = "#40bcff"
-
-  })
-  item4.addEventListener("mouseout", function () {
-
-   item4.style.color = "black"
-
-  })
-
-  item4.addEventListener("click", function () {
-
-    firebase.auth().signOut().then(function() {
-      console.log("signout successful")
-    }).catch(function(error) {
-      console.log("signout unsuccessful")
- });
-
-   window.location.reload()
-})//signOut
-}
-  if(that.state.status == 0){
-  document.getElementById('card1').addEventListener("click", function(){
-
-   $('#mode-main').addClass('animated fadeOut');
+  }
 
 
-   var animationEnd = (function(el) {
-   var animations = {
-     animation: 'animationend',
-     OAnimation: 'oAnimationEnd',
-     MozAnimation: 'mozAnimationEnd',
-     WebkitAnimation: 'webkitAnimationEnd',
-   };
+  componentDidUpdate(){
 
-   for (var t in animations) {
-     if (el.style[t] !== undefined) {
-       return animations[t];
-     }
-   }
- })(document.createElement('div'));
+    if(this.state.login && this.state.status != 0)// page status ok?
+        this.setState({status:0});
 
- $('#mode-main').one(animationEnd, function(){
+    if(this.state.status == 0 && this.state.name == null){
 
-   //<img id="mode2" class="rounded mx-auto d-block">
-   //<div id="mode2-cont" className="container-fluid"><div id="Qno">Q1</div></div>
-   that.setState({mode:0})
+          this.setState({name:this.props.name});
+          var that = this
 
-     $('#mode2-cont').addClass('animated fadeIn');
+            document.getElementById('card1').addEventListener("click", function(){
 
-  var storageRef = firebase.storage().ref();
-
-  var img = document.getElementById('mode2');
-
-  storageRef.child('Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q1.jpg').getDownloadURL().then(function(url) {
-  // `url` is the download URL for 'images/stars.jpg'
-
-            // This can be downloaded directly:
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'blob';
-            xhr.onload = function(event) {
-              var blob = xhr.response;
-            };
-            xhr.open('GET', url);
-            xhr.send();
-
-            // Or inserted into an <img> element:
-            img.src = url;
-
-          }).catch(function(error) {
-            // Handle any errors
-          });
+             $('#mode-main').addClass('animated fadeOut');//set fadeOut animation to card when button is clicked
 
 
- });
+             var animationEnd = (function(el) {
+             var animations = {
+               animation: 'animationend',
+               OAnimation: 'oAnimationEnd',
+               MozAnimation: 'mozAnimationEnd',
+               WebkitAnimation: 'webkitAnimationEnd',
+             };
+
+             for (var t in animations) {
+               if (el.style[t] !== undefined) {
+                 return animations[t];
+               }
+             }
+           })(document.createElement('div'));
+
+           $('#mode-main').one(animationEnd, function(){
+
+             that.setState({mode:0})//set mode 0 clicked when animation ends
+
+               $('#mode2-cont').addClass('animated fadeIn');
+
+
+               /*Set click listeners to all topic buttons*/
+               document.getElementById('alg').addEventListener("click",function () {
+
+                   that.setState({topic:1})
+
+               })
+
+               document.getElementById('geo').addEventListener("click",function () {
+
+                   that.setState({topic:2})
 
 
 
-  })//card 1 click
+               })
 
-  document.getElementById('card2').addEventListener("click", function(){
-    $('#mode-main').addClass('animated fadeOutLeftBig');
+               document.getElementById('stat').addEventListener("click",function () {
+
+                   that.setState({topic:3})
+
+               })
+
+               document.getElementById('mens').addEventListener("click",function () {
+
+                   that.setState({topic:4})
+
+               })
+
+               document.getElementById('trig').addEventListener("click",function () {
+
+                   that.setState({topic:5})
+
+               })
+
+               document.getElementById('s&l').addEventListener("click",function () {
+
+                   that.setState({topic:6})
+
+               })
+
+           });
+
+            })//card 1 click
+
+            document.getElementById('card2').addEventListener("click", function(){
+              $('#mode-main').addClass('animated fadeOutLeftBig');
 
 
-    var animationEnd = (function(el) {
-    var animations = {
-      animation: 'animationend',
-      OAnimation: 'oAnimationEnd',
-      MozAnimation: 'mozAnimationEnd',
-      WebkitAnimation: 'webkitAnimationEnd',
-    };
+              var animationEnd = (function(el) {
+              var animations = {
+                animation: 'animationend',
+                OAnimation: 'oAnimationEnd',
+                MozAnimation: 'mozAnimationEnd',
+                WebkitAnimation: 'webkitAnimationEnd',
+              };
 
-    for (var t in animations) {
-      if (el.style[t] !== undefined) {
-        return animations[t];
-      }
+              for (var t in animations) {
+                if (el.style[t] !== undefined) {
+                  return animations[t];
+                }
+              }
+            })(document.createElement('div'));
+
+            $('#mode-main').one(animationEnd, function(){
+
+
+             that.setState({mode:1})
+
+
+            });
+
+            })//card 2 click
+
     }
-  })(document.createElement('div'));
 
-  $('#mode-main').one(animationEnd, function(){
-
-   // $('#mode-main').replaceWith('<img src="..." class="img-fluid" alt="Responsive image">');
-
-
-  });
-//  that.setState({mode:1})
-  })//card 2 click
-
-}
-
-} else {
-
-}
-});
-
-}
+  }
 
   render(){
+    if(this.state.dummy != "")
+       this.setState({dummy:""}) // just a dummy to make cdu fire ;)
 
-  if(this.state.mode == 0){
+  alert("Mode "+this.state.mode+" status "+this.state.status)
+
+    if(this.state.status == 0 && this.state.mode == -1 ){// page status ok?
+
+       return (
+           <div>
+           <div className="container-fluid">
+             <Header login={this.state.login} name={this.props.name}/>
+           </div>
+
+
+           <div  id="mode-main" height="200" className="jumbotron container-fluid">
+
+           <div className="container d-flex justify-content-center">
+              <h1 id="sl">Select Exam Mode</h1>
+           </div>
+
+
+           <div className="container-fluid d-flex justify-content-center">
+
+           <div id="card1" class="card text-white bg-primary mb-3" >
+             <div class="card-header">Mode A</div>
+             <div class="card-body">
+             <h5 class="card-title">Practice Exam Questions</h5>
+             <p class="card-text">In this mode, the exam is untimed. Practice questions pertaning to different math topics are available.</p>
+             <button id="card1-btn" type="button" class="btn btn-outline-dark">Launch</button>
+            </div>
+            </div>
+
+
+           <div id="card2" class="card text-white bg-success mb-3">
+             <div class="card-header">Mode B</div>
+             <div class="card-body">
+             <h5 class="card-title">Mock Exam</h5>
+             <p class="card-text">In this mode, the exam is timed and results are computed strategically to determing your strength and/or weakneses</p>
+             <button id="card2-btn" type="button" class="btn btn-outline-dark">Launch</button>
+           </div>
+         </div>
+         </div>
+   </div>
+
+         <div id="mode-ft" className="container-fluid">
+           <Footer/>
+         </div>
+
+          </div>
+   	   );
+      }
+
+else if (this.state.mode == 0 && this.state.status == 0 ){// practice question mode clicked?
+
+   if(this.state.topic == 1 || this.state.topic == 2 ||
+      this.state.topic == 3 || this.state.topic == 4 ||
+      this.state.topic == 5 || this.state.topic == 6 ){// if any topic is clicked
+
+       var random = [], num, nof = 2, randMap = new Map();
+
+       for(var i=1; i<=nof; i++)
+            randMap.set(i,false)
+
+       num = Math.floor((Math.random() * nof) + 1)
+       random.push(num)
+
+       randMap.set(num,true)
+
+       while(1){ //check inifitely and make sure the next number in the array isnt repeated
+         num = Math.floor((Math.random() * nof) + 1)
+         if(!randMap.get(num)){
+            random.push(num)
+            randMap.set(num,true)
+         }
+
+         if(random.length == nof)
+            break;
+       }
+        return(<Questions mode={this.state.mode} topic={this.state.topic} rand={random}/>)
+      }
+
+    else{
 
      return (
        <div>
@@ -224,22 +247,20 @@ else
 
 {/*card groub 1*/}
        <div id="math-cards-1" className="d-flex justify-content-center">
-          <button type="button" class="btn btn-primary btn-lg">Algebra</button>
-          <button type="button" class="btn btn-warning btn-lg">Geometry</button>
+          <button id="alg"  type="button" className="btn btn-primary btn-lg">Algebra</button>
+          <button id="geo" type="button" className="btn btn-warning btn-lg">Geometry</button>
       </div>
 
 {/*card groub 2*/}
      <div id="math-cards-2" className="d-flex justify-content-center">
-
-      <button type="button" class="btn btn-secondary btn-lg">Statistics</button>
-      <button type="button" class="btn btn-info btn-lg">Mensuration</button>
-
+      <button id="stat" type="button" className="btn btn-secondary btn-lg">Statistics</button>
+      <button id="mens" type="button" className="btn btn-info btn-lg">Mensuration</button>
    </div>
 
 {/*card groub 3*/}
    <div id="math-cards-3" className="d-flex justify-content-center">
-    <button type="button" class="btn btn-danger btn-lg">Trigonometry</button>
-    <button type="button" class="btn btn-success btn-lg">Sets & Logic</button>
+    <button id="trig" type="button" className="btn btn-danger btn-lg">Trigonometry</button>
+    <button id="s&l" type="button" className="btn btn-success btn-lg">Sets & Logic</button>
 </div>
 {/*card groub end*/}
 
@@ -253,68 +274,27 @@ else
 
        </div>
      )
-
-  }
-
-
-  if(this.state.status == 0){
-    return (
-        <div>
-
-        <div className="container-fluid">
-          <Header/>
-        </div>
-
-
-        <div  id="mode-main" height="200" className="jumbotron container-fluid">
-
-        <div className="container d-flex justify-content-center">
-           <h1 id="sl">Select Exam Mode</h1>
-        </div>
-
-
-        <div className="container-fluid d-flex justify-content-center">
-
-        <div id="card1" class="card text-white bg-primary mb-3" >
-          <div class="card-header">Mode A</div>
-          <div class="card-body">
-          <h5 class="card-title">Practice Exam Questions</h5>
-          <p class="card-text">In this mode, the exam is untimed. Practice questions pertaning to different math topics are available.</p>
-          <button id="card1-btn" type="button" class="btn btn-outline-dark">Launch</button>
-         </div>
-         </div>
-
-
-        <div id="card2" class="card text-white bg-success mb-3">
-          <div class="card-header">Mode B</div>
-          <div class="card-body">
-          <h5 class="card-title">Mock Exam</h5>
-          <p class="card-text">In this mode, the exam is timed and results are computed strategically to determing your strength and/or weakneses</p>
-          <button id="card2-btn" type="button" class="btn btn-outline-dark">Launch</button>
-        </div>
-      </div>
-      </div>
-</div>
-
-      <div id="mode-ft" className="container-fluid">
-        <Footer/>
-      </div>
-
-       </div>
-	   );
    }
-
-
-
-
-
-
-   else{
-     return(<div></div>)
-   }
-
-	}
 }
 
+//  else if(this.state.mode == 1) //Mock exam mode clicked
+
+
+   else if(this.state.status == -1){
+        return(<div>
+         <div className="container-fluid">
+           <Header/>
+         </div>
+         </div>
+       )
+   }
+
+
+
+   else{return(<div></div>)}// if status code isn't of return empty page
+
+	}
+
+}
 
 export default Mode;

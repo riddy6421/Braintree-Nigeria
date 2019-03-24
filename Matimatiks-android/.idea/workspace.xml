@@ -11,11 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89ce57b9-b4ae-4c07-8a61-fa55e4e7338f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Mode/Mode.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Mode/Mode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="89ce57b9-b4ae-4c07-8a61-fa55e4e7338f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -2460,7 +2456,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -2616,7 +2612,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16174497" />

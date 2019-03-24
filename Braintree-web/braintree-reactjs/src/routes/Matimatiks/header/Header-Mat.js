@@ -5,10 +5,9 @@ import matlogo from '../../braintree/downloads/mat_img_launch.png';
 import braintreelogo from '../../braintree/homepage/Blogo.png';
 import { NavLink } from 'react-router-dom';
 import firebase, { auth, provider } from '../firebase-config.js';
+import Mode from '../Mode/Mode.js'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import $ from 'jquery';
-import Modal from 'react-bootstrap';
-
 
 
 const uiConfig = {
@@ -30,17 +29,116 @@ class Header_Mat extends Component {
 
 
 
+  constructor() {
+   super();
+   this.state = {
+     name: null,
+     LoggedIn:false
+   }
+
+ }
+
+  componentWillMount(){
+
+  }
 
   componentDidMount(){
-
     document.body.style.backgroundColor = "white";
+  }
+
+  componentDidUpdate(){
+
+    var that = this;
+
+    if(that.props.login){
+
+        var firstname = []
+        var username
+        firstname = that.props.name.split(" ")//get firstname
+
+        username = firstname[0]
+
+        if(username != null){
+           var mSignin = document.getElementById("bt-li");
+
+           mSignin.innerHTML = "Hi "+username
+
+        /*replace the sign in dropdown with account properties */
+        $('#signin-cont').replaceWith('<div class="dropdown-menu"><a id="item1" class="dropdown-item" href="#">Progress Report</a><a id="item2" class="dropdown-item" href="#">Settings</a><a id="item3" class="dropdown-item" href="#">Help</a><div class="dropdown-divider"></div><button id="item4" type="button" class="btn">Log out</button></div>');
+
+        var item1 = document.getElementById('item1');
+        var item2 = document.getElementById('item2');
+        var item3 = document.getElementById('item3');
+        var item4 = document.getElementById('item4');
+
+        /*set listeners to the properties buttons*/
+        item1.addEventListener("mouseover", function () {
+
+           item1.style.color = "#40bcff"
+
+        })
+        item1.addEventListener("mouseout", function () {
+
+         item1.style.color = "black"
+
+        })
+
+        item2.addEventListener("mouseover", function () {
+
+           item2.style.color = "#40bcff"
+
+        })
+        item2.addEventListener("mouseout", function () {
+
+         item2.style.color = "black"
+
+        })
+
+        item3.addEventListener("mouseover", function () {
+
+           item3.style.color = "#40bcff"
+
+        })
+        item3.addEventListener("mouseout", function () {
+
+         item3.style.color = "black"
+
+        })
+
+        item4.addEventListener("mouseover", function () {
+
+           item4.style.color = "#40bcff"
+
+        })
+        item4.addEventListener("mouseout", function () {
+
+         item4.style.color = "black"
+
+        })
+
+        item4.addEventListener("click", function () {
+
+          firebase.auth().signOut().then(function() {
+            console.log("signout successful")
+          }).catch(function(error) {
+            console.log("signout unsuccessful")
+       });
+
+         window.location.reload()
+      })//signOut
+
+      }
+
+    }
 
   }
 
   render() {
-    var that = this;
+
     return (
+
   <div>{/* root div begin*/}
+
 
    <div id="mat-hd" className="container-fluid">
 
@@ -95,9 +193,6 @@ class Header_Mat extends Component {
     );
   }
 
-
-
 }
-
 
 export default Header_Mat;

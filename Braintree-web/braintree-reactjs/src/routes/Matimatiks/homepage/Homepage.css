@@ -167,6 +167,7 @@ margin-left: -44%;
 	background-color: #40bcff;
 	margin-top: 0.04%;
 	font-size:85px;
+	height: 100vh
 }
 #naij{
 	margin-left: 2px;
@@ -229,7 +230,7 @@ margin-right: 17%;
 }
 
 #by{
-  margin-top: -31%;
+  margin-top: -35%;
   font-size: 20px;
 }
 
@@ -264,7 +265,7 @@ margin-right: 17%;
 
 #mat-foot{
 
-	margin-top: 5%;
+	margin-top: 7%;
 }
 
 #spin{
@@ -284,4 +285,8 @@ margin-right: 17%;
 	width: 60px;
 }
 
+}
+
+#mat-title{
+	height: 100vh
 }

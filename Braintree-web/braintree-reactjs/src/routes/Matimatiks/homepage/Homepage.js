@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../header/Header-Mat';
+import Header from '../header/Header-Mat.js';
 import Footer from '../../Footer/Footer'
 import Mode from '../Mode/Mode.js'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -39,10 +39,10 @@ class Homepage extends Component {
    constructor() {
     super();
     this.state = {
-      user: null,
+      username: null,
       counter:0,
       ques:0,
-      shown:0,
+      LoggedIn:false,
       currentUser:0
     }
 
@@ -61,23 +61,12 @@ class Homepage extends Component {
       if (user) {
 
        context.setState({currentUser:1})
+       context.setState({LoggedIn:true})
+       context.setState({username:user.displayName})
 
       } else {
 
           context.setState({currentUser:2})
-
-          var y = document.getElementById("mat-title");
-          var size = window.innerWidth;
-
-         if(size >= 1200 && size < 1900 ){
-           y.style.height = window.screen.availHeight+"px";
-         }
-
-
-         var x =window.innerHeight;
-         var j = document.getElementById("mat-title");
-         var z = x-88
-         j.style.height=z+"px";
 
          var foot1 = document.getElementById("heading1");
          var foot2 = document.getElementById("heading2");
@@ -214,7 +203,6 @@ class Homepage extends Component {
 
     console.log("componentDidMount()")
 
-
 }
   render() {
 
@@ -238,15 +226,25 @@ if(this.state.currentUser == 0){
 
 
  else if (this.state.currentUser == 1){
-   return (<Mode/>)
+        if(this.state.username != null){
+            
+          return (
+            <div>
 
+            <Mode login={this.state.LoggedIn} name={this.state.username}/>
+
+            </div>
+          )
+        }
+      else
+        return(<div></div>) //shoow error message
  }
  else if (this.state.currentUser == 2){
 
    return (
  <div id="root">{/* root div begin */}
    <div className="container-fluid">
-     <Header/>
+     <Header login={this.state.LoggedIn}/>
    </div>
 
    <div id="main">
