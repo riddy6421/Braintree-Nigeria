@@ -39,8 +39,31 @@
 @media (min-width: 1200px) {
 
 #mode2{
-  height: 60%;
+  height: 70%;
   width: 50%;
+  visibility: hidden;
+  margin-top: -2%;
+}
+
+
+#ques-text{
+margin-left: 3%;
+font-size: 50px;
+margin-top: -2%;
+}
+
+#bt1{
+  width: 10%;
+}
+
+#bt2,#bt3,#bt4{
+  margin-left: 7%;
+  width: 10%;
+}
+
+#radio{
+  margin-top: 4%;
+  visibility: hidden;
 }
 
 
@@ -49,4 +72,8 @@
 /*static styling*/
 #quest-cont{
   height: 100vh;
+}
+
+#roller{
+  margin-top: 1vh;
 }

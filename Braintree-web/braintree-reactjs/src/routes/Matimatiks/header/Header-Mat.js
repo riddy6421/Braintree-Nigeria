@@ -34,13 +34,13 @@ class Header_Mat extends Component {
    this.state = {
      name: null,
      LoggedIn:false,
-     increment:0
+     dummy:0
    }
 
  }
 
   componentWillMount(){
-   this.setState({increment:1})
+   this.setState({dummy:1})
   }
 
   componentDidMount(){
@@ -53,8 +53,6 @@ class Header_Mat extends Component {
     var that = this;
 
     if(that.props.login){
-
-        alert("good")
 
         var firstname = []
         var username
@@ -139,10 +137,10 @@ class Header_Mat extends Component {
 
   render() {
 
-        if(this.state.increment == 1)
+        if(this.state.dummy == 1)
            this.setState({name:this.props.user})
 
-    this.state.increment++;
+    this.state.dummy++;
 
     return (
 
