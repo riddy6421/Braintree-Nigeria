@@ -11,13 +11,13 @@ class Footer extends Component {
 
   ComponentDidMount(){
 
-    
+
   }
 
   render() {
     return (
-  <div>{/* root div begin*/}     
-       <div id="info2" className="jumbotron-fluid">
+  <div>{/* root div begin*/}
+       <div id="info2" className="container-fluid">
        <div id="row1" className="row">
          <div id="heading1" className="col"> Copyright © 2018 Braintree Nigeria.</div>
          <div id="heading2" className="col"> Legal</div>
@@ -77,8 +77,8 @@ class Footer extends Component {
 </p>
 
 <p id="doc" className="container-fluid justify-content-center"> Copyright © 2018 Braintree Nigeria.</p>
-       
-</div> 
+
+</div>
 
 
 

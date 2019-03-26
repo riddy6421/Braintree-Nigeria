@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './Mode.css';
-import Header from '../header/Header-Mat.js';
+import Header from '../header/Header-Mat';
 import Footer from '../../Footer/Footer'
 import $ from 'jquery';
 import Questions from '../Questions/Questions.js';
-
-
 
 
 class Mode extends Component {
@@ -17,9 +15,7 @@ class Mode extends Component {
 
     this.state = {
       name: null,
-      status:-1,
       mode:-1,
-      dummy:null,
       login:null,
       topic:0
     }
@@ -34,137 +30,127 @@ class Mode extends Component {
 
   componentDidMount(){
 
-  }
+        if(this.state.login && this.state.mode == -1){// page status ok?
+
+                this.setState({name:this.props.name});
+
+               var that = this
+
+                document.getElementById('card1').addEventListener("click", function(){
+
+                 $('#mode-main').addClass('animated fadeOut');//set fadeOut animation to card when button is clicked
 
 
-  componentDidUpdate(){
+                 var animationEnd = (function(el) {
+                 var animations = {
+                   animation: 'animationend',
+                   OAnimation: 'oAnimationEnd',
+                   MozAnimation: 'mozAnimationEnd',
+                   WebkitAnimation: 'webkitAnimationEnd',
+                 };
 
-    if(this.state.login && this.state.status != 0)// page status ok?
-        this.setState({status:0});
+                 for (var t in animations) {
+                   if (el.style[t] !== undefined) {
+                     return animations[t];
+                   }
+                 }
+               })(document.createElement('div'));
 
-    if(this.state.status == 0 && this.state.name == null){
+               $('#mode-main').one(animationEnd, function(){
 
-          this.setState({name:this.props.name});
+                 that.setState({mode:0})//set mode 0 clicked when animation ends
 
-           var that = this
-
-            document.getElementById('card1').addEventListener("click", function(){
-
-             $('#mode-main').addClass('animated fadeOut');//set fadeOut animation to card when button is clicked
-
-
-             var animationEnd = (function(el) {
-             var animations = {
-               animation: 'animationend',
-               OAnimation: 'oAnimationEnd',
-               MozAnimation: 'mozAnimationEnd',
-               WebkitAnimation: 'webkitAnimationEnd',
-             };
-
-             for (var t in animations) {
-               if (el.style[t] !== undefined) {
-                 return animations[t];
-               }
-             }
-           })(document.createElement('div'));
-
-           $('#mode-main').one(animationEnd, function(){
-
-             that.setState({mode:0})//set mode 0 clicked when animation ends
-
-               $('#mode2-cont').addClass('animated fadeIn');
+                   $('#mode2-cont').addClass('animated fadeIn');
 
 
-               /*Set click listeners to all topic buttons*/
-               document.getElementById('alg').addEventListener("click",function () {
+                   /*Set click listeners to all topic buttons*/
+                   document.getElementById('alg').addEventListener("click",function () {
 
-                   that.setState({topic:1})
+                       that.setState({topic:1})
 
-               })
+                   })
 
-               document.getElementById('geo').addEventListener("click",function () {
+                   document.getElementById('geo').addEventListener("click",function () {
 
-                   that.setState({topic:2})
+                       that.setState({topic:2})
 
 
 
-               })
+                   })
 
-               document.getElementById('stat').addEventListener("click",function () {
+                   document.getElementById('stat').addEventListener("click",function () {
 
-                   that.setState({topic:3})
+                       that.setState({topic:3})
 
-               })
+                   })
 
-               document.getElementById('mens').addEventListener("click",function () {
+                   document.getElementById('mens').addEventListener("click",function () {
 
-                   that.setState({topic:4})
+                       that.setState({topic:4})
 
-               })
+                   })
 
-               document.getElementById('trig').addEventListener("click",function () {
+                   document.getElementById('trig').addEventListener("click",function () {
 
-                   that.setState({topic:5})
+                       that.setState({topic:5})
 
-               })
+                   })
 
-               document.getElementById('s&l').addEventListener("click",function () {
+                   document.getElementById('s&l').addEventListener("click",function () {
 
-                   that.setState({topic:6})
+                       that.setState({topic:6})
 
-               })
+                   })
 
-           });
+               });
 
-            })//card 1 click
+                })//card 1 click
 
-            document.getElementById('card2').addEventListener("click", function(){
-              $('#mode-main').addClass('animated fadeOutLeftBig');
-
-
-              var animationEnd = (function(el) {
-              var animations = {
-                animation: 'animationend',
-                OAnimation: 'oAnimationEnd',
-                MozAnimation: 'mozAnimationEnd',
-                WebkitAnimation: 'webkitAnimationEnd',
-              };
-
-              for (var t in animations) {
-                if (el.style[t] !== undefined) {
-                  return animations[t];
-                }
-              }
-            })(document.createElement('div'));
-
-            $('#mode-main').one(animationEnd, function(){
+                document.getElementById('card2').addEventListener("click", function(){
+                  $('#mode-main').addClass('animated fadeOutLeftBig');
 
 
-             that.setState({mode:1})
+                  var animationEnd = (function(el) {
+                  var animations = {
+                    animation: 'animationend',
+                    OAnimation: 'oAnimationEnd',
+                    MozAnimation: 'mozAnimationEnd',
+                    WebkitAnimation: 'webkitAnimationEnd',
+                  };
 
+                  for (var t in animations) {
+                    if (el.style[t] !== undefined) {
+                      return animations[t];
+                    }
+                  }
+                })(document.createElement('div'));
 
-            });
+                $('#mode-main').one(animationEnd, function(){
 
-            })//card 2 click
+                 that.setState({mode:1})
 
-    }
+                });
+
+                })//card 2 click
+
+        }
 
   }
+
+
 
   render(){
-    if(this.state.dummy != "")
-       this.setState({dummy:""}) // just a dummy to make cdu fire ;)
 
-    if(this.state.status == 0 && this.state.mode == -1 ){// page status ok?
+    if(this.state.login && this.state.mode == -1){// page status ok?
 
        return (
            <div>
-           <div className="container-fluid">
+           <div>
              <Header login={this.state.login} name={this.props.name}/>
            </div>
 
 
-           <div  id="mode-main" height="200" className="jumbotron container-fluid">
+           <div id="mode-main" className="jumbotron-fluid">
 
            <div className="container d-flex justify-content-center">
               <h1 id="sl">Select Exam Mode</h1>
@@ -194,7 +180,7 @@ class Mode extends Component {
          </div>
    </div>
 
-         <div id="mode-ft" className="container-fluid">
+         <div>
            <Footer/>
          </div>
 
@@ -202,7 +188,7 @@ class Mode extends Component {
    	   );
       }
 
-else if (this.state.mode == 0 && this.state.status == 0 ){// practice question mode clicked?
+else if (this.state.login && this.state.mode == 0){// practice question mode clicked?
 
    if(this.state.topic == 1 || this.state.topic == 2 ||
       this.state.topic == 3 || this.state.topic == 4 ||
@@ -236,11 +222,11 @@ else if (this.state.mode == 0 && this.state.status == 0 ){// practice question m
      return (
        <div>
 
-       <div className="container-fluid">
+       <div>
          <Header/>
        </div>
 
-       <div id="mode2-cont" className="container-fluid jumbotron">
+       <div id="mode2-cont" className="jumbotron">
 
        <div id ="s-mode" className="d-flex justify-content-center text-primary">Practice Question Mode</div>
 
@@ -267,7 +253,7 @@ else if (this.state.mode == 0 && this.state.status == 0 ){// practice question m
 </div>
 
 
-       <div id="mode-ft" className="container-fluid">
+      <div>
          <Footer/>
        </div>
 

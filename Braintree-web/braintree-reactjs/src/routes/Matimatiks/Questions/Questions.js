@@ -49,6 +49,10 @@ class Questions extends Component {
 
                 $("#roller").css("visibility", "hidden");
                 document.getElementById('radio').style.visibility = "visible"
+                document.getElementById('head').style.visibility = "visible"
+                document.getElementById('Qno').style.visibility = "visible"
+            //    document.getElementById('next').style.visibility = "visible"
+            //    document.getElementById('prev').style.visibility = "visible"
                 img.style.visibility= "visible"
 
               }, 3000);
@@ -73,6 +77,7 @@ class Questions extends Component {
      var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[0]+".jpg"
 
      this.getfile(query,img)
+
    }
 
  }
@@ -84,13 +89,17 @@ class Questions extends Component {
 
       return(<div>
 
-        <div className="container-fluid">
+        <div>
           <Header login={this.props.login} name={this.props.name}/>
         </div>
 
+        <div id="quest-cont" className="jumbotron-fluid">
 
-
-        <div id="quest-cont" className="jumbotron">
+        <div class=" container-fluid q-label d-flex justify-content-between">
+          <button id="head" type="button" class="btn btn-primary "disabled>Practice Questions</button>
+          <button id="Qno" type="button" class="btn btn-primary "disabled>Q1</button>
+          <h1 id="dummy" className="Bootstrap heading">dummy</h1>
+        </div>
 
          <div id="roller" class="d-flex justify-content-center">
              <div class="spinner-border" role="status">
@@ -99,7 +108,17 @@ class Questions extends Component {
            <div id="ques-text">Loading...</div>
          </div>
 
-         <img id="mode2" class="rounded mx-auto d-block" alt=""/>
+
+
+        <div class="d-flex justify-content-around">
+        <a id="prev">&#10094;</a>
+         <img id="mode2" class="rounded d-block" alt=""/>
+        <a id="next">&#10095;</a>
+      </div>
+
+
+
+
 
          <div id="radio" class="d-flex justify-content-center">
 
@@ -113,7 +132,7 @@ class Questions extends Component {
         </div>
 
 
-        <div className="container-fluid">
+        <div>
           <Footer/>
         </div>
 

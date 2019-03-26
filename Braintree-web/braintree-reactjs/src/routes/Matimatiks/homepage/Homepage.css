@@ -219,6 +219,7 @@ margin-right: 17%;
 }
 
 
+
 #exampleModalLongTitle{
 
 	color: #40bcff;
@@ -230,8 +231,10 @@ margin-right: 17%;
 }
 
 #by{
-  margin-top: -35%;
+  margin-top: -38%;
   font-size: 20px;
+	color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #start{
@@ -257,14 +260,8 @@ margin-right: 17%;
 	color: Navy;
 	margin-top: 10%;
 }
-.modal-content{
-	height: 200px;
-	margin-top: 15%;
-	background-color: white;
-}
 
 #mat-foot{
-
 	margin-top: 7%;
 }
 
@@ -284,9 +281,12 @@ margin-right: 17%;
 	height: 60px;
 	width: 60px;
 }
-
+#orig-but{
+  font-family: 'Montserrat', sans-serif;
 }
-
-#mat-title{
-	height: 100vh
+}
+/*static styling*/
+#main{
+	height: 100vh;
+	background-color: #40bcff;
 }

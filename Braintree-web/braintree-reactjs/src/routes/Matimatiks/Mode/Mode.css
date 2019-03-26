@@ -45,9 +45,6 @@
   font-weight: bold;
 }
 
-#mode-ft{
-height: 25vh;
-}
 
 #heading1,#heading2,#heading3{
 margin-top: 2%;
@@ -65,6 +62,7 @@ margin-top: 2%;
 #mode2-cont{
 height: 100vh;
 width: 100%;
+background-color: white;
 }
 
 #s-mode{
@@ -75,7 +73,7 @@ font-size: 50px;
 
 #math-cards-1,#math-cards-2,#math-cards-3{
   width: 100%;
-  margin-top: 5%
+  margin-top: 5%;
 }
 
 .btn-lg{
@@ -94,9 +92,4 @@ font-size: 50px;
 #Qno{
 font-family: 'Montserrat', sans-serif;
 margin-left: 45vw;
-}
-
-#mode-ft{
-  background-color: #40bcff;
-  margin-top: -2%;
 }

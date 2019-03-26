@@ -268,66 +268,65 @@ font-size: 40px;
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
 
-body{
-	overflow-x: hidden;
-	height: 100%;
-	width: 100%;
+#mn{
+	height: 100vh;
+	width: 100vw;
 }
 
-
-.jumbotron-fluid{
-
-	width: 100%;
-
+#mlogo{
+	height: 100vh;
+	width: 100vw;
 }
 
-
-#bg{
-
- width: 100%;
-
+#main-div{
+	margin-top: -35%
 }
 
-.text-center{
-
-margin-top: -60%;
-color: white;
-font-family: 'Open Sans', sans-serif;
-font-size: 50px;
+ #main-div2{
+	margin-top: 1%
 }
 
+#main-div5{
+ margin-top: 2%
+}
 
-#btn{
-
-	margin-top: 6%;
-	width: 50%;
-	background-color: white;
-	margin-left: 24%;
+#main-text{
+	font-size: 100px;
+	color: white;
 	font-family: 'Open Sans', sans-serif;
-
+	font-weight: bold;
 }
 
-#cname{
-	color: DarkSlateBlue;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 80px;
-}
-
-
-#btn:hover{
-
-
-	background-color: DarkSlateBlue;
-
-}
-
-
-#nj{
-
+#main-text2{
+	font-size: 30px;
+	color: white;
 	font-family: 'Montserrat', sans-serif;
 }
 
+#main-text3{
+	font-size: 30px;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+}
 
+#dropdownMenuButton{
+	color: white;
+}
+
+#main-text4{
+	font-size: 30px;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic;
+}
+
+#main-btn{
+	font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	overflow-x: hidden;
+}
 
 
 }

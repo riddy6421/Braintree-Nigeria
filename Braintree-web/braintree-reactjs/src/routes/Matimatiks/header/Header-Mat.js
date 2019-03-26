@@ -6,6 +6,7 @@ import braintreelogo from '../../braintree/homepage/Blogo.png';
 import { NavLink } from 'react-router-dom';
 import firebase, { auth, provider } from '../firebase-config.js';
 import Mode from '../Mode/Mode.js'
+import logo from '../../Head/Blogo.png';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import $ from 'jquery';
 
@@ -33,119 +34,107 @@ class Header_Mat extends Component {
    super();
    this.state = {
      name: null,
-     LoggedIn:false,
-     dummy:0
+     LoggedIn:false
    }
 
  }
 
   componentWillMount(){
-   this.setState({dummy:1})
+   this.setState({LoggedIn:this.props.login})
   }
 
   componentDidMount(){
-    document.body.style.backgroundColor = "white";
-
+  //  document.body.style.backgroundColor = "white";
+  if(this.state.LoggedIn)
+     this.setState({name:this.props.name})
   }
 
   componentDidUpdate(){
+      var that = this;
+ if(that.state.name){
+    var firstname = []
 
-    var that = this;
+    firstname = that.state.name.split(" ")//get firstname
 
-    if(that.props.login){
+    var username = firstname[0]
 
-        var firstname = []
-        var username
-        firstname = that.props.name.split(" ")//get firstname
+    if(username != null){
+       var mSignin = document.getElementById("bt-li");
 
-        username = firstname[0]
+       mSignin.innerHTML = "Hi,"+username
 
-        if(username != null){
-           var mSignin = document.getElementById("bt-li");
+    /*replace the sign in dropdown with account properties */
+    $('#signin-cont').replaceWith('<div class="dropdown-menu"><a id="item1" class="dropdown-item" href="#">Progress Report</a><a id="item2" class="dropdown-item" href="#">Settings</a><a id="item3" class="dropdown-item" href="#">Help</a><div class="dropdown-divider"></div><button id="item4" type="button" class="btn">Log out</button></div>');
 
-           mSignin.innerHTML = "Hi "+username
+    var item1 = document.getElementById('item1');
+    var item2 = document.getElementById('item2');
+    var item3 = document.getElementById('item3');
+    var item4 = document.getElementById('item4');
 
-        /*replace the sign in dropdown with account properties */
-        $('#signin-cont').replaceWith('<div class="dropdown-menu"><a id="item1" class="dropdown-item" href="#">Progress Report</a><a id="item2" class="dropdown-item" href="#">Settings</a><a id="item3" class="dropdown-item" href="#">Help</a><div class="dropdown-divider"></div><button id="item4" type="button" class="btn">Log out</button></div>');
+    /*set listeners to the properties buttons*/
+    item1.addEventListener("mouseover", function () {
 
-        var item1 = document.getElementById('item1');
-        var item2 = document.getElementById('item2');
-        var item3 = document.getElementById('item3');
-        var item4 = document.getElementById('item4');
+       item1.style.color = "#40bcff"
 
-        /*set listeners to the properties buttons*/
-        item1.addEventListener("mouseover", function () {
+    })
+    item1.addEventListener("mouseout", function () {
 
-           item1.style.color = "#40bcff"
+     item1.style.color = "black"
 
-        })
-        item1.addEventListener("mouseout", function () {
+    })
 
-         item1.style.color = "black"
+    item2.addEventListener("mouseover", function () {
 
-        })
+       item2.style.color = "#40bcff"
 
-        item2.addEventListener("mouseover", function () {
+    })
+    item2.addEventListener("mouseout", function () {
 
-           item2.style.color = "#40bcff"
+     item2.style.color = "black"
 
-        })
-        item2.addEventListener("mouseout", function () {
+    })
 
-         item2.style.color = "black"
+    item3.addEventListener("mouseover", function () {
 
-        })
+       item3.style.color = "#40bcff"
 
-        item3.addEventListener("mouseover", function () {
+    })
+    item3.addEventListener("mouseout", function () {
 
-           item3.style.color = "#40bcff"
+     item3.style.color = "black"
 
-        })
-        item3.addEventListener("mouseout", function () {
+    })
 
-         item3.style.color = "black"
+    item4.addEventListener("mouseover", function () {
 
-        })
+       item4.style.color = "#40bcff"
 
-        item4.addEventListener("mouseover", function () {
+    })
+    item4.addEventListener("mouseout", function () {
 
-           item4.style.color = "#40bcff"
+     item4.style.color = "black"
 
-        })
-        item4.addEventListener("mouseout", function () {
+    })
 
-         item4.style.color = "black"
+    item4.addEventListener("click", function () {
+      firebase.auth().signOut().then(function() {
+        console.log("signout successful")
+      }).catch(function(error) {
+        console.log("signout unsuccessful: "+error)
+   });
 
-        })
-
-        item4.addEventListener("click", function () {
-
-          firebase.auth().signOut().then(function() {
-            console.log("signout successful")
-          }).catch(function(error) {
-            console.log("signout unsuccessful")
-       });
-
-         window.location.reload()
-      })//signOut
-
-      }
-
-    }
+       window.location.reload()
+  })//signOut
 
   }
+}
+}
 
   render() {
-
-        if(this.state.dummy == 1)
-           this.setState({name:this.props.user})
-
-    this.state.dummy++;
 
     return (
 
   <div>{/* root div begin*/}
-
 
    <div id="mat-hd" className="container-fluid">
 
@@ -154,28 +143,31 @@ class Header_Mat extends Component {
         <p id="mat-brand"> MATIMATIKS </p>
       </div>
 
-      <ul id="mat-op" className="list-inline">
-         <li id="mat-li1"  className="list-inline-item">
-         <div class="btn-group">
-         <button id="bt-li" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</button>
-         <div id="signin-cont" class="dropdown-menu">
-          <div id="signin-item" class="dropdown-item">
-               <div className="container">
-                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
-                 <p id="signin-rule">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
-               </div>
+
+      <div class="d-flex justify-content-end">
+
+          <div id="brand" className="container">
+            <a href="/"> <img id="logo" src={logo} className="rounded"  alt=""/></a>
           </div>
-        </div>
-         </div>
-         </li>
-        <a href="#"><li id="mat-li2" className="list-inline-item">Donate</li></a>
-        <a href="#"><li id="mat-li3" className="list-inline-item">Community</li></a>
-        <li id="mat-li4" className="list-inline-item">
-          <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
-            Downloads
-          </button>
-        </li>
-      </ul>
+
+
+             <div id="bt-li"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</div>
+             <div id="signin-cont" class="dropdown-menu">
+               <div id="signin-item" class="dropdown-item">
+                   <div className="container">
+                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+                     <p id="signin-rule">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
+                   </div>
+              </div>
+            </div>
+
+
+            <a id="bt-li2" href="#">Community</a>
+
+            <a id="bt-li3"  data-toggle="modal" data-target="#exampleModal">Downloads</a>
+
+
+      </div>
 
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

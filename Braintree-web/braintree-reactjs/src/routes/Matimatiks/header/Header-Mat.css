@@ -2,6 +2,7 @@
 @media (max-width: 359px){
 
 
+
 #matlog{
 
 width: 15%;
@@ -222,9 +223,16 @@ padding-bottom: 5px;
  /*Extra large devices (large desktops, 1200px and up)*/
  @media (min-width: 1200px) {
 
+
+ 	#logo{
+ 		width: 60px;
+ 	}
+
+
 #mat-logo{
 	width: 8%;
 	height: 8%;
+	margin-top: -1%;
 }
 
 #andlogo{
@@ -246,31 +254,31 @@ font-family: 'Montserrat', sans-serif;
 color: #40bcff;
 font-size: 30px;
 font-style:bold;
-margin-top: -5.3%;
+margin-top: -6%;
 margin-left: 8%;
 }
 
-#mat-li1,#mat-li2,#mat-li3,#mat-li4{
-	 padding: 0px 40px;
-}
+
 
 #mat-cont{
 	float: left;
 }
 
-#mat-op{
-	float: right;
-	font-family: 'Montserrat', sans-serif;
-	margin-top:-3.5%;;
-	font-size: 20px;
+
+#bt-li,#bt-li2,#bt-li3{
 	color: #40bcff;
+  font-size: 20px;
+	cursor: pointer;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 6%;
+	margin-left: 25%
 }
 
+
+
 #mat-hd{
-
-	height: 85px;
+	height: 75px;
 	background-color: white;
-
 }
 
 #signin-cont{
@@ -285,7 +293,7 @@ margin-left: 8%;
 }
 
 }
-
+/*static styling*/
 Mode{
 	display: none;
 }

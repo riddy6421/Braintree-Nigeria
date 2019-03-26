@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Company.css';
-import Header from '../../Header/Header';
+import Head from '../../Head/Head';
 import Footer from '../../Footer/Footer';
 
 
@@ -9,21 +9,13 @@ class Company extends Component {
 
   componentDidMount(){
 
-  var  x = document.getElementById("jum")
-  var  y = document.getElementById("ft")
-
- if(window.screen.availHeight >= 728){
-      x.style.height = window.screen.availHeight+"px";
-     y.style.marginTop = 60+"px";
-    }
-
   }
 
   render(){
     return (
         <div>
-        <div id="hd" className="container-fluid">
-           <Header/>
+        <div>
+           <Head color={1}/>
         </div>
 
       <div id="jum" className="jumbotron">
@@ -38,7 +30,7 @@ class Company extends Component {
       </div>
 
 
-     <div id="ft" className="container-fluid">
+     <div>
           <Footer/>
      </div>
 

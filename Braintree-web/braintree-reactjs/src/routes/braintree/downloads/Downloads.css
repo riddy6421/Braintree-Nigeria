@@ -3,12 +3,17 @@
 	background-color: white;
 	color: black;
 	font-size: 20px;
+	height: 100vh;
 }
 
 .mlogo{
 
 	height: 15%;
 	width: 8%;
+}
+
+#mat{
+	margin-top: 2%;
 }
 
 

@@ -1,0 +1,101 @@
+
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px) {
+
+}
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {
+
+
+}
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) {
+
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+
+ }
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+  #top{
+    position: fixed;
+  }
+
+
+  #brand{
+  float: left;
+  margin-top: 3px;
+  width: 100px;
+  height: 65px;
+  background-color: white;
+  border:5px solid  white  ;
+  border-radius: 10px;
+  }
+
+  #logo{
+  	width: 60px;
+  	margin-left: 6px;
+  	margin-top: 10px;
+  }
+
+
+  #list1,#list2,#list3,#list4{
+  	margin-left: 4%;
+  	font-family: 'Montserrat', sans-serif;
+  	margin-top: 2%;
+  	float: left;
+  }
+
+  #h1,#h2,#h3,#h4,#drop{
+  	color: white;
+  }
+
+  #button-addon2{
+  background-color: white;
+  }
+
+  #drop{
+    cursor: pointer;
+  }
+
+/*  #drop:hover{
+    color: Gray;
+  }
+
+  #h1:hover,#h2:hover,#h3:hover,#h4:hover{
+  	color: Gray;
+  }*/
+
+#icon{
+  color: DodgerBlue;
+}
+
+  #inp{
+  	float: right;
+  	width: 30%;
+  	margin-top: 6px;
+  }
+
+  #drop-logo{
+    width: 40%;
+    margin-top: -4%;
+    margin-left: -12%;
+  }
+
+}

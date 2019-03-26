@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './GetStarted.css';
-import Header from '../../Header/Header';
+import Head from '../../Head/Head';
 import Footer from '../../Footer/Footer';
 import matlogo from '../downloads/mat_img_launch.png';
 
@@ -12,30 +12,15 @@ class GetStarted extends Component {
 
 	componentDidMount(){
 
-    document.body.style.backgroundColor = "DarkSlateBlue";
-
-     var y = document.getElementById("ftg");
-     var a = document.getElementById("body");
-
-     console.log(window.screen.height)
-
-     console.log(a.offsetHeight)
-
-    if(window.screen.availHeight >= 728){
-      a.style.height = window.screen.availHeight+"px";
-     y.style.marginTop = 60+"px";
-    }
-
   }
 
 	  render(){
 
-
     return (
         <div>
 
-        <div className="container-fluid">
-           <Header/>
+        <div>
+           <Head color={1}/>
         </div>
 
         <div id="body" className="jumbotron">
@@ -56,7 +41,7 @@ class GetStarted extends Component {
 
          </div>
 
- <div id="ftg" className="container-fluid">
+ <div>
           <Footer/>
      </div>
 

@@ -5,7 +5,7 @@ import Mode from '../Mode/Mode.js'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import './Homepage.css';
 import firebase, { auth, provider, db} from '../firebase-config.js';
-import naija from '../../Header/nigeria.png'
+import naija from '../../Head/nigeria.png'
 import matlogo from '../../braintree/downloads/mat_img_launch.png';
 
 import Q1 from './Q1.JPG';
@@ -227,7 +227,7 @@ if(this.state.currentUser == 0){
 
  else if (this.state.currentUser == 1){
         if(this.state.username != null){
-            
+
           return (
             <div>
 
@@ -307,7 +307,7 @@ See sample tutorial Q&A's
    <div id="log" className="modal-dialog modal-lg">
    <div className="modal-content">
        <div className="container">
-         <p id="lgn">Sign In above to start</p>
+         <p id="lgn">Log In above to start</p>
          <p id="pt">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
        </div>
    </div>
@@ -316,7 +316,9 @@ See sample tutorial Q&A's
 
 </div>
 </div>
- <div id="mat-foot" className="container-fluid">
+
+
+ <div>
      <Footer/>
  </div>
 

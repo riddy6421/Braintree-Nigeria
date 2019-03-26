@@ -39,8 +39,8 @@
 @media (min-width: 1200px) {
 
 #mode2{
-  height: 70%;
-  width: 50%;
+
+  width: 40%;
   visibility: hidden;
   margin-top: -2%;
 }
@@ -53,12 +53,12 @@ margin-top: -2%;
 }
 
 #bt1{
-  width: 10%;
+  width: 8%;
 }
 
 #bt2,#bt3,#bt4{
-  margin-left: 7%;
-  width: 10%;
+  margin-left: 2.5%;
+  width: 8%;
 }
 
 #radio{
@@ -66,12 +66,50 @@ margin-top: -2%;
   visibility: hidden;
 }
 
+#next , #prev{
+  color: yellow;
+  font-weight: bold;
+  font-size: 40px;
+  cursor: pointer;
+  margin-top: 7%;
+}
+
+#next{
+  margin-left: -45%;
+}
+
+#prev{
+  margin-right: -45%;
+}
+
+#dummy{
+  visibility: hidden
+}
+
+#head{
+  width: 20%;
+  height: 10%;
+  font-size: 30px;
+  visibility: hidden;
+}
+
+#Qno{
+  width: 10%;
+  height: 10%;
+  margin-left: -10%;
+  font-size: 30px;
+  visibility: hidden;
+}
+
+
+
 
 }
 
 /*static styling*/
 #quest-cont{
   height: 100vh;
+  margin-top: 2%;
 }
 
 #roller{
