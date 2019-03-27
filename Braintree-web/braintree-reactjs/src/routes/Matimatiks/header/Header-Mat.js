@@ -188,6 +188,7 @@ class Header_Mat extends Component {
 </div>
 
    </div>
+    <hr id="hr" className="my-0"/>
   </div>
     );
   }

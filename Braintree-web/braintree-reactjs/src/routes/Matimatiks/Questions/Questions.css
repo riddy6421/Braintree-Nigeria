@@ -40,7 +40,7 @@
 
 #mode2{
 
-  width: 40%;
+  width: 65%;
   visibility: hidden;
   margin-top: -2%;
 }
@@ -62,29 +62,15 @@ margin-top: -2%;
 }
 
 #radio{
-  margin-top: 4%;
+  margin-top: 0.5%;
   visibility: hidden;
 }
 
-#next , #prev{
-  color: yellow;
-  font-weight: bold;
-  font-size: 40px;
-  cursor: pointer;
-  margin-top: 7%;
-}
-
-#next{
-  margin-left: -45%;
-}
-
-#prev{
-  margin-right: -45%;
-}
 
 #dummy{
   visibility: hidden
 }
+
 
 #head{
   width: 20%;
@@ -100,6 +86,43 @@ margin-top: -2%;
   font-size: 30px;
   visibility: hidden;
 }
+
+.triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-right: 50px solid black;
+	border-bottom: 25px solid transparent;
+  margin-top: 15%;
+  margin-right:  -17%;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.triangle-left:hover{
+  opacity: 0.5;
+  filter: alpha(opacity=50)
+}
+
+.triangle-right:hover{
+  opacity: 0.5;
+  filter: alpha(opacity=50)
+}
+
+
+
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-left: 50px solid black;
+	border-bottom: 25px solid transparent;
+  margin-top: 15%;
+  margin-left:  -17%;
+  cursor: pointer;
+  visibility: hidden;
+}
+
 
 
 

@@ -267,7 +267,7 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
 
    else if(this.state.status == -1){
         return(<div>
-         <div className="container-fluid">
+         <div>
            <Header/>
          </div>
          </div>
