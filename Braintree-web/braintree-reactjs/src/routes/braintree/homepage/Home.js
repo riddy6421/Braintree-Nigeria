@@ -15,8 +15,10 @@ class Home extends Component {
 
 
   componentDidMount(){
+
    document.getElementById("main-btn").addEventListener("click",function () {
-     window.location.href="/getStarted"
+   window.location.href="/getStarted"
+
    })
 
   }

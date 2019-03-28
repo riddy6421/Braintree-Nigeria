@@ -52,6 +52,20 @@ font-size: 50px;
 margin-top: -2%;
 }
 
+#load-ques{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  display: none;
+  margin-top: 15%;
+  margin-left: -5%;
+}
+
+#ques-spinner{
+  margin-left: 45vw;
+  margin-top: 12%;
+  display: none;
+}
+
 #bt1{
   width: 8%;
 }
@@ -66,13 +80,12 @@ margin-top: -2%;
   visibility: hidden;
 }
 
-
-#dummy{
-  visibility: hidden
+#head{
+  background-color:DarkBlue;
+  color: white;
 }
 
-
-#head{
+#head,#topic{
   width: 20%;
   height: 10%;
   font-size: 30px;
@@ -82,9 +95,11 @@ margin-top: -2%;
 #Qno{
   width: 10%;
   height: 10%;
-  margin-left: -10%;
+  margin-left: -1%;
+  color: white;
   font-size: 30px;
   visibility: hidden;
+  background-color:DarkBlue;
 }
 
 .triangle-left {

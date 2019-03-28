@@ -123,7 +123,9 @@ class Header_Mat extends Component {
         console.log("signout unsuccessful: "+error)
    });
 
+
        window.location.reload()
+       alert("You are logging out. Continue?")
   })//signOut
 
   }

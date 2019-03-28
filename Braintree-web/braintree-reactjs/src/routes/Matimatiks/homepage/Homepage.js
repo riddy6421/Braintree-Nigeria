@@ -52,7 +52,6 @@ class Homepage extends Component {
   componentWillMount(){
 
  console.log("componentWillMount()")
-
  /*Check if user is signed in*/
   var context = this
 
@@ -203,12 +202,14 @@ class Homepage extends Component {
 
     console.log("componentDidMount()")
 
+
+
 }
   render() {
 
 // eslint-disable-next-line
   console.log("render()");
-
+    
 if(this.state.currentUser == 0){
        return(
          <div>

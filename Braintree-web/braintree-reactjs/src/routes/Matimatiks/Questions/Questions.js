@@ -35,7 +35,8 @@ class Questions extends Component {
  getfile(query, img){
    var that = this;
    var num =  that.state.Qno;
-   var nof = that.state.random.length;
+   var nof = that.state.random.length;;
+   var click = that.state.click;
    this.state.storage.child(query).getDownloadURL().then(function(url) {
    // `url` is the download URL for 'images/stars.jpg'
              // This can be downloaded directly:
@@ -47,11 +48,9 @@ class Questions extends Component {
              xhr.open('GET', url);
              xhr.send();
 
-
-             // Or inserted into an <img> element:
-             img.src = url;
-
   if(that.state.start==0){
+    // Or inserted into an <img> element:
+    img.src = url;
               setTimeout(function(){
 
                 img.style.visibility= "visible"
@@ -61,7 +60,7 @@ class Questions extends Component {
                     document.getElementById('radio').style.visibility = "visible"
                     document.getElementById('head').style.visibility = "visible"
                     document.getElementById('Qno').style.visibility = "visible"
-
+                    document.getElementById('topic').style.visibility = "visible"
 
                   document.getElementById('Qno').innerHTML = "Q"+(num+1);
 
@@ -83,7 +82,17 @@ class Questions extends Component {
 }
 
 else{
+  img.src = null;
+  document.getElementById('radio').style.visibility = "hidden"
   document.getElementById('Qno').innerHTML = "Q"+(num+1);
+  document.getElementById('ques-spinner').style.display = "block"
+  document.getElementById('load-ques').style.display = "block"
+
+   setTimeout(function(){
+   img.src = url
+   $('#mode2').addClass('animated fadeIn');
+   document.getElementById('ques-spinner').style.display = "none"
+   document.getElementById('load-ques').style.display = "none"
 
     if(num > 0){
        document.getElementById('prv').style.visibility = "visible"
@@ -96,6 +105,14 @@ else{
         document.getElementById('nxt').style.visibility = "visible";
     else
         document.getElementById('nxt').style.visibility = "hidden"
+},500);
+
+
+setTimeout(function(){
+   document.getElementById('radio').style.visibility = "visible"
+    $('#radio').addClass('animated fadeIn');
+},700)
+
 
 }
 
@@ -127,8 +144,9 @@ prevOperation(){
   this.state.start++;
 
   if(num >= 0){
-    if(num > 0)
+    if(num > 0){
       this.state.Qno--;
+    }
     var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[num]+".jpg"
     this.getfile(query,img)
   }
@@ -139,6 +157,8 @@ prevOperation(){
    if(this.state.mode == 0 && this.state.topic == 1){
 
       document.getElementById('Qno').innerHTML = "Q"+(this.state.Qno+1);
+
+      document.getElementById('topic').innerHTML = "Algebra"
 
      var img = document.getElementById('mode2');
 
@@ -174,9 +194,9 @@ prevOperation(){
         <div id="quest-cont" className="jumbotron-fluid">
 
         <div class="container-fluid q-label d-flex justify-content-between">
-          <button id="head" type="button" class="btn btn-primary "disabled>Practice Questions</button>
-          <button id="Qno" type="button" class="btn btn-primary "disabled></button>
-          <h1 id="dummy" className="Bootstrap heading">dummy</h1>
+          <button id="head" type="button" class="btn "disabled>Practice Questions</button>
+          <button id="Qno" type="button" class="btn"disabled></button>
+          <button id="topic" type="button" class="btn btn-primary "disabled></button>
         </div>
 
          <div id="roller" class="d-flex justify-content-center">
@@ -191,7 +211,14 @@ prevOperation(){
 
           <div  id="prv" className="triangle-left"></div>
 
+          <div id="ques-spinner" class="spinner-grow" role="status">
+              <span class="sr-only">Loading...</span>
+          </div>
+
+              <p id ="load-ques">Loading...</p>
+
           <img id="mode2"  className="rounded mx-auto d-block" alt=""/>
+
 
            <div id="nxt" className="triangle-right"></div>
 
