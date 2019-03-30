@@ -74,8 +74,6 @@ class Mode extends Component {
 
                        that.setState({topic:2})
 
-
-
                    })
 
                    document.getElementById('stat').addEventListener("click",function () {

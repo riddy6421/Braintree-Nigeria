@@ -12,9 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89ce57b9-b4ae-4c07-8a61-fa55e4e7338f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Mode/Mode.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Mode/Mode.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Questions/Questions.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Questions/Questions.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Questions/Questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/Questions/Questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/homepage/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/Matimatiks/homepage/Homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Braintree-web/braintree-reactjs/src/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,11 +40,13 @@
     <session id="-926938850">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="2" />
           <entry key="project.open.time.24" value="1" />
@@ -51,7 +54,7 @@
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.38" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -110,8 +113,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/matimatiks/matimatiks/Recommendation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+            <state relative-caret-position="17">
+              <caret line="121" column="19" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -165,12 +168,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="578">
               <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="68" />
             </state>
           </provider>
-          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
     </leaf>
@@ -2462,7 +2465,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -2474,7 +2477,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2506,6 +2508,7 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2618,7 +2621,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16174497" />
@@ -2769,17 +2772,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="68" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/matimatiks/matimatiks/Recommendation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        <state relative-caret-position="17">
+          <caret line="121" column="19" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
         </state>
       </provider>
     </entry>
