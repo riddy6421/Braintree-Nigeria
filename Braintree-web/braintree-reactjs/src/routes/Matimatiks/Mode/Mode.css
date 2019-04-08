@@ -45,6 +45,14 @@
   font-weight: bold;
 }
 
+#neg{
+margin-top: 10%;
+}
+
+#close-btn{
+width: 25%;
+font-family: 'Montserrat', sans-serif;
+}
 
 #heading1,#heading2,#heading3{
 margin-top: 2%;
@@ -65,6 +73,10 @@ width: 100%;
 background-color: white;
 }
 
+#card-exam{
+  margin-top: 10%;
+}
+
 #s-mode{
 width: 100%;
 font-family: 'Montserrat', sans-serif;
@@ -79,6 +91,17 @@ font-size: 50px;
 .btn-lg{
   width: 40%;
 }
+
+#bg{
+  margin-top: 10%;
+}
+
+#modal-hd{
+  background-color: #40bcff;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
 
 
 }

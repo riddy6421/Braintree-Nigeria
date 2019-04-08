@@ -1,5 +1,6 @@
 package matimatiks.matimatiks;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -246,10 +247,11 @@ public class Questions extends AppCompatActivity implements RandomGen {
          *
          */
         options.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                rb = (RadioButton) group.findViewById(checkedId);
+                rb =  group.findViewById(checkedId);
 
                 if (rb != null) {
                     if (rb.isChecked()) {
@@ -1787,6 +1789,7 @@ public class Questions extends AppCompatActivity implements RandomGen {
     /**
      *
      */
+    @SuppressLint("ClickableViewAccessibility")
     public void parentLayoutswipeGesture() {
 
         relativeLayout.setOnTouchListener(new OnSwipeTouchListener(this) {
@@ -1912,6 +1915,7 @@ public class Questions extends AppCompatActivity implements RandomGen {
     /**
      *
      */
+    @SuppressLint("ClickableViewAccessibility")
     public void B_imagebackgroundGesture() {
 
         B_Image.setOnTouchListener(new OnSwipeTouchListener(this) {

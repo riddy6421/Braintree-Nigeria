@@ -4,7 +4,7 @@ import Footer from '../../Footer/Footer'
 import Mode from '../Mode/Mode.js'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import './Homepage.css';
-import firebase, { auth, provider, db} from '../firebase-config.js';
+import { onAuth} from '../firebase-config.js';
 import naija from '../../Head/nigeria.png'
 import matlogo from '../../braintree/downloads/mat_img_launch.png';
 
@@ -12,26 +12,6 @@ import Q1 from './Q1.JPG';
 import Q2 from './Q2.jpg';
 import A1 from './A1.jpg';
 import A2 from './A2.jpg';
-
-
-// Disable deprecated features
-db.settings({
-  timestampsInSnapshots: true
-});
-
-
-const uiConfig = {
-  // Popup signin flow rather than redirect flow.
-  signInFlow: 'popup',
-  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-//  signInSuccessUrl: '/',
-  signInOptions: [
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-  ]
-};
 
 
 class Homepage extends Component {
@@ -55,7 +35,7 @@ class Homepage extends Component {
  /*Check if user is signed in*/
   var context = this
 
-  firebase.auth().onAuthStateChanged(function(user) {
+  onAuth.onAuthStateChanged(function(user) {
      console.log("componentDidMount() firebase function")
       if (user) {
 
@@ -209,7 +189,7 @@ class Homepage extends Component {
 
 // eslint-disable-next-line
   console.log("render()");
-    
+
 if(this.state.currentUser == 0){
        return(
          <div>

@@ -4,9 +4,15 @@ import Footer from '../../Footer/Footer'
 import './Questions.css';
 import correct from  './correct.png';
 import wrong from  './wrong.png';
+import Mode from '../Mode/Mode.js'
 import $ from 'jquery';
-import firebase, { auth, provider, db} from '../firebase-config.js';
+import Modal from 'react-bootstrap/Modal'
+import {storage, auth, db} from '../firebase-config.js';
 
+// Disable deprecated features
+db.settings({
+  timestampsInSnapshots: true
+});
 
 class Questions extends Component {
 
@@ -19,6 +25,9 @@ class Questions extends Component {
       mode:-1,
       topic:-1,
       visited:null,
+      continue:-1,
+      answer_map:null,
+      unanswered:null,
       start:0,
       Qno:-1,
       random:null
@@ -30,23 +39,197 @@ class Questions extends Component {
    this.setClickListeners = this.setClickListeners.bind(this);
    this.Response = this.Response.bind(this);
    this.processResponse = this.processResponse.bind(this);
+   this.setTimer = this.setTimer.bind(this);
+   this.poppulateUnanswered = this.poppulateUnanswered.bind(this);
   }
 
 
   componentWillMount(){
-   this.setState({storage:firebase.storage().ref()})
+   this.setState({storage:storage.ref()})
    this.setState({mode:this.props.mode})
    this.setState({topic:this.props.topic})
    this.setState({random:this.props.rand})
    this.setState({Qno:0})
-   this.setState({db:firebase.firestore()})
+   this.setState({continue:this.props.continue})
+   this.setState({db:db})
+   this.setState({answer_map:new Map()})
+   this.setState({visited:new Map()})
+   this.setState({unanswered:false})
 }
 
+
+componentDidMount(){
+  var that = this
+  window.scrollTo(0, 20);
+
+  for(var i=0 ; i < this.state.random.length; i++)
+       this.state.visited.set(i,false)
+
+  $(window).on('beforeunload', function(){
+
+     return '';
+ })
+
+  if(this.state.mode == 0 || this.state.mode == 1){
+    this.setClickListeners();
+
+     document.getElementById('Qno').innerHTML = "Q"+(this.state.Qno+1);
+
+     var img = document.getElementById('mode2');
+
+     if(this.state.topic == 1){//Algebra
+       document.getElementById("ques-head").innerHTML = "Practice Questions"
+       document.getElementById('topic').innerHTML = "Algebra"
+       var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[this.state.Qno]+".jpg"
+    }
+
+   //// TODO: insert other topics
+
+ else if(this.state.continue == 1){
+   $('#v-answer').replaceWith('<a id="exit">Exit exam session</a>')
+   document.getElementById('ques-head').innerHTML = "Mock Exam"
+   document.getElementById('topic').innerHTML = "Starting..."
+   document.getElementById('topic').style.backgroundColor = "DarkBlue";
+   document.getElementById('topic').style.borderColor = "DarkBlue";
+   var query = "Waec-Jamb/Takemockexammode/WAEC/Questions/Q"+this.state.random[this.state.Qno]+".JPG"
+
+   this.setTimer(3000) //setTimer
+
+    document.getElementById("exit").addEventListener("click", function () {
+
+       window.location.href="/Matimatiks"
+
+    })
+
+    document.getElementById("done").addEventListener("click", function () {
+
+      document.getElementById('result-modal').style.display = "block"
+      that.poppulateUnanswered()
+
+    })
+
+ }
+    this.displayQuestion(query,img)
+
+    document.getElementById("nxt").addEventListener("click", function () {
+          that.nextOperation()
+    })
+
+    document.getElementById("prv").addEventListener("click", function () {
+          that.prevOperation()
+    })
+
+  }
+
+}
+
+
+componentDidUpdate(){
+
+}
+
+poppulateUnanswered(){
+  var pgh = [], node = []
+  var len = this.state.visited.size
+  var that = this
+
+  var img = document.getElementById('mode2');
+
+  var element = document.getElementById('result-list')
+  var modal = document.getElementById('result-modal')
+  var cancel = document.getElementById('result-cancel')
+
+
+
+  for(var i=0; i<len; i++){
+
+      if(this.state.visited.get(i) == false){
+
+        var ids = "p "+(i+1)
+
+        pgh.push(document.createElement("li"))
+        pgh[i].setAttribute("id",ids)
+        pgh[i].setAttribute("style","margin-bottom:10px;")
+        node.push(document.createTextNode("Q "+(i+1)))
+        pgh[i].appendChild(node[i])
+        element.appendChild(pgh[i])
+
+      }
+
+  }
+
+  document.getElementById("result-list").addEventListener("mouseover", function(e) {
+            if(e.target && e.target.nodeName == "LI")
+              document.getElementById(e.target.id).style.color="#40bcff"
+});
+
+document.getElementById("result-list").addEventListener("mouseout", function(e) {
+          if(e.target && e.target.nodeName == "LI")
+            document.getElementById(e.target.id).style.color="black"
+});
+
+document.getElementById("result-list").addEventListener("click", function(e) {
+          if(e.target && e.target.nodeName == "LI"){
+
+            var value = e.target.id.split(" ")[1]
+
+             that.setState({Qno:(value-1)})
+             that.setState({unanswered:true})
+
+             var img = document.getElementById('mode2');
+             var query = "Waec-Jamb/Takemockexammode/WAEC/Questions/Q"+that.state.random[that.state.Qno]+".JPG"
+
+             document.getElementById('ques-spinner').style.display = "block"
+             document.getElementById('load-ques').style.display = "block"
+
+             img.src = null;
+             img.style.visibility = "hidden"
+
+               that.displayQuestion(query,img)
+
+             for(var j=0; j<pgh.length; j++){
+                  if(document.getElementById("p "+(j+1)) != null)
+                      element.removeChild(document.getElementById("p "+(j+1)))
+             }
+
+
+             modal.style.display = "none";
+
+          }
+
+});
+
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+       for(var j=0; j<pgh.length; j++)
+           element.removeChild(document.getElementById("p "+(j+1)))
+
+      modal.style.display = "none";
+    }
+  }
+
+
+  cancel.onclick = function() {
+     for(var j=0; j<pgh.length; j++)
+         element.removeChild(document.getElementById("p "+(j+1)))
+
+    modal.style.display = "none";
+
+  }
+
+}
+
+
  displayQuestion(query, img){
+
    var that = this;
-   var num =  that.state.Qno;
    var nof = that.state.random.length;;
    var click = that.state.click;
+
+   window.scrollTo(0, 20);
+
    this.state.storage.child(query).getDownloadURL().then(function(url) {
    // `url` is the download URL for 'images/stars.jpg'
              // This can be downloaded directly:
@@ -55,11 +238,12 @@ class Questions extends Component {
              xhr.onload = function(event) {
                var blob = xhr.response;
              };
+
              xhr.open('GET', url);
              xhr.send();
 
+
   if(that.state.start==0){
-    // Or inserted into an <img> element:
 
               setTimeout(function(){
                 img.src = url;
@@ -68,58 +252,71 @@ class Questions extends Component {
 
                     document.getElementById('roller').style.visibility = "hidden"
                     document.getElementById('radio').style.visibility = "visible"
-                    document.getElementById('head').style.visibility = "visible"
+                    document.getElementById('ques-head').style.visibility = "visible"
                     document.getElementById('Qno').style.visibility = "visible"
                     document.getElementById('topic').style.visibility = "visible"
 
-                  document.getElementById('Qno').innerHTML = "Q"+(num+1);
+                    document.getElementById('Qno').innerHTML = "Q"+(that.state.Qno+1);
 
-                    if(num > 0){
+
+                    if(that.state.mode == 1){
+                      document.getElementById('exit').style.visibility = "visible"
+                      document.getElementById('done').style.visibility = "visible"
+
+                      if(that.state.unanswered){
+                        document.getElementById('ques-spinner').style.display = "none"
+                        document.getElementById('load-ques').style.display = "none"
+                      }
+                    }//Mock Exam Mode
+
+
+                    /*UI rendering for next and previous buttons*/
+                    if(that.state.Qno > 0){
                        document.getElementById('prv').style.visibility = "visible"
                     }
                     else{
                         document.getElementById('prv').style.visibility = "hidden"
                     }
 
-                    if(num < (nof-1))
+                    if(that.state.Qno < (nof-1))
                         document.getElementById('nxt').style.visibility = "visible";
                     else
                         document.getElementById('nxt').style.visibility = "hidden"
 
-
-              }, 2000);
+              }, 700);
 
 
               setTimeout(function(){
                 document.getElementById('ques-spinner').style.display = "none"
                 document.getElementById('load-ques').style.display = "none"
-              },2000)
-
+              },700)
 
 }
 
 else{
-  document.getElementById('Qno').innerHTML = "Q"+(num+1);
+
+  document.getElementById('Qno').innerHTML = "Q"+(that.state.Qno+1);
   document.getElementById('ques-spinner').style.display = "block"
   document.getElementById('load-ques').style.display = "block"
 
    setTimeout(function(){
-   img.style.visibility = "visible"
-   img.src = url
+
+       img.src = url
+       img.style.visibility = "visible"
 
    $('#mode2').addClass('animated fadeIn');
 
    document.getElementById('ques-spinner').style.display = "none"
    document.getElementById('load-ques').style.display = "none"
 
-    if(num > 0){
+    if(that.state.Qno> 0){
        document.getElementById('prv').style.visibility = "visible"
     }
     else{
         document.getElementById('prv').style.visibility = "hidden"
     }
 
-    if(num < (nof-1))
+    if(that.state.Qno< (nof-1))
         document.getElementById('nxt').style.visibility = "visible";
     else
         document.getElementById('nxt').style.visibility = "hidden"
@@ -135,7 +332,6 @@ setTimeout(function(){
 
 }
 
-window.scrollTo(0, 0);
 
 }).catch(function(error) {
   // Handle any error
@@ -148,6 +344,7 @@ window.scrollTo(0, 0);
 displayAnswer(query, img){
 
   document.getElementById('Qno').innerHTML = "A"+((this.state.Qno)+1);
+
   document.getElementById('ques-spinner').style.display = "block"
   document.getElementById('load-ques').style.display = "block"
   document.getElementById('radio').style.visibility = "hidden"
@@ -182,28 +379,40 @@ displayAnswer(query, img){
  // Handle any error
 
 });
-window.scrollTo(0, 100);
+
 }
 
   Response(value){
   // Get the modal
-  var modal = document.getElementById('ques-Modal');
+  var modal = document.getElementById('bg-modal');
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
 
-
      if(value){
        document.getElementById('ques-value').innerHTML = "Correct"
        document.getElementById('response').src = correct
+
+       if(this.state.mode == 1){
+          modal.style.visibility = "hidden"
+          this.state.answer_map.set((this.state.Qno+1),value)//set question to the latest answered value in exam mode
+       }
+
      }
 
     else{
-      document.getElementById('ques-value').innerHTML = "Wrong"
+      document.getElementById('ques-value').innerHTML = "Incorrect"
       document.getElementById('response').src = wrong
+
+      if(this.state.mode == 1){
+         modal.style.visibility = "hidden"
+         this.state.answer_map.set((this.state.Qno+1),value)//set question to the latest answered value in exam mode
+      }
+
     }
 
-     $('#ques-Modal').addClass('animated bounceInDown')
+
+     $('#bg-modal').addClass('animated bounceInDown')
 
 // When the user clicks an answer, open the modal
      modal.style.display = "block";
@@ -226,7 +435,6 @@ window.scrollTo(0, 100);
 
 /*Next button logic*/
 nextOperation(){
-  var num =  this.state.Qno;
   var nof = this.state.random.length;
   var img = document.getElementById('mode2');
   this.state.start++;
@@ -235,23 +443,30 @@ nextOperation(){
   img.style.visibility = "hidden"
   document.getElementById('radio').style.visibility = "hidden"
 
-
-
-if(num < nof){
+if(this.state.Qno < nof){
   this.state.Qno++;
-  var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[num]+".jpg"
+
+  if(this.state.mode == 0){
+    var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[this.state.Qno]+".jpg"
+
+    if(this.state.visited[this.state.Qno])
+       document.getElementById('v-answer').style.visibility = "visible"
+   else
+      document.getElementById('v-answer').style.visibility = "hidden"
+  }
+
+  else if (this.state.mode == 1){
+    var query = "Waec-Jamb/Takemockexammode/WAEC/Questions/Q"+this.state.random[this.state.Qno]+".JPG"
+  }
+
+
   this.displayQuestion(query,img)
 
-  if(this.state.visited[this.state.Qno])
-     document.getElementById('v-answer').style.visibility = "visible"
- else
-    document.getElementById('v-answer').style.visibility = "hidden"
 }
 }
 
 /*previous button logic*/
 prevOperation(){
-  var num =  this.state.Qno;
   var nof = this.state.random.length
   var img = document.getElementById('mode2');
   this.state.start++;
@@ -260,20 +475,68 @@ prevOperation(){
   img.style.visibility = "hidden"
   document.getElementById('radio').style.visibility = "hidden"
 
+  if(this.state.Qno >= 0){
 
-
-  if(num >= 0){
-    if(num > 0){
+    if(this.state.Qno > 0){
       this.state.Qno--;
     }
-    var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[num]+".jpg"
-    this.displayQuestion(query,img)
 
-    if(this.state.visited[this.state.Qno])
+   if(this.state.mode == 0){
+     var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[this.state.Qno]+".jpg"
+
+     if(this.state.visited[this.state.Qno])
        document.getElementById('v-answer').style.visibility = "visible"
-   else
+    else
       document.getElementById('v-answer').style.visibility = "hidden"
+}
+      else if (this.state.mode == 1){
+        var query = "Waec-Jamb/Takemockexammode/WAEC/Questions/Q"+this.state.random[this.state.Qno]+".JPG"
+      }
+
+         this.displayQuestion(query,img)
   }
+}
+
+setTimer(time){//set timer for exam mode
+
+  var start = 0;
+
+  time *= 1000;
+
+var timer = setInterval(function(){
+
+       var hr = Math.floor(((time / (1000 * 60 * 60)) % 24))
+
+       var min = Math.floor(((time/(1000*60))%60))
+
+       var sec = Math.floor((time/1000) % 60)
+
+       if(hr < 10 )
+          hr ="0"+hr
+
+       if(min < 10 )
+             min ="0"+min
+
+        if(sec < 10 )
+                sec ="0"+sec
+
+     document.getElementById('topic').innerHTML = hr+"h : "+min+"m : "+sec+"s"
+
+     time = time - 1000
+
+    if(start == 0){
+
+      setTimeout(function () {
+
+        clearInterval(timer)
+
+      },time)
+
+    }
+    start = 1
+
+   }, 1000);
+
 }
 
 /*answer button logic*/
@@ -305,7 +568,6 @@ setClickListeners(){
          img.src = null;
          img.style.visibility = "hidden"
          document.getElementById("v-answer").innerHTML = "View Question"
-
       }
 
 
@@ -325,51 +587,17 @@ setClickListeners(){
 
  }
 
- componentDidUpdate(){
 
-   if(this.state.visited != null){
-      var len = this.state.visited.length
-
-      for(var i = 0; i<len; i++)
-          this.state.visited[i] = false
-
-   }
-
-}
-
- componentDidMount(){
-   this.setClickListeners();
-   this.setState({visited:new Array(this.state.random.length)})
-   if(this.state.mode == 0 && this.state.topic == 1){
-      document.getElementById('Qno').innerHTML = "Q"+(this.state.Qno+1);
-
-      document.getElementById('topic').innerHTML = "Algebra"
-
-     var img = document.getElementById('mode2');
-
-     var query = "Waec-Jamb/Solvequestionsmode/Algebra/Questions/Q"+this.state.random[0]+".jpg"
-
-     this.displayQuestion(query,img)
-
-     var that = this
-
-     document.getElementById("nxt").addEventListener("click", function () {
-           that.nextOperation()
-     })
-
-     document.getElementById("prv").addEventListener("click", function () {
-           that.prevOperation()
-     })
-
-   }
-
- }
 
 processResponse(){
-  this.state.visited[this.state.Qno] = true
-  var that = this;
-  if(this.state.mode == 0 && this.state.topic == 1){//practic Algebra
-     var docRef = db.collection("Waec_Jamb").doc("Algebra_p");
+  this.state.visited.set((this.state.Qno), true)
+  var that = this, docRef = null;
+  if(this.state.mode == 0 && this.state.topic == 1)//practic Algebra
+      docRef = db.collection("Waec_Jamb").doc("Algebra_p");
+     // TODO: Implemnt other topics for mode 0
+  else if(this.state.mode == 1)
+          docRef = db.collection("Waec_Jamb").doc("Exam");
+
      if(this.state.answer != ""){
        docRef.get().then(function(doc) {
      if (doc.exists) {
@@ -381,10 +609,15 @@ processResponse(){
         //  alert("wrong")
          that.Response(false)
        }
-       if(that.state.visited[that.state.Qno])
-          document.getElementById('v-answer').style.visibility = "visible"
-      else
-         document.getElementById('v-answer').style.visibility = "hidden"
+
+       if( that.state.mode == 0){
+
+         if(that.state.visited[that.state.Qno])//only show "view answer" button in practice mode
+            document.getElementById('v-answer').style.visibility = "visible"
+         else
+            document.getElementById('v-answer').style.visibility = "hidden"
+
+       }
      } else {
          // doc.data() will be undefined in this case
          console.log("No such document!");
@@ -395,13 +628,13 @@ processResponse(){
 
 
      }
-  }
+
 }
 
 
   render() {
 
-    if(this.state.mode == 0 && this.state.topic == 1){
+    if(this.state.mode == 0 || (this.state.mode == 1 && this.state.continue == 1)){
 
       return(<div>
 
@@ -412,9 +645,9 @@ processResponse(){
         <div id="quest-cont" className="jumbotron-fluid">
 
         <div class="container-fluid q-label d-flex justify-content-between">
-          <button id="head" type="button" class="btn "disabled>Practice Questions</button>
-          <button id="Qno" type="button" class="btn"disabled></button>
-          <button id="topic" type="button" class="btn btn-primary "disabled></button>
+          <button id="ques-head" type="button" className="btn"disabled></button>
+          <button id="Qno" type="button" className="btn"disabled></button>
+          <button id="topic" type="button" className="btn btn-primary"disabled></button>
         </div>
 
          <div id="roller" class="d-flex justify-content-center">
@@ -435,25 +668,45 @@ processResponse(){
 
           <p id ="load-ques">Loading...</p>
 
+          <div id="result-modal">
+           <Modal.Dialog id = "result-dialog">
+             <Modal.Header id="result-hd">
+               <Modal.Title>Matimatiks</Modal.Title>
+             </Modal.Header>
 
-          <div id="ques-Modal" class="modal">
-            <div class="ques-modal-content">
-              <div class="ques-modal-header">
-              <h2 id="ques-value"></h2>
-              </div>
-              <div class="ques-modal-body">
-                  <img id="response"  className="rounded mx-auto d-block" alt=""/>
-              </div>
-            </div>
+             <Modal.Body id="result-body">
+              <h4>The following questions have not been attempted. Submit anyway?</h4>
+              <hr></hr>
+              <ul id="result-list"></ul>
+
+             </Modal.Body>
+
+             <Modal.Footer>
+                <button id="result-cancel" type="button" class="btn btn-danger">Cancel</button>
+                <button type="button" class="btn btn-success">Yes</button>
+            </Modal.Footer>
+           </Modal.Dialog>
+           </div>
+
+         <div id="bg-modal">
+          <Modal.Dialog id="ques-Modal">
+            <Modal.Header  id="ques-hd">
+              <Modal.Title>Matimatiks</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body id="modal-bd">
+              <h1 id="ques-value"></h1>
+              <hr></hr>
+              <img id="response" className="rounded mx-auto d-block" alt=""/>
+            </Modal.Body>
+          </Modal.Dialog>
           </div>
 
           <img id="mode2"  className="rounded mx-auto d-block" alt=""/>
 
-
            <div id="nxt" className="triangle-right"></div>
 
           </div>
-
 
          <div className="container-fluid d-flex justify-content-between">
 
@@ -466,19 +719,22 @@ processResponse(){
           <button id="bt4" type="button" class="btn btn-outline-danger" onClick={this.processResponse}>D</button>
         </div>
 
-        <button id="dummy" type="button" class="btn btn-warning">Warning</button>
+        <a id="done">Submit Exam</a>
 
          </div>
 
         </div>
-
 
         <div>
           <Footer/>
         </div>
 
         </div>)
-    }
+
+    //// TODO: Implemnt other topics
+  }
+
+
 
   else
    return(<div></div>)

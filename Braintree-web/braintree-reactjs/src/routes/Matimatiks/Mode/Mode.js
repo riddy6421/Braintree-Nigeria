@@ -4,6 +4,8 @@ import Header from '../header/Header-Mat';
 import Footer from '../../Footer/Footer'
 import $ from 'jquery';
 import Questions from '../Questions/Questions.js';
+import waeclogo from './waec-web.png';
+import Modal from 'react-bootstrap/Modal'
 
 
 class Mode extends Component {
@@ -17,26 +19,34 @@ class Mode extends Component {
       name: null,
       mode:-1,
       login:null,
+      continue:-1,
+      waec:-1,
+      random:null,
       topic:0
     }
+
+    this.generateRandom = this.generateRandom.bind(this);
   }
 
   componentWillMount(){
 
  this.setState({login:this.props.login})
-
+ this.setState({random:[]})
+ this.setState({continue:0})
+ this.setState({waec:0})
 }
+
 
 
   componentDidMount(){
 
-        if(this.state.login && this.state.mode == -1){// page status ok?
+    var that = this
+
+        if(this.state.login && this.state.mode == -1){// logged in & page status ok?
 
                 this.setState({name:this.props.name});
 
-               var that = this
-
-                document.getElementById('card1').addEventListener("click", function(){
+                document.getElementById('card1-btn').addEventListener("click", function(){
 
                  $('#mode-main').addClass('animated fadeOut');//set fadeOut animation to card when button is clicked
 
@@ -104,8 +114,8 @@ class Mode extends Component {
 
                 })//card 1 click
 
-                document.getElementById('card2').addEventListener("click", function(){
-                  $('#mode-main').addClass('animated fadeOutLeftBig');
+                document.getElementById('card2-btn').addEventListener("click", function(){
+                  $('#mode-main').addClass('animated fadeOut');
 
 
                   var animationEnd = (function(el) {
@@ -125,13 +135,69 @@ class Mode extends Component {
 
                 $('#mode-main').one(animationEnd, function(){
 
-                 that.setState({mode:1})
+                       that.setState({mode:1})
+
+                    document.getElementById("launch-btn").addEventListener("click", function () {
+
+                      that.setState({waec:1});
+
+                     })
+
+                     document.getElementById("close-btn").addEventListener("click", function () {
+
+                       window.location.reload()
+
+                      })
+
 
                 });
 
-                })//card 2 click
+              })//card 2 click end
 
         }
+
+
+  }
+
+
+componentDidUpdate(){
+  var that = this
+  if(this.state.waec == 1 && this.state.continue == 0){
+    document.getElementById("begin").addEventListener("click", function () {
+
+        that.setState({continue:1});
+
+      })
+
+      document.getElementById("cancel").addEventListener("click", function () {
+
+        window.location.reload()
+      })
+}
+}
+
+  generateRandom(nof){
+    var randMap = new Map();
+
+
+    for(var i=1; i<=nof; i++)
+         randMap.set(i,false)
+
+    var num = Math.floor((Math.random() * nof) + 1)
+    this.state.random.push(num)
+
+    randMap.set(num,true)
+
+    while(1){ //check inifitely and make sure the next number in the array isnt repeated
+      num = Math.floor((Math.random() * nof) + 1)
+      if(!randMap.get(num)){
+         this.state.random.push(num)
+         randMap.set(num,true)
+      }
+
+      if(this.state.random.length == nof)
+         break;
+    }
 
   }
 
@@ -139,7 +205,8 @@ class Mode extends Component {
 
   render(){
 
-    if(this.state.login && this.state.mode == -1){// page status ok?
+
+    if((this.state.login && this.state.mode == -1)){// page status ok?
 
        return (
            <div>
@@ -184,37 +251,19 @@ class Mode extends Component {
 
           </div>
    	   );
+
       }
 
 else if (this.state.login && this.state.mode == 0){// practice question mode clicked?
 
-   if(this.state.topic == 1 || this.state.topic == 2 ||
-      this.state.topic == 3 || this.state.topic == 4 ||
-      this.state.topic == 5 || this.state.topic == 6 ){// if any topic is clicked
+   if(this.state.topic == 1){// if algebra topic is clicked (temp)
 
-       var random = [], num, nof = 2, randMap = new Map();
+        this.generateRandom(2)
 
-       for(var i=1; i<=nof; i++)
-            randMap.set(i,false)
-
-       num = Math.floor((Math.random() * nof) + 1)
-       random.push(num)
-
-       randMap.set(num,true)
-
-       while(1){ //check inifitely and make sure the next number in the array isnt repeated
-         num = Math.floor((Math.random() * nof) + 1)
-         if(!randMap.get(num)){
-            random.push(num)
-            randMap.set(num,true)
-         }
-
-         if(random.length == nof)
-            break;
-       }
-        return(<Questions mode={this.state.mode} topic={this.state.topic} rand={random} name={this.props.name} login={this.props.login}/>)
+        return(<Questions mode={this.state.mode} topic={this.state.topic} rand={this.state.random} name={this.state.name} login={this.state.login} continue={this.state.continue}/>)
       }
 
+     //// TODO: other topics
     else{
 
      return (
@@ -259,8 +308,64 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
      )
    }
 }
+  else if(this.state.login && this.state.mode == 1){//Exam Mode
 
-//  else if(this.state.mode == 1) //Mock exam mode clicked
+     if(this.state.continue == 0 && this.state.waec == 0){
+       return(
+       <div>
+       <div>
+         <Header login={this.props.login} name={this.props.name}/>
+       </div>
+
+       <div id="card-exam" className="card container justify-content-center bg-warning">
+           <img className="card-img-top" src={waeclogo} alt="Card cap"/>
+           <div className="card-body">
+              <h4 className="card-title">W.A.E.C</h4>
+              <p className="card-text">This module consists of W.A.E.C standard mathematics questions</p>
+           <button id="launch-btn" className="btn btn-light">Launch</button>
+           </div>
+       </div>
+
+       <div id="neg" className="d-flex justify-content-center">
+         <button id="close-btn" className="btn btn-danger">Exit</button>
+       </div>
+
+        </div>
+      );
+     }
+
+     else if(this.state.continue == 0 && this.state.waec == 1){
+       return(
+                <div id="bg">
+                 <Modal.Dialog>
+                   <Modal.Header id="modal-hd">
+                     <Modal.Title>Matimatiks</Modal.Title>
+                   </Modal.Header>
+
+                   <Modal.Body id="modal-bd">
+                     <p>
+                       In this mode there are 50 questions, and you would be required to complete the questions under 50
+                       minutes. Click the submit button only when you are done with the exam, after which the questions would be closed. This is a model of a
+                       live exam scenario. Click continue to start. Goodluck!
+                     </p>
+                   </Modal.Body>
+
+                   <Modal.Footer>
+                    <button id="cancel" type="button" className="btn btn-outline-danger">Close</button>
+                    <button id="begin" type="button" className="btn btn-outline-primary">Continue</button>
+                   </Modal.Footer>
+                 </Modal.Dialog>
+                 </div>
+       );
+     }
+
+   else if(this.state.continue == 1 && this.state.waec == 1){
+     this.generateRandom(50);
+     return(<Questions mode={this.state.mode} topic={this.state.topic} rand={this.state.random} name={this.state.name} login={this.state.login} continue={this.state.continue}/>);
+  }
+
+
+  } //Mock exam mode clicked
 
 
    else if(this.state.status == -1){

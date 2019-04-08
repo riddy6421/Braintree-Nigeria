@@ -4,7 +4,7 @@ import andlogo from '../../braintree/downloads/mat-google-play-badge.png';
 import matlogo from '../../braintree/downloads/mat_img_launch.png';
 import braintreelogo from '../../braintree/homepage/Blogo.png';
 import { NavLink } from 'react-router-dom';
-import firebase, { auth, provider } from '../firebase-config.js';
+import { auth, onAuth } from '../firebase-config.js';
 import Mode from '../Mode/Mode.js'
 import logo from '../../Head/Blogo.png';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -18,11 +18,10 @@ const uiConfig = {
  // signInSuccessUrl: '/Matimatiks/mode',
   // We will display Google and Facebook as auth providers.
   signInOptions: [
-    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
+    auth.EmailAuthProvider.PROVIDER_ID,
+    auth.GoogleAuthProvider.PROVIDER_ID,
+    auth.FacebookAuthProvider.PROVIDER_ID,
+    auth.TwitterAuthProvider.PROVIDER_ID
   ]
 };
 
@@ -117,15 +116,17 @@ class Header_Mat extends Component {
     })
 
     item4.addEventListener("click", function () {
-      firebase.auth().signOut().then(function() {
-        console.log("signout successful")
-      }).catch(function(error) {
-        console.log("signout unsuccessful: "+error)
-   });
+      var confirm = window.confirm("You are logging out. Continue?")
 
+      if(confirm == true){
+        onAuth.signOut().then(function() {
+          console.log("signout successful")
+        }).catch(function(error) {
+          console.log("signout unsuccessful: "+error)
+     });
+      window.location.reload()
+    }
 
-       window.location.reload()
-       alert("You are logging out. Continue?")
   })//signOut
 
   }
@@ -157,7 +158,7 @@ class Header_Mat extends Component {
              <div id="signin-cont" class="dropdown-menu">
                <div id="signin-item" class="dropdown-item">
                    <div className="container">
-                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={onAuth}/>
                      <p id="signin-rule">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
                    </div>
               </div>

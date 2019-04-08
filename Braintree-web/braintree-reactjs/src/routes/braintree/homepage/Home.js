@@ -8,10 +8,10 @@ import img from './Blogo.png';
 
 class Home extends Component {
 
-    constructor(props) {
-    super(props);
-
-  }
+  //   constructor(props) {
+  //   super(props);
+  //
+  // }
 
 
   componentDidMount(){

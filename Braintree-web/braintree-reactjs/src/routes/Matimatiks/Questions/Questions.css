@@ -39,8 +39,7 @@
 @media (min-width: 1200px) {
 
 #mode2{
-
-  width: 65%;
+  width: 50%;
   visibility: hidden;
   margin-top: -2%;
 }
@@ -50,6 +49,58 @@
 margin-left: 3%;
 font-size: 50px;
 margin-top: -2%;
+}
+
+#ques-Modal{
+width: 25%;
+margin-left: 38%;
+margin-top: 18%;
+position: fixed;
+}
+
+#bg-modal{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  display: none;
+  overflow: auto;
+}
+
+#result-modal{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  display: none;
+  overflow: auto;
+}
+
+#result-body{
+  height: 60vh;
+  overflow: auto;
+}
+
+#ques-hd,#result-hd{
+background-color: #40bcff;
+color: white;
+}
+#ques-value{
+font-family: 'Montserrat', sans-serif;
+}
+
+li{
+  list-style-type:none;
+  cursor:pointer;
+  width: 10%;
 }
 
 #load-ques{
@@ -67,39 +118,47 @@ margin-top: -2%;
 }
 
 #bt1{
-  width: 18%;
+  width: 10%;
 }
 
 
 #bt2,#bt3,#bt4{
   margin-left: 2.5%;
-  width: 18%;
+  width: 10%;
 }
 
 #radio{
   margin-top: 0.5%;
   visibility: hidden;
   width: 100%;
-  margin-left: 8%;
-}
-
-#head{
-  background-color:DarkBlue;
-  color: white;
+  margin-left: 25%;
+  position: absolute;
+  bottom: 0;
 }
 
 #response{
   width: 30%;
   height:70%;
-  margin-top: 12%;
+}
+
+#ques-head{
+  width: 20%;
+  height: 10%;
+  background-color: DarkBlue;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  visibility: hidden;
 }
 
 
-#head,#topic{
+ #topic{
   width: 20%;
   height: 10%;
   font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
   visibility: hidden;
+  color: white;
 }
 
 #Qno{
@@ -109,6 +168,7 @@ margin-top: -2%;
   color: white;
   font-size: 30px;
   visibility: hidden;
+  font-family: 'Montserrat', sans-serif;
   background-color:DarkBlue;
 }
 
@@ -147,8 +207,34 @@ margin-top: -2%;
   filter: alpha(opacity=50)
 }
 
-#dummy{
+#done{
+position:absolute;
+bottom: 0;
+margin-left: 86vw;
+font-family: 'Montserrat', sans-serif;
+cursor: pointer;
+color:DarkBlue;
+font-size: 25px;;
+visibility: hidden;
+}
+
+#done:hover{
+  color: gray;
+}
+
+
+#exit{
+  cursor: pointer;
+  position: absolute;
   visibility: hidden;
+  bottom: 0;
+  font-family: 'Montserrat', sans-serif;
+  color:DarkBlue;
+  font-size: 25px;;
+}
+
+#exit:hover{
+  color: gray;
 }
 
 #v-answer{
@@ -156,43 +242,9 @@ margin-top: -2%;
   color: white;
   font-family: 'Montserrat', sans-serif;
   visibility: hidden;
+  position: absolute;
+  bottom: 0;
 }
-#ques-Modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.ques-modal-content {
-  background-color: #ffffff;
-  margin: 20% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 20%; /* Could be more or less, depending on screen size */
-  height: 20%;
-}
-
-.ques-modal-body {padding: 2px 16px;}
-
-.ques-modal-header {
-  padding: 2px 16px;
-  background-color: CornflowerBlue;
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  font-weight: bold;
-  margin-top: -27%;
-  margin-left: -8.3%;
-  width: 301px;
-}
-
 
 
 }
