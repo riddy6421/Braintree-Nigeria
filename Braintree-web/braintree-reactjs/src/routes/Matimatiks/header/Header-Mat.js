@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import './Header-Mat.css';
 import andlogo from '../../braintree/downloads/mat-google-play-badge.png';
 import matlogo from '../../braintree/downloads/mat_img_launch.png';
-import braintreelogo from '../../braintree/homepage/Blogo.png';
-import { NavLink } from 'react-router-dom';
-import { auth, onAuth } from '../firebase-config.js';
-import Mode from '../Mode/Mode.js'
+import { auth, onAuth, db } from '../firebase-config.js';
+import '../firebaseui-styling.global.css';
 import logo from '../../Head/Blogo.png';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import Modal from 'react-bootstrap/Modal'
+import {StyledFirebaseAuth} from 'react-firebaseui';
 import $ from 'jquery';
 
 
@@ -36,6 +35,8 @@ class Header_Mat extends Component {
      LoggedIn:false
    }
 
+   this.checkIfUserRegistered = this.checkIfUserRegistered.bind(this);
+
  }
 
   componentWillMount(){
@@ -43,9 +44,29 @@ class Header_Mat extends Component {
   }
 
   componentDidMount(){
-  //  document.body.style.backgroundColor = "white";
-  if(this.state.LoggedIn)
+
+    var modal = document.getElementById('download-modal');
+
+  if(this.state.LoggedIn){
      this.setState({name:this.props.name})
+      this.checkIfUserRegistered();
+   }
+
+   document.getElementById('bt-li3').addEventListener("click", function () {
+
+        modal.style.display = "block"
+
+   })
+
+   window.onclick = function(event) {
+     // eslint-disable-next-line
+     if (event.target == modal) {
+
+           modal.style.display = "none"
+     }
+   }
+
+
   }
 
   componentDidUpdate(){
@@ -60,10 +81,10 @@ class Header_Mat extends Component {
     if(username != null){
        var mSignin = document.getElementById("bt-li");
 
-       mSignin.innerHTML = "Hi,"+username
+       mSignin.innerHTML = "Hi, "+username
 
     /*replace the sign in dropdown with account properties */
-    $('#signin-cont').replaceWith('<div class="dropdown-menu"><a id="item1" class="dropdown-item" href="#">Progress Report</a><a id="item2" class="dropdown-item" href="#">Settings</a><a id="item3" class="dropdown-item" href="#">Help</a><div class="dropdown-divider"></div><button id="item4" type="button" class="btn">Log out</button></div>');
+    $('#signin-cont').replaceWith('<div id="d-menu" class="dropdown-menu"><a id="item1" class="dropdown-item" href="#">Progress Report</a><a id="item2" class="dropdown-item" href="#">Settings</a><a id="item3" class="dropdown-item" href="#">Help</a><div class="dropdown-divider"></div><button id="item4" type="button" class="btn">Log out</button></div>');
 
     var item1 = document.getElementById('item1');
     var item2 = document.getElementById('item2');
@@ -116,8 +137,9 @@ class Header_Mat extends Component {
     })
 
     item4.addEventListener("click", function () {
+      if(!that.props.shown){
       var confirm = window.confirm("You are logging out. Continue?")
-
+// eslint-disable-next-line
       if(confirm == true){
         onAuth.signOut().then(function() {
           console.log("signout successful")
@@ -127,10 +149,59 @@ class Header_Mat extends Component {
       window.location.reload()
     }
 
+  }
+  else {
+    onAuth.signOut().then(function() {
+      console.log("signout successful")
+    }).catch(function(error) {
+      console.log("signout unsuccessful: "+error)
+ });
+  window.location.reload()
+}
+
   })//signOut
 
   }
 }
+}
+
+checkIfUserRegistered(){
+   var that = this
+
+var user = onAuth.currentUser
+
+ db.collection("users").doc(user.uid)
+    .onSnapshot(function(doc) {
+// eslint-disable-next-line
+    if(doc.data() == undefined){
+
+      db.collection("users").doc(user.uid).set({
+
+           Name: user.displayName,
+           Email: user.email
+
+      }).then(function() {
+
+
+
+      }).catch(function(error){
+
+
+    });
+
+ }
+
+//  if(first == true){
+//       document.getElementById('signInAlert').style.display = "block"
+//       setTimeout(function(){
+//         document.getElementById('signInAlert').style.display = "none"
+//       },2000);
+//
+// }
+
+
+});
+
 }
 
   render() {
@@ -139,56 +210,50 @@ class Header_Mat extends Component {
 
   <div>{/* root div begin*/}
 
+  <div id="signInAlert" className="alert alert-success" role="alert">
+          You are signed in!
+  </div>
+
    <div id="mat-hd" className="container-fluid">
 
       <div id="mat-cont" className="container">
-        <img id="mat-logo" className="rounded" src={matlogo}/>
+        <img id="mat-logo" className="rounded" src={matlogo} alt=""/>
         <p id="mat-brand"> MATIMATIKS </p>
       </div>
 
 
-      <div class="d-flex justify-content-end">
+      <div className="d-flex justify-content-end">
 
           <div id="brand" className="container">
             <a href="/"> <img id="logo" src={logo} className="rounded"  alt=""/></a>
           </div>
 
-
-             <div id="bt-li"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</div>
-             <div id="signin-cont" class="dropdown-menu">
-               <div id="signin-item" class="dropdown-item">
+             <div id="bt-li"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Log In</div>
+             <div id="signin-cont" className="dropdown-menu">
+               <div id="signin-item" className="dropdown-item">
                    <div className="container">
-                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={onAuth}/>
-                     <p id="signin-rule">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer" >Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
-                   </div>
+                      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={onAuth}/>
+                      <p id="signin-rule">By logging in to Matimatiks, you agree to our <a href="" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="" target="_blank" rel="noopener noreferrer" >Terms of Service</a></p>
+                  </div>
               </div>
             </div>
-
 
             <a id="bt-li2" href="#">Community</a>
 
             <a id="bt-li3"  data-toggle="modal" data-target="#exampleModal">Downloads</a>
-
-
       </div>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5  class="modal-title" id="exampleModalLabel">Downloads</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
 
-      <a href="https://play.google.com/store/apps/details?id=matimatiks.matimatiks" target="_blank"><img id="andlogo" className="rounded" src={andlogo}/></a>
-
-      </div>
+      <div id="download-modal">
+       <Modal.Dialog>
+         <Modal.Header id="download-hd">
+           <Modal.Title>Matimatiks</Modal.Title>
+         </Modal.Header>
+         <Modal.Body id="download-body">
+          <a href="https://play.google.com/store/apps/details?id=matimatiks.matimatiks" rel="noopener noreferrer" target="_blank"><img id="andlogo" className="rounded" src={andlogo} alt=""/></a>
+         </Modal.Body>
+       </Modal.Dialog>;
     </div>
-  </div>
-</div>
 
    </div>
     <hr id="hr" className="my-0"/>

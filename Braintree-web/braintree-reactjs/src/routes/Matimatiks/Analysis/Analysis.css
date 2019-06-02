@@ -1,0 +1,230 @@
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px){
+
+}
+
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {
+
+}
+
+
+
+
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) {
+
+}
+
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+
+
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+#analysis-title{
+  background-color: RoyalBlue;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  width: 20%;
+  color: white;
+}
+#analysis-cont-title{
+margin-top: 2%;
+}
+#Algebra{
+  width: 50%;
+  margin-top: 5%;
+  height: 40px;
+}
+#Geometry{
+  width: 50%;
+  margin-top: 5%;
+  margin-left: 3%;
+  height: 40px;
+}
+#Statistics{
+  width: 50%;
+  height: 40px;
+}
+#Mensuration{
+  width: 50%;
+  margin-left: 3%;
+  height: 40px;
+}
+#Integers{
+  width: 50%;
+  height: 40px;
+}
+#slg{
+  width: 50%;
+  margin-left: 3%;
+  height: 40px;
+}
+#desc1{
+  width: 15%;
+  height: 30px;
+  margin-top: 40px;
+}
+
+#desc2,#desc3,#desc4{
+  width: 15%;
+  height: 25px;
+  margin-top: 40px;
+  margin-left: 200px;
+}
+
+#desc-prog1{
+font-size: 15px;
+width: 100%;
+background-color: LightGray
+}
+#desc-prog2{
+font-size: 15px;
+width: 100%;
+background-color: Crimson
+}
+#desc-prog3{
+font-size: 15px;
+width: 100%;
+background-color: Gold
+}
+#desc-prog4{
+font-size: 15px;
+width: 100%;
+background-color: LawnGreen
+}
+
+#desc_text1{
+color: white;
+font-size: 11px;
+white-space: nowrap;
+}
+
+#desc_text2{
+  color: white;
+  font-size: 11px;
+  margin-left: 25px;
+  white-space: nowrap;
+}
+
+#desc_text3{
+  color: white;
+  font-size: 11px;
+  margin-left: 235px;
+  white-space: nowrap;
+}
+
+#desc_text4{
+color: white;
+font-size: 12px;
+margin-left: 235px;
+white-space: nowrap;
+}
+
+#time-analysis{
+  width: 50%;
+  margin-top: 4%;
+  height: 40px;
+}
+
+
+#alg-prog,#geo-prog,
+#stat-prog,#mens-prog,
+#int-prog,#slg-prog,#t-prog{
+  font-size: 20px;
+}
+
+#alg_geo-analysis{
+font-size: 25px;
+font-family: 'Montserrat', sans-serif;
+color: white;
+
+}
+
+#stats_mens-analysis{
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 15px;
+  color: white;
+}
+
+#int_slg-analysis{
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 15px;
+  color: white;
+}
+
+#topic-cards-1{
+  margin-top: -50px;
+}
+
+#rec-title{
+  background-color: Gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  width: 20%;
+  color: white;
+}
+
+#prog{
+  cursor: pointer;
+  text-decoration: underline;
+
+}
+
+#prog:hover{
+    color: RoyalBlue;
+}
+
+#prac{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#prac:hover{
+  color: RoyalBlue;
+}
+
+#tp{
+  color :navy;
+}
+
+
+}
+
+/*static styling*/
+#rec-text{
+margin-top: 2%;
+background-color: Gray;
+font-family: 'Montserrat', sans-serif;
+height: 50vh;
+font-size: 25px;
+color: white
+}
+
+#topic-analysis{
+  height: 65vh;
+  margin-top: 2%;
+  background-color: RoyalBlue;
+}
+
+#analysis-body{
+  height: 160vh;
+}

@@ -54,17 +54,27 @@
   	margin-top: 10px;
   }
 
-
-  #list1,#list2,#list3,#list4{
-  	margin-left: 4%;
-  	font-family: 'Montserrat', sans-serif;
-  	margin-top: 2%;
-  	float: left;
+  #b-links{
+    float: left;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 2%;
   }
+
+#list2{
+  margin-left: -2.5%;
+}
+
+#list4{
+  margin-left: 2.8%;
+}
+
 
   #h1,#h2,#h3,#h4,#drop{
   	color: white;
   }
+    #h1:hover,#h2:hover,#h3:hover,#h4:hover{
+    	color: LightGray;
+    }
 
   #button-addon2{
   background-color: white;
@@ -74,13 +84,6 @@
     cursor: pointer;
   }
 
-/*  #drop:hover{
-    color: Gray;
-  }
-
-  #h1:hover,#h2:hover,#h3:hover,#h4:hover{
-  	color: Gray;
-  }*/
 
 #icon{
   color: DodgerBlue;
@@ -89,7 +92,7 @@
   #inp{
   	float: right;
   	width: 30%;
-  	margin-top: 6px;
+    margin-top : -4%
   }
 
   #drop-logo{

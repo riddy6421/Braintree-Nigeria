@@ -172,20 +172,15 @@
 	background-color: LightSteelBlue ;
 }
 
-
-#info1{
-
-    display:none ;
-
+#legal-list{
+	white-space:nowrap;
 }
 
 #heading1,#heading2,#heading3{
-
 	color: white;
 }
 
 .pi2,.pi3{
-
 	margin-left: 5%;
 }
 

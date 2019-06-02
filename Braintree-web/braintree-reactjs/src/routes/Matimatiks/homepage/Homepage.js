@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import Header from '../header/Header-Mat.js';
 import Footer from '../../Footer/Footer'
 import Mode from '../Mode/Mode.js'
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import './Homepage.css';
-import { onAuth} from '../firebase-config.js';
+import {onAuth} from '../firebase-config.js';
 import naija from '../../Head/nigeria.png'
-import matlogo from '../../braintree/downloads/mat_img_launch.png';
 
 import Q1 from './Q1.JPG';
 import Q2 from './Q2.jpg';
@@ -30,31 +28,24 @@ class Homepage extends Component {
 
 
   componentWillMount(){
-
- console.log("componentWillMount()")
  /*Check if user is signed in*/
   var context = this
 
   onAuth.onAuthStateChanged(function(user) {
-     console.log("componentDidMount() firebase function")
+
       if (user) {
+
+        localStorage.setItem("first-login",true)
 
        context.setState({currentUser:1})
        context.setState({LoggedIn:true})
        context.setState({username:user.displayName})
 
+
+
       } else {
 
           context.setState({currentUser:2})
-
-         var foot1 = document.getElementById("heading1");
-         var foot2 = document.getElementById("heading2");
-         var foot3 = document.getElementById("heading3");
-
-        foot1.style.color= "black";
-         foot2.style.color= "black";
-        foot3.style.color= "black";
-
 
        var Qimg1, BA1, topic, arr1, arr2;
 
@@ -180,22 +171,17 @@ class Homepage extends Component {
 
   componentDidMount(){
 
-    console.log("componentDidMount()")
-
-
 
 }
   render() {
 
 // eslint-disable-next-line
-  console.log("render()");
-
 if(this.state.currentUser == 0){
        return(
          <div>
          <div  id="spin" className="mx-auto">
          <div id="blink" className="spinner-grow" role="status">
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
          </div>
          <div id="ltext">Loading...</div>
          </div>
@@ -205,10 +191,9 @@ if(this.state.currentUser == 0){
         );
 }
 
-
+// eslint-disable-next-line
  else if (this.state.currentUser == 1){
         if(this.state.username != null){
-
           return (
             <div>
 
@@ -218,8 +203,9 @@ if(this.state.currentUser == 0){
           )
         }
       else
-        return(<div></div>) //shoow error message
+        return(<div></div>) //show error message
  }
+ // eslint-disable-next-line
  else if (this.state.currentUser == 2){
 
    return (
@@ -245,7 +231,7 @@ See sample tutorial Q&A's
 </button>
 
 
-<div className="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
  <div className="modal-dialog" role="document">
    <div className="modal-content">
      <div className="modal-header">
@@ -259,7 +245,7 @@ See sample tutorial Q&A's
 
    <p id="q1">Question 1</p>
 
-   <img id ="Qimg1" src={Q1} class="rounded mx-auto d-block" alt="sample question 1"/>
+   <img id ="Qimg1" src={Q1} className="rounded mx-auto d-block" alt="sample question 1"/>
 
    <button id="prev" type="button" className="btn btn-outline-primary">&laquo;</button>
 
@@ -271,8 +257,8 @@ See sample tutorial Q&A's
 
 
      </div>
-     <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     <div className="modal-footer">
+       <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
      </div>
    </div>
  </div>
@@ -284,7 +270,7 @@ See sample tutorial Q&A's
 
 <button id="start_button" type="button" className="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-lg">I am Ready to Start!</button>
 
-   <div id="mlogin" className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+   <div id="mlogin" className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
    <div id="log" className="modal-dialog modal-lg">
    <div className="modal-content">
        <div className="container">
@@ -297,8 +283,6 @@ See sample tutorial Q&A's
 
 </div>
 </div>
-
-
  <div>
      <Footer/>
  </div>

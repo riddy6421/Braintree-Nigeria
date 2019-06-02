@@ -223,11 +223,13 @@ padding-bottom: 5px;
  /*Extra large devices (large desktops, 1200px and up)*/
  @media (min-width: 1200px) {
 
-
  	#logo{
  		width: 60px;
  	}
 
+	#d-menu{
+		margin-top: -1%;
+	}
 
 #mat-logo{
 	width: 8%;
@@ -239,10 +241,6 @@ padding-bottom: 5px;
 	width: 50%;
 	height: 30%;
 	margin-left: 25%;
-}
-
-#exampleModal{
-	height: 45%;
 }
 
 #exampleModalLabel{
@@ -258,12 +256,9 @@ margin-top: -6%;
 margin-left: 8%;
 }
 
-
-
 #mat-cont{
 	float: left;
 }
-
 
 #bt-li,#bt-li2,#bt-li3{
 	color: #40bcff;
@@ -271,28 +266,46 @@ margin-left: 8%;
 	cursor: pointer;
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 6%;
-	margin-left: 25%
+	margin-left: 25%;
+	white-space: nowrap;
 }
 
 #mat-hd{
 	height: 75px;
 	background-color: white;
+	width: 100vw;
+	margin-left: -2%
 }
 
-
+#download-modal{
+	height: 100vh;
+	width: 100vw;
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	display: none;
+	overflow: auto;
+}
 #signin-cont{
-	width: 380px;
-	height: 300px;
+margin-top: 0.4%;
+}
+#download-hd{
+	background-color: #40bcff;
+	color: white;
 }
 
-#signin-rule{
-	font-size: 9px;
-	margin-left: -10%;
-	font-weight: bold;
+#andlogo{
+	width:40%;
+	margin-left:28%;
 }
+
 
 }
 /*static styling*/
-Mode{
-	display: none;
+
+#signInAlert{
+ display: none;
 }

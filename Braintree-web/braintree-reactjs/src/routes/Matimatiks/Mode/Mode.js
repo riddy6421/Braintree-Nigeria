@@ -8,8 +8,8 @@ import waeclogo from './waec-web.png';
 import Modal from 'react-bootstrap/Modal'
 
 
-class Mode extends Component {
 
+class Mode extends Component {
 
   constructor(){
 
@@ -20,7 +20,7 @@ class Mode extends Component {
       mode:-1,
       login:null,
       continue:-1,
-      waec:-1,
+      exam:-1,
       random:null,
       topic:0
     }
@@ -33,7 +33,13 @@ class Mode extends Component {
  this.setState({login:this.props.login})
  this.setState({random:[]})
  this.setState({continue:0})
- this.setState({waec:0})
+ this.setState({exam:0})
+
+ if(this.props.mode == undefined)
+    this.setState({mode:-1})
+ else
+   this.setState({mode:this.props.mode})
+
 }
 
 
@@ -42,7 +48,10 @@ class Mode extends Component {
 
     var that = this
 
-        if(this.state.login && this.state.mode == -1){// logged in & page status ok?
+       window.scrollTo(0,0);
+
+           // eslint-disable-next-line
+        if((this.state.login && this.state.mode == -1)){// logged in & page status ok?
 
                 this.setState({name:this.props.name});
 
@@ -72,7 +81,6 @@ class Mode extends Component {
 
                    $('#mode2-cont').addClass('animated fadeIn');
 
-
                    /*Set click listeners to all topic buttons*/
                    document.getElementById('alg').addEventListener("click",function () {
 
@@ -98,7 +106,7 @@ class Mode extends Component {
 
                    })
 
-                   document.getElementById('trig').addEventListener("click",function () {
+                   document.getElementById('int').addEventListener("click",function () {
 
                        that.setState({topic:5})
 
@@ -139,7 +147,7 @@ class Mode extends Component {
 
                     document.getElementById("launch-btn").addEventListener("click", function () {
 
-                      that.setState({waec:1});
+                        that.setState({exam:1});
 
                      })
 
@@ -149,20 +157,58 @@ class Mode extends Component {
 
                       })
 
-
                 });
 
               })//card 2 click end
-
         }
 
+          if (this.state.login && this.state.mode == 0) {
 
+          /*Set click listeners to all topic buttons*/
+          document.getElementById('alg').addEventListener("click",function () {
+
+              that.setState({topic:1})
+
+          })
+
+          document.getElementById('geo').addEventListener("click",function () {
+
+              that.setState({topic:2})
+
+          })
+
+          document.getElementById('stat').addEventListener("click",function () {
+
+              that.setState({topic:3})
+
+          })
+
+          document.getElementById('mens').addEventListener("click",function () {
+
+              that.setState({topic:4})
+
+          })
+
+          document.getElementById('int').addEventListener("click",function () {
+
+              that.setState({topic:5})
+
+          })
+
+          document.getElementById('s&l').addEventListener("click",function () {
+
+              that.setState({topic:6})
+
+          })
+
+        }
   }
 
 
 componentDidUpdate(){
   var that = this
-  if(this.state.waec == 1 && this.state.continue == 0){
+  // eslint-disable-next-line
+  if(this.state.exam == 1 && this.state.continue == 0){
     document.getElementById("begin").addEventListener("click", function () {
 
         that.setState({continue:1});
@@ -172,6 +218,7 @@ componentDidUpdate(){
       document.getElementById("cancel").addEventListener("click", function () {
 
         window.location.reload()
+
       })
 }
 }
@@ -194,7 +241,7 @@ componentDidUpdate(){
          this.state.random.push(num)
          randMap.set(num,true)
       }
-
+// eslint-disable-next-line
       if(this.state.random.length == nof)
          break;
     }
@@ -205,11 +252,12 @@ componentDidUpdate(){
 
   render(){
 
-
+// eslint-disable-next-line
     if((this.state.login && this.state.mode == -1)){// page status ok?
 
        return (
            <div>
+
            <div>
              <Header login={this.state.login} name={this.props.name}/>
            </div>
@@ -218,28 +266,28 @@ componentDidUpdate(){
            <div id="mode-main" className="jumbotron-fluid">
 
            <div className="container d-flex justify-content-center">
-              <h1 id="sl">Select Exam Mode</h1>
+              <h1 id="sl" className="text-primary">Select Exam Mode</h1>
            </div>
 
 
            <div className="container-fluid d-flex justify-content-center">
 
-           <div id="card1" class="card text-white bg-primary mb-3" >
-             <div class="card-header">Mode A</div>
-             <div class="card-body">
-             <h5 class="card-title">Practice Exam Questions</h5>
-             <p class="card-text">In this mode, the exam is untimed. Practice questions pertaning to different math topics are available.</p>
-             <button id="card1-btn" type="button" class="btn btn-outline-dark">Launch</button>
+           <div id="card1" className="card text-white bg-primary mb-3" >
+             <div className="card-header">Mode A</div>
+             <div className="card-body">
+             <h5 className="card-title">Practice Exam Questions</h5>
+             <p className="card-text">In this mode, the exam is untimed. Practice questions pertaning to different math topics are available.</p>
+             <button id="card1-btn" type="button" className="btn btn-outline-dark">Launch</button>
             </div>
             </div>
 
 
-           <div id="card2" class="card text-white bg-success mb-3">
-             <div class="card-header">Mode B</div>
-             <div class="card-body">
-             <h5 class="card-title">Mock Exam</h5>
-             <p class="card-text">In this mode, the exam is timed and results are computed strategically to determing your strength and/or weakneses</p>
-             <button id="card2-btn" type="button" class="btn btn-outline-dark">Launch</button>
+           <div id="card2" className="card text-white bg-success mb-3">
+             <div className="card-header">Mode B</div>
+             <div className="card-body">
+             <h5 className="card-title">Mock Exam</h5>
+             <p className="card-text">In this mode, the exam is timed and results are computed strategically to determing your strength and/or weakneses</p>
+             <button id="card2-btn" type="button" className="btn btn-outline-dark">Launch</button>
            </div>
          </div>
          </div>
@@ -253,13 +301,11 @@ componentDidUpdate(){
    	   );
 
       }
-
+// eslint-disable-next-line
 else if (this.state.login && this.state.mode == 0){// practice question mode clicked?
-
+// eslint-disable-next-line
    if(this.state.topic == 1){// if algebra topic is clicked (temp)
-
         this.generateRandom(2)
-
         return(<Questions mode={this.state.mode} topic={this.state.topic} rand={this.state.random} name={this.state.name} login={this.state.login} continue={this.state.continue}/>)
       }
 
@@ -270,7 +316,7 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
        <div>
 
        <div>
-         <Header/>
+         <Header login={this.props.login} name={this.props.name}/>
        </div>
 
        <div id="mode2-cont" className="jumbotron">
@@ -291,15 +337,13 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
 
 {/*card groub 3*/}
    <div id="math-cards-3" className="d-flex justify-content-center">
-    <button id="trig" type="button" className="btn btn-danger btn-lg">Trigonometry</button>
+    <button id="int" type="button" className="btn btn-danger btn-lg">Integers</button>
     <button id="s&l" type="button" className="btn btn-success btn-lg">Sets & Logic</button>
 </div>
 {/*card groub end*/}
 
 
 </div>
-
-
       <div>
          <Footer/>
        </div>
@@ -308,9 +352,11 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
      )
    }
 }
+// eslint-disable-next-line
   else if(this.state.login && this.state.mode == 1){//Exam Mode
 
-     if(this.state.continue == 0 && this.state.waec == 0){
+// eslint-disable-next-line
+     if(this.state.continue == 0 && this.state.exam == 0){
        return(
        <div>
        <div>
@@ -333,8 +379,8 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
         </div>
       );
      }
-
-     else if(this.state.continue == 0 && this.state.waec == 1){
+// eslint-disable-next-line
+     else if(this.state.continue == 0 && this.state.exam == 1){
        return(
                 <div id="bg">
                  <Modal.Dialog>
@@ -358,16 +404,17 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
                  </div>
        );
      }
-
-   else if(this.state.continue == 1 && this.state.waec == 1){
+// eslint-disable-next-line
+   else if(this.state.continue == 1 && this.state.exam == 1){
      this.generateRandom(50);
-     return(<Questions mode={this.state.mode} topic={this.state.topic} rand={this.state.random} name={this.state.name} login={this.state.login} continue={this.state.continue}/>);
+     return(<Questions mode={this.state.mode} topic={this.state.topic} rand={this.state.random} name={this.state.name}
+        login={this.state.login} continue={this.state.continue} exam={this.state.exam} />);
   }
 
 
   } //Mock exam mode clicked
 
-
+// eslint-disable-next-line
    else if(this.state.status == -1){
         return(<div>
          <div>
@@ -376,8 +423,6 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
          </div>
        )
    }
-
-
 
    else{return(<div></div>)}// if status code isn't of return empty page
 

@@ -41,8 +41,7 @@
 #sl{
   margin-top: 5%;
   font-family: 'Montserrat', sans-serif;
-  color: #40bcff;
-  font-weight: bold;
+  font-size: 50px
 }
 
 #neg{
@@ -75,6 +74,7 @@ background-color: white;
 
 #card-exam{
   margin-top: 10%;
+  height: 300px;
 }
 
 #s-mode{
@@ -101,18 +101,10 @@ font-size: 50px;
   color: white;
   font-family: 'Montserrat', sans-serif;
 }
-
-
-
 }
 
 /*static styling*/
 #mode-main{
   height: 100vh;
   margin-top: 1%;
-}
-
-#Qno{
-font-family: 'Montserrat', sans-serif;
-margin-left: 45vw;
 }

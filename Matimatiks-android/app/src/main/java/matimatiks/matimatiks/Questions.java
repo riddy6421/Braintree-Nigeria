@@ -176,8 +176,6 @@ public class Questions extends AppCompatActivity implements RandomGen {
 
 
 
-
-
         //if it is read-through mode don't display option button
         if (mode == 0)
             options.setVisibility(View.INVISIBLE);

@@ -39,7 +39,6 @@
         android:icon="@mipmap/img_launch"
         android:label="Matimatiks"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme.AppTheme" >
         <activity
             android:name="matimatiks.matimatiks.Splashscreen"
@@ -328,10 +327,6 @@
             android:authorities="matimatiks.matimatiks.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="matimatiks.matimatiks.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>
