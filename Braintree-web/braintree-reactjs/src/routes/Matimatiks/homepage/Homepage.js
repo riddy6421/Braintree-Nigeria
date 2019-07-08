@@ -169,10 +169,6 @@ class Homepage extends Component {
 }
 
 
-  componentDidMount(){
-
-
-}
   render() {
 
 // eslint-disable-next-line

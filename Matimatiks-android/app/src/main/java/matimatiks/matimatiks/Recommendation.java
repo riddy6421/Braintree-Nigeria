@@ -180,7 +180,7 @@ public class Recommendation extends AppCompatActivity {
 
             Help.append(hp.get(hp.size()-1));
 
-        if(!(Help.toString().equals(""))) {
+        if(!(Help.toString().equals(""))) {v
             String sum = "Based on your results, we recommend that you pay more attention" +
                     " to "+Help+" .Please visit and practice the questions under solve question exams to develop your" +
                     " skills in these area(s). Your report will be posted to your PROGRESS REPORT if you wish to monitor your " +

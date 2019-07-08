@@ -3,6 +3,7 @@ import Header from '../header/Header-Mat';
 import Footer from '../../Footer/Footer';
 import './Analysis.css';
 import Questions from '../Questions/Questions.js'
+import Progress from '../Progress/Progress.js'
 import Mode from '../Mode/Mode.js';
 import $ from 'jquery';
 import {onAuth,db} from '../firebase-config.js';
@@ -26,7 +27,7 @@ class Analysis extends Component {
        mens:null,
        topics:null,
        mens_score:-1,
-       mode:-2,
+       mode:-1,
        time:0,
        score:null,
        rand:null,
@@ -45,6 +46,10 @@ class Analysis extends Component {
     this.setState({visited:this.props.visited})
     this.setState({help:[]})
     this.setState({score:this.props.score})
+
+    if(this.props.mode == undefined)
+       this.setState({mode:-2})
+
   }
 
   componentDidMount(){
@@ -59,10 +64,15 @@ class Analysis extends Component {
     var prog = document.getElementById("prog")
     var prac = document.getElementById("prac")
 
-    userRef.get().then(function(doc){userScore = Object.getOwnPropertyNames(doc.data().score).length})
+    userRef.get().then(function(doc){
+
+      if(doc.data().score != null)
+         userScore = Object.getOwnPropertyNames(doc.data().score).length
+    })
 
     userRef.onSnapshot(function(doc) {
 
+if(userScore != 0)
       var res = doc.data().score["scorestamp"+((Number(userScore)+1).toString())]
 
       if(res != undefined){
@@ -221,12 +231,11 @@ for(var j=0; j<int_v.length;j++){
      this.setState({alg_score:-2})
 
      prac.addEventListener("click", function () {
-         that.setState({mode:-1})
+         that.setState({mode:0})
      })
 
      prog.addEventListener("click", function () {
-
-
+      that.setState({mode:1})
      })
 
 }
@@ -525,8 +534,11 @@ else {
      </div>)
    }
 
-   else if(this.state.mode == -1){
-     return(<Mode login={this.props.login} name={this.props.name} mode={0}/>)
+   else if(this.state.mode == 0){
+     return(<Mode login={this.props.login} name={this.props.name} mode={this.state.mode}/>)
+   }
+   else if (this.state.mode == 1) {
+     window.location.href="/Matimatiks/report"
    }
   }
 

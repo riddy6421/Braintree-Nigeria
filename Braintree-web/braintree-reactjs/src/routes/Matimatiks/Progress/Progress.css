@@ -1,0 +1,154 @@
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px){
+
+}
+
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {
+
+}
+
+
+
+
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) {
+
+}
+
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+
+
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+#prog-hd{
+  background-color: #40bcff;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 80px;
+  height: 80px;
+}
+
+#prog-bd-title{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+#prog-body{
+  height: 68vh;
+}
+
+#prog-modal-body{
+  height: 81.5vh;
+  overflow: auto;
+}
+
+#prog-modal-cont{
+  margin-top: -0.1%
+}
+
+#prog-card{
+  background-color: white;
+  width: 100%;
+  margin-top: 3%;
+  cursor: pointer;
+}
+
+#prog-container{
+  width: 30%;
+}
+
+#prog-list-details{
+
+}
+
+hr {
+  margin-top: 2%;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+
+#prog-menus{
+  margin-top: -1.5%;
+  margin-left: -15%;
+  height: 36px;
+}
+
+#prog-item{
+  height: 35px;
+  margin-top: -8.5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#prog-bt-li{
+  font-size: 30px;
+  margin-left: 80%;
+  cursor: pointer;
+}
+
+#prog-list{
+  color: #40bcff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#prog-time{
+  margin-left: 10%;
+  margin-top: -2%;
+}
+
+#prog-score{
+margin-top: -5%;
+margin-left: 90%;
+}
+
+#prog-bar{
+  overflow-y:auto;
+}
+
+#prog-alert{
+  display: none;
+}
+
+#empty{
+  margin-left: 23%;
+  margin-top: 28%;
+  font-size: 70px;
+  color: Lavender;
+}
+
+}
+
+
+/*static styling*/
+#prog-modal{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  overflow: auto;
+}

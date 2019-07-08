@@ -140,13 +140,14 @@ public class ProgressReport extends AppCompatActivity {
                         getRes = dataSnapshot.getValue().toString();
 
                     //    new GetScoreList(getRes).execute();
-
                     }
 
                     else {
                        pbar.setVisibility(View.GONE);
                        tv.setVisibility(View.VISIBLE);
                     }
+
+                    
 
                 }
 

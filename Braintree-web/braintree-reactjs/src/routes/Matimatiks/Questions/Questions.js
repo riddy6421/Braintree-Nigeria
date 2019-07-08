@@ -37,7 +37,7 @@ class Questions extends Component {
       timer:null,
       time_allotted:0,
       Qno:-1,
-      review:false,
+      review:null,
       random:null
     }
    this.displayQuestion = this.displayQuestion.bind(this);
@@ -66,7 +66,12 @@ class Questions extends Component {
    this.setState({done:false})
    this.setState({analysis:false})
    this.setState({time_allotted:3000})
-   this.setState({review:this.props.review})
+
+   if(this.props.review == undefined)
+        this.setState({review:false})
+   else
+     this.setState({review:this.props.review})
+
    this.setState({response_valueMap:this.props.response})
 }
 
@@ -89,11 +94,11 @@ componentDidMount(){
           this.state.visited.set((i+1),false)
   }
 
-   if(!this.state.review){
-     window.onbeforeunload = function(e) {
-        return 'Dialog text here.';
-     };
-   }
+   // if(!this.state.review){
+   //   window.onbeforeunload = function(e) {
+   //      return 'Dialog text here.';
+   //   };
+   // }
 
 
 // eslint-disable-next-line
@@ -663,7 +668,6 @@ displayAnswer(query, img){
             xhr.responseType = 'blob';
             xhr.onload = function(event) {
               var blob = xhr.response;
-              alert(blob)
             };
             xhr.open('GET', url);
             xhr.send();
@@ -1088,7 +1092,7 @@ if(that.state.mode == 0){
       return(<div>
 
         <div>
-          <Header login={this.props.login} name={this.props.name} shown={true}/>
+          <Header login={this.props.login} name={this.props.name} shown={true} mode={this.state.mode}/>
         </div>
 
         <div id="quest-cont" className="jumbotron-fluid">
@@ -1229,12 +1233,11 @@ if(that.state.mode == 0){
     //// TODO: Implemnt other topics
 
   }
-     if(this.state.done){//Time has expired. go to results page
+     if(this.state.done){//Time has expired or exam submitted. go to results page
       clearInterval(this.state.timer)
-
       return(<Result login={this.props.login} name={this.props.name} answers={this.state.answer_map} time={this.state.time}
          allowedTime={this.state.time_allotted} mode={this.state.mode}  random={this.props.rand} continue={this.state.continue}
-         response={this.state.response_valueMap} exam={this.props.exam} visited={this.state.visited}/>)
+         response={this.state.response_valueMap} exam={this.props.exam} visited={this.state.visited} review={this.state.review}/>)
     }
 
        if(this.state.analysis){//Result analysis was clicked from Question

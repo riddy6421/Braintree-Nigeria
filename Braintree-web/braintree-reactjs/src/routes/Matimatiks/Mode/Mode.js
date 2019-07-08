@@ -6,6 +6,7 @@ import $ from 'jquery';
 import Questions from '../Questions/Questions.js';
 import waeclogo from './waec-web.png';
 import Modal from 'react-bootstrap/Modal'
+import {onAuth,db} from '../firebase-config.js';
 
 
 
@@ -47,6 +48,7 @@ class Mode extends Component {
   componentDidMount(){
 
     var that = this
+     window.sessionStorage.setItem('user',onAuth.currentUser.uid)
 
        window.scrollTo(0,0);
 
