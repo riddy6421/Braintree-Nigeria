@@ -10,6 +10,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import waec from './waec-web.png';
 import Alert from 'react-bootstrap/Alert'
@@ -39,140 +40,125 @@ class Progress extends Component {
       stats:null,
       stats_t:null,
       clicked:null,
-      details:null
+      details:null,
+      show_alert:null,
+      show_invalid:false
     }
 
     this.createItemList = this.createItemList.bind(this);
     this.InavlidUserPrompt = this.InavlidUserPrompt.bind(this);
     this.createTopicList = this.createTopicList.bind(this);
-
-
-
+    this.deleteList = this.deleteList.bind(this);
+    this.showAlert = this.showAlert.bind(this);
+    this.cancelAlert = this.cancelAlert.bind(this);
+    this.cancelLoad = this.cancelLoad.bind(this);
+    this.showLoad = this.showLoad.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
 
   componentWillMount(){
-    var user = window.sessionStorage.getItem("user")
-    this.setState({user:user})
+     var that = this
     this.setState({details:false})
+    this.setState({show_alert:false})
+
+    onAuth.onAuthStateChanged(function(user) {
+
+        if (user) {
+
+          that.setState({user:user})
+         var userRef = db.collection('users').doc(user.uid);
+
+          var res = [], score = [],exam = [], date=[], time = [], topic = [],
+          alg = [], int = [], geo = [], mens = [], s_l = [], stats = [] ,
+          alg_t = [], int_t = [], geo_t = [], mens_t = [], s_l_t = [], stats_t = []
+
+      var userScore = 0;
+
+      userRef.get().then(function(doc){
+
+      if(doc.data().score != undefined){
+          userScore = Object.getOwnPropertyNames(doc.data().score).length
+
+          for(var i=0; i<userScore/2; i++){
+            res.push(doc.data().score["scorestamp"+((Number(i+1)).toString())])
+            topic.push(doc.data().score["topicstamp"+((Number(i+1)).toString())])
+          }
+
+            if(res.length > 0){
+              for(var i=0; i<res.length; i++){
+                score.push(res[i].split(" ")[0])
+                exam.push(res[i].split(" ")[3])
+                date.push(res[i].split(" ")[1])
+                time.push(res[i].split(" ")[2])
+
+                alg.push(topic[i][0].split(" ")[2])
+                alg_t.push(topic[i][0].split(" ")[1])
+                geo.push(topic[i][1].split(" ")[2])
+                geo_t.push(topic[i][1].split(" ")[1])
+                stats.push(topic[i][2].split(" ")[2])
+                stats_t.push(topic[i][2].split(" ")[1])
+                s_l.push(topic[i][3].split(" ")[2])
+                s_l_t.push(topic[i][3].split(" ")[1])
+                mens.push(topic[i][4].split(" ")[2])
+                mens_t.push(topic[i][4].split(" ")[1])
+                int.push(topic[i][5].split(" ")[2])
+                int_t.push(topic[i][5].split(" ")[1])
+              }
+
+            }
+
+      }
+
+      else if(doc.data().score == null || doc.data().score == undefined || userScore == 0) {
+
+        score.push(null)
+        exam.push(null)
+        date.push(null)
+        time.push(null)
+
+      }
+         that.setState({score:score})
+         that.setState({date:date})
+         that.setState({time:time})
+         that.setState({exam:exam})
+         that.setState({userScore:userScore/2})
+
+         that.setState({alg:alg})
+         that.setState({alg_t:alg_t})
+         that.setState({geo:geo})
+         that.setState({geo_t:geo_t})
+         that.setState({stats:stats})
+         that.setState({stats_t:stats_t})
+         that.setState({s_l:s_l})
+         that.setState({s_l_t:s_l_t})
+         that.setState({mens:mens})
+         that.setState({mens_t:mens_t})
+         that.setState({int:int})
+         that.setState({int_t:int_t})
+      })
+
+        } else {
+           that.InavlidUserPrompt()
+        }
+    });
   }
 
   componentDidUpdate(){
     var that = this
-var del = document.getElementById("prog-item")
+
 var close = document.getElementById("prog-close")
-
-if(del != null && this.state.userScore > 0){
-   del.addEventListener("click", function () {
-
-      var userRef = db.collection('users').doc(this.state.user);
-
-      userRef.update({
-        score: firebase.firestore.FieldValue.delete().then(function() {
-
-        document.getElementById("prog-alert").display = "block"
-
-        setTimeout(function(){
-          document.getElementById("prog-alert").display = "none"
-
-           that.setState({userScore:0})
-
-         },1000)
-
-
-   }).catch(function(error) {
-
-       console.error("Error removing document: ", error);
-
-   })
-      });
-
-    })
-
-  }
 
     if(close != null)
          close.addEventListener("click", function () {window.location.href = "/Matimatiks"})
 
   }
 
-  componentDidMount(){
+  componentDidMount(){}
 
-    var that = this
-
-    var userRef = db.collection('users').doc(this.state.user);
-
-    var res = [], score = [],exam = [], date=[], time = [], topic = [],
-        alg = [], int = [], geo = [], mens = [], s_l = [], stats = [] ,
-        alg_t = [], int_t = [], geo_t = [], mens_t = [], s_l_t = [], stats_t = []
-
-    var userScore = 0;
-
-    userRef.get().then(function(doc){
-
-    if(doc.data().score != undefined){
-        userScore = Object.getOwnPropertyNames(doc.data().score).length
-
-        for(var i=0; i<userScore/2; i++){
-          res.push(doc.data().score["scorestamp"+((Number(i+1)).toString())])
-          topic.push(doc.data().score["topicstamp"+((Number(i+1)).toString())])
-        }
-
-          if(res.length > 0){
-            for(var i=0; i<res.length; i++){
-              score.push(res[i].split(" ")[0])
-              exam.push(res[i].split(" ")[3])
-              date.push(res[i].split(" ")[1])
-              time.push(res[i].split(" ")[2])
-
-              alg.push(topic[i][0].split(" ")[2])
-              alg_t.push(topic[i][0].split(" ")[1])
-              geo.push(topic[i][1].split(" ")[2])
-              geo_t.push(topic[i][1].split(" ")[1])
-              stats.push(topic[i][2].split(" ")[2])
-              stats_t.push(topic[i][2].split(" ")[1])
-              s_l.push(topic[i][3].split(" ")[2])
-              s_l_t.push(topic[i][3].split(" ")[1])
-              mens.push(topic[i][4].split(" ")[2])
-              mens_t.push(topic[i][4].split(" ")[1])
-              int.push(topic[i][5].split(" ")[2])
-              int_t.push(topic[i][5].split(" ")[1])
-            }
-
-          }
-
-    }
-
-    else if(doc.data().score == null || doc.data().score == undefined || userScore == 0) {
-
-      score.push(null)
-      exam.push(null)
-      date.push(null)
-      time.push(null)
-
-    }
-       that.setState({score:score})
-       that.setState({date:date})
-       that.setState({time:time})
-       that.setState({exam:exam})
-       that.setState({userScore:userScore/2})
-
-       that.setState({alg:alg})
-       that.setState({alg_t:alg_t})
-       that.setState({geo:geo})
-       that.setState({geo_t:geo_t})
-       that.setState({stats:stats})
-       that.setState({stats_t:stats_t})
-       that.setState({s_l:s_l})
-       that.setState({s_l_t:s_l_t})
-       that.setState({mens:mens})
-       that.setState({mens_t:mens_t})
-       that.setState({int:int})
-       that.setState({int_t:int_t})
-    })
-
+  InavlidUserPrompt(){
+    this.setState({show_invalid:true})
+    setTimeout(function(){window.location.href="/Matimatiks"},500)
   }
-
-  InavlidUserPrompt(){return <div className="alert alert-danger" role="alert">Invalid User</div>}
 
 
   createTopicList(num){
@@ -186,7 +172,7 @@ if(del != null && this.state.userScore > 0){
        if(this.state.alg_t != null){
 
         if(this.state.alg_t[num] < 3){
-          alg = "ID"
+          alg = "ID (Inadequte Data)"
           color.push("LightGray")
         }
         else{
@@ -217,7 +203,7 @@ if(del != null && this.state.userScore > 0){
        if(this.state.geo_t != null){
 
         if(this.state.geo_t[num] < 3){
-          geo = "ID"
+          geo = "ID (Inadequte Data)"
           color.push("LightGray")
         }
         else{
@@ -246,7 +232,7 @@ if(del != null && this.state.userScore > 0){
        if(this.state.stats_t != null){
 
         if(this.state.stats_t[num] < 3){
-          stats = "ID"
+          stats = "ID (Inadequte Data)"
           color.push("LightGray")
         }
         else{
@@ -275,7 +261,7 @@ if(del != null && this.state.userScore > 0){
        if(this.state.s_l_t != null){
 
         if(this.state.s_l_t[num] < 3){
-          sl = "ID"
+          sl = "ID (Inadequte Data)"
           color.push("LightGray")
         }
         else{
@@ -303,7 +289,7 @@ if(del != null && this.state.userScore > 0){
        if(this.state.mens_t != null){
 
         if(this.state.mens_t[num] < 3){
-          mens = "ID"
+          mens = "ID (Inadequte Data)"
           color.push("LightGray")
         }
         else{
@@ -332,7 +318,7 @@ if(del != null && this.state.userScore > 0){
        if(this.state.int_t != null){
 
         if(this.state.int_t[num] < 3){
-          int = "ID"
+          int = "ID (Inadequte Data)"
           color.push("LightGray")
         }
         else{
@@ -360,9 +346,52 @@ if(del != null && this.state.userScore > 0){
     return<ListGroup id="prog-list-details">{result_cont}</ListGroup>
 }
 
+deleteList(){
+  var that = this
+
+  var confirm = window.confirm("Your entire report would be deleted. Continue?")
+
+  if(confirm == true){
+  var userRef = db.collection('users').doc(this.state.user.uid);
+
+  this.showLoad()
+
+if(this.state.userScore > 0){
+  userRef.update({
+    score: firebase.firestore.FieldValue.delete()
+  });
+
+  setTimeout(function(){
+     that.setState({userScore:0})
+     that.setState({show_alert:true})
+     that.cancelLoad()
+   },1000)
+}
+
+else{alert("Unable to Perform Action : Record Empty")}
+
+setTimeout(function(){
+   that.cancelLoad()
+ },1000)
+
+}
+
+}
+
 createItemList(score,date,time,exam){
   var image = [], color = [], item = [], newDate;
   var that = this
+
+
+if(document.getElementById('prog-spin') != null){
+    this.showLoad()
+}
+
+
+  setTimeout(function(){
+     that.cancelLoad()
+   },1000)
+
 
 if(this.state.userScore > 0){
 
@@ -398,53 +427,71 @@ if(this.state.userScore > 0){
                         </Accordion.Collapse>
                      </Card>)
   }
-  return <Accordion>{item}</Accordion>
+  return <Accordion id="prog-accord">{item}</Accordion>
 }
 
 else{
-  return <p>Empty Report</p>
+  item.push(<p id="empty">Empty Report</p>)
+  return <Accordion id="prog-accord">{item}</Accordion>
+}
+return null
 }
 
-return null
+showAlert(){
+    return  <Alert id="prog-alert" variant="danger"> Report Sucessfully Deleted <div id="prog-canc" onClick={this.cancelAlert}>&times;</div></Alert>
+}
+
+cancelAlert(){
+  document.getElementById("prog-alert").style.display = "none"
+}
+
+cancelLoad(){
+  var x = document.getElementById('prog-accord')
+  document.getElementById('prog-spin').style.display = "none"
+  if(x != null)
+      x.style.display = "block"
+}
+
+showLoad(){
+    var x = document.getElementById('prog-accord')
+    if(x != null)
+        x.style.display = "none"
+  document.getElementById('prog-spin').style.display = "block"
+}
+
+
+refresh(){
+  this.createItemList(this.state.score,this.state.date,this.state.time,this.state.exam)
 }
 
    render() {
 
       // alert(this.state.score+"\n"+this.state.date+"\n"+this.state.exam+"\n"+this.state.time+"\n"+this.state.userScore+"\n"+this.state.details)
 
-    if(this.state.user == "null"){
-      this.InavlidUserPrompt()
-      setTimeout(function(){
-          window.location.href = "/Matimatiks"
-      },1000)
-    }
-
-
-
     if(this.state.score != null && this.state.date != null && this.state.exam != null && this.state.time != null && this.state.userScore >= 0 && !this.state.details){
+
   return(
     <div>
 <div id="prog-body">
+
 <div id ="prog-modal">
-
-<Alert id="prog-alert" variant="danger">
-  This is alert—check it out!
-</Alert>
-
+{this.state.userScore == 0 && this.state.show_alert ? this.showAlert() : <div></div>}
 <Modal.Dialog id="prog-modal-cont" size="lg">
   <Modal.Header id="prog-hd">
 
     <Modal.Title>Matimatiks</Modal.Title>
 
     <div id="prog-bt-li"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9776;</div>
-    '<div id="prog-menus" class="dropdown-menu">
-       <p id="prog-item" class="dropdown-item">Clear List</p>
+    '<div id="prog-menus" className="dropdown-menu">
+       <p id="prog-item1" className="dropdown-item" onClick={this.deleteList}>Clear List</p>
+       <p id="prog-item2" className="dropdown-item" onClick={this.refresh}>Refresh</p>
     </div>
 
   </Modal.Header>
   <Modal.Body id="prog-modal-body">
      <h5 id="prog-bd-title">Progress Report</h5>
      <hr/>
+      <div id="prog-spin"><Spinner animation="grow" variant="dark" />Loading...</div>
      {this.createItemList(this.state.score,this.state.date,this.state.time,this.state.exam)}
   </Modal.Body>
 
@@ -461,56 +508,23 @@ return null
   );
 }
 
-else if(this.state.score != null && this.state.date != null && this.state.exam != null && this.state.time != null && this.state.userScore > 0 && this.state.details){
-
-  //TODO: Show details
-   return(
-     <div>
-     <div id ="prog-modal">
-
-     <Modal.Dialog id="prog-modal-cont" size="lg">
-       <Modal.Header id="prog-hd">
-
-         <Modal.Title>Matimatiks</Modal.Title>
-
-       </Modal.Header>
-       <Modal.Body id="prog-modal-body">
-          <h5 id="prog-bd-title">Progress Report</h5>
-          <hr/>
-
-
-
-       </Modal.Body>
-
-       <Modal.Footer>
-         <Button id="prog-close" variant="danger">Back</Button>
-     </Modal.Footer>
-
-     </Modal.Dialog>
-
-     </div>
-     </div>
-     )
-
-}
-
 else{
-
-    return(<div>
+  return(<div>
       <div>
-      <div  id="spin" className="mx-auto">
-      <div id="blink" className="spinner-grow" role="status">
-         <span className="sr-only">Loading...</span>
-      </div>
-      <div id="ltext">Loading...</div>
-      </div>
+      <Alert variant="danger" show={this.state.show_invalid}> <div id="invalid-text">Invalid User</div></Alert>
+          <div  id="spin" className="mx-auto">
+            <div id="blink" className="spinner-grow" role="status">
+               <span className="sr-only">Loading...</span>
+            </div>
+            <div id="ltext">Loading...</div>
+            </div>
 
-     </div>
+           </div>
       </div>)
-}
+
 }
 
-
+}
 
 }
 

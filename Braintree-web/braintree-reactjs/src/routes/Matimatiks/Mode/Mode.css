@@ -96,6 +96,12 @@ font-size: 50px;
   margin-top: 10%;
 }
 
+#signin-text{
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 45%;
+}
+
+
 #modal-hd{
   background-color: #40bcff;
   color: white;

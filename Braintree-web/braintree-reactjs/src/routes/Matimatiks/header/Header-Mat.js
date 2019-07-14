@@ -151,8 +151,8 @@ if(this.props.name){
 // eslint-disable-next-line
     if(confirm == true){
       onAuth.signOut().then(function() {
+        window.sessionStorage.setItem('first',null)
         console.log("signout successful")
-         window.sessionStorage.setItem('user',null)
       }).catch(function(error) {
         console.log("signout unsuccessful: "+error)
    });

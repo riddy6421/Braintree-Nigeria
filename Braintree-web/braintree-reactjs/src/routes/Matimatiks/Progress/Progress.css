@@ -94,10 +94,18 @@ hr {
   height: 36px;
 }
 
-#prog-item{
+#prog-item1{
   height: 35px;
   margin-top: -8.5px;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#prog-item2{
+  height: 35px;
+  margin-top: -17px;
+  cursor: pointer;
+  background-color: Lightgray;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -126,15 +134,39 @@ margin-left: 90%;
   overflow-y:auto;
 }
 
-#prog-alert{
-  display: none;
-}
-
 #empty{
   margin-left: 23%;
   margin-top: 28%;
   font-size: 70px;
   color: Lavender;
+}
+
+#invalid-text{
+  margin-left: 45vw;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+
+#prog-canc{
+  margin-left: 95vw;
+  margin-top: -30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#prog-accord{
+  display: none;
+}
+#prog-spin{
+  margin-left: 40%;
+  margin-top: 35%;
+  font-size: 30px;
+  color: Lavender;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#prog-canc:hover{
+  color: LightGray;
 }
 
 }

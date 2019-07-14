@@ -6,6 +6,7 @@ import $ from 'jquery';
 import Questions from '../Questions/Questions.js';
 import waeclogo from './waec-web.png';
 import Modal from 'react-bootstrap/Modal'
+import Alert from 'react-bootstrap/Alert'
 import {onAuth,db} from '../firebase-config.js';
 
 
@@ -27,6 +28,7 @@ class Mode extends Component {
     }
 
     this.generateRandom = this.generateRandom.bind(this);
+    this.SiginInPrompt = this.SiginInPrompt.bind(this);
   }
 
   componentWillMount(){
@@ -250,6 +252,19 @@ componentDidUpdate(){
 
   }
 
+  SiginInPrompt(){
+    var item
+    if(window.sessionStorage.getItem('first') == "null"){
+      item = <Alert id="signin-prompt" variant="success" ><div id="signin-text">You're Signed In</div></Alert>
+      setTimeout(function(){document.getElementById('signin-prompt').style.display = "none"},1000)
+    }
+
+    else{
+      item = " "
+    }
+
+    return item
+  }
 
 
   render(){
@@ -259,7 +274,7 @@ componentDidUpdate(){
 
        return (
            <div>
-
+            {this.SiginInPrompt()}
            <div>
              <Header login={this.state.login} name={this.props.name}/>
            </div>
@@ -305,6 +320,7 @@ componentDidUpdate(){
       }
 // eslint-disable-next-line
 else if (this.state.login && this.state.mode == 0){// practice question mode clicked?
+  window.sessionStorage.setItem('first',false)
 // eslint-disable-next-line
    if(this.state.topic == 1){// if algebra topic is clicked (temp)
         this.generateRandom(2)
@@ -313,7 +329,7 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
 
      //// TODO: other topics
     else{
-
+      window.sessionStorage.setItem('first',false)
      return (
        <div>
 
@@ -356,6 +372,7 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
 }
 // eslint-disable-next-line
   else if(this.state.login && this.state.mode == 1){//Exam Mode
+    window.sessionStorage.setItem('first',false)
 
 // eslint-disable-next-line
      if(this.state.continue == 0 && this.state.exam == 0){
@@ -383,6 +400,7 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
      }
 // eslint-disable-next-line
      else if(this.state.continue == 0 && this.state.exam == 1){
+       window.sessionStorage.setItem('first',false)
        return(
                 <div id="bg">
                  <Modal.Dialog>
@@ -408,6 +426,7 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
      }
 // eslint-disable-next-line
    else if(this.state.continue == 1 && this.state.exam == 1){
+     window.sessionStorage.setItem('first',false)
      this.generateRandom(50);
      return(<Questions mode={this.state.mode} topic={this.state.topic} rand={this.state.random} name={this.state.name}
         login={this.state.login} continue={this.state.continue} exam={this.state.exam} />);
