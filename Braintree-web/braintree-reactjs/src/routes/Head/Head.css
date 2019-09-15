@@ -1,6 +1,53 @@
 
 /* specially small devices (portrait phones, less than 576px)*/
 @media (max-width: 359px) {
+  #top{
+  position: fixed;
+  }
+  #brand_br{
+   width: 100px;
+   height: 70px;
+   background-color: white;
+   border:5px solid  white ;
+   border-radius: 10px;
+   text-align: center;
+   margin-top: 2vh;
+  }
+
+  #logo_br{
+    width: 20vw;
+    text-align:center;
+  }
+
+  #b-links{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 4%;
+    font-size: 70%;
+  }
+
+  #h1,#h2,#h3,#h4,#drop{
+    color: white;
+  }
+
+  #h1:hover,#h2:hover,#h3:hover,#h4:hover{
+    color: LightGray;
+  }
+    #button-addon2{  background-color: white;  }
+
+    #drop{
+      cursor: pointer;
+    }
+
+    #icon{
+      color: DodgerBlue;
+    }
+
+    #drop-logo{
+      width: 30%;
+      margin-top: -4%;
+      margin-left: -12%;
+    }
 
 }
 
@@ -8,12 +55,119 @@
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (min-width: 360px) and  (max-width: 575.98px) {
 
+  #top{
+    position: fixed;
+  }
+  #brand_br{
+   width: 120px;
+   height: 70px;
+   background-color: white;
+   border:5px solid  white ;
+   border-radius: 10px;
+   margin-top: 3vh;
+   text-align: center;
+
+  }
+
+  #logo_br{
+    width: 20vw;
+    margin-left: 8%;
+    margin-top: 2%;
+  }
+
+  #b-links{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 4%;
+    font-size: 80%;
+  }
+
+  #h1,#h2,#h3,#h4,#drop{
+    color: white;
+  }
+
+  #h1:hover,#h2:hover,#h3:hover,#h4:hover{
+    color: LightGray;
+  }
+
+
+    #button-addon2{
+    background-color: white;
+    }
+
+    #drop{
+      cursor: pointer;
+    }
+
+    #icon{
+      color: DodgerBlue;
+    }
+
+    #drop-logo{
+      width: 30%;
+      margin-top: -4%;
+      margin-left: -12%;
+    }
+
 
 }
 
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
+  #top{
+    position: fixed;
+  }
+  #brand_br{
+   width: 180px;
+   height: 100px;
+   background-color: white;
+   border:5px solid  white ;
+   border-radius: 10px;
+   margin-top: 5%;
+   text-align: center;
+
+  }
+
+  #logo_br{
+    width: 20vw;
+    margin-left: 8%;
+    margin-top: 2%;
+  }
+
+  #b-links{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 4%;
+    font-size: 80%;
+  }
+
+  #h1,#h2,#h3,#h4,#drop{
+    color: white;
+  }
+
+  #h1:hover,#h2:hover,#h3:hover,#h4:hover{
+    color: LightGray;
+  }
+
+
+    #button-addon2{
+    background-color: white;
+    }
+
+    #drop{
+      cursor: pointer;
+    }
+
+    #icon{
+      color: DodgerBlue;
+    }
+
+    #drop-logo{
+      width: 30%;
+      margin-top: -4%;
+      margin-left: -12%;
+    }
 
 }
 
@@ -21,11 +175,128 @@
 /* Medium devices (tablets, 768px and up)*/
  @media (min-width: 767px) and (max-width: 991.98px) {
 
+   #top{
+     position: fixed;
+   }
 
+   #brand_br{
+   float: left;
+   margin-top: 8px;
+   width: 80px;
+   height: 65px;
+   background-color: white;
+   border:5px solid  white  ;
+   border-radius: 10px;
+   }
+
+   #logo_br{
+    width: 60px;
+    margin-left: -6px;
+    margin-top: 10px;
+   }
+
+   #b-links{
+     font-family: 'Montserrat', sans-serif;
+     margin-left: 10%;
+     margin-top: 3.5%;
+     font-size: 14px;
+   }
+
+   #h1,#h2,#h3,#h4,#drop{
+    color: white;
+   }
+     #h1:hover,#h2:hover,#h3:hover,#h4:hover{
+      color: LightGray;
+     }
+
+   #button-addon2{
+       background-color: white;
+   }
+
+   #drop{
+     cursor: pointer;
+   }
+
+
+ #icon{
+   color: DodgerBlue;
+ }
+
+   #inp{
+    float: right;
+     width: 40%;
+     margin-top : -5%
+   }
+
+   #drop-logo{
+     width: 30%;
+     margin-top: -4%;
+     margin-left: -12%;
+   }
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
+
+  #top{
+    position: fixed;
+  }
+
+  #brand_br{
+  float: left;
+  margin-top: 8px;
+  width: 80px;
+  height: 65px;
+  background-color: white;
+  border:5px solid  white  ;
+  border-radius: 10px;
+  }
+
+  #logo_br{
+   width: 60px;
+   margin-left: -6px;
+   margin-top: 10px;
+  }
+
+  #b-links{
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 10%;
+    margin-top: 3.5%;
+    font-size: 14px;
+  }
+
+  #h1,#h2,#h3,#h4,#drop{
+   color: white;
+  }
+    #h1:hover,#h2:hover,#h3:hover,#h4:hover{
+     color: LightGray;
+    }
+
+  #button-addon2{
+      background-color: white;
+  }
+
+  #drop{
+    cursor: pointer;
+  }
+
+
+#icon{
+  color: DodgerBlue;
+}
+
+  #inp{
+   float: right;
+    width: 40%;
+    margin-top : -5%
+  }
+
+  #drop-logo{
+    width: 30%;
+    margin-top: -4%;
+    margin-left: -12%;
+  }
+
 
 
  }
@@ -37,8 +308,7 @@
     position: fixed;
   }
 
-
-  #brand{
+  #brand_br{
   float: left;
   margin-top: 3px;
   width: 100px;
@@ -48,16 +318,16 @@
   border-radius: 10px;
   }
 
-  #logo{
+  #logo_br{
   	width: 60px;
   	margin-left: 6px;
   	margin-top: 10px;
   }
 
   #b-links{
-    float: left;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 2%;
+    margin-top: 1.5vw;
+    margin-left:8vw;
   }
 
 #list2{
@@ -90,9 +360,9 @@
 }
 
   #inp{
-  	float: right;
-  	width: 30%;
-    margin-top : -4%
+  	width: 30vw;
+    margin-top : -3.3vw;
+    margin-left: 68vw;
   }
 
   #drop-logo{

@@ -1,18 +1,136 @@
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px) {
 
-#jum{
-	background-color: white;
-	height:100vh ;
+	#jum{
+		background-color: white;
+		height:100vh ;
+	}
+
+
+	#about{
+		font-family: 'Montserrat', sans-serif;
+		color: black;
+		font-size: 20px;
+		text-decoration: underline;
+		margin-top:30vh;
+	}
+
+	.lead{
+		text-decoration: none;
+	}
 }
 
 
-#about{
-	font-family: 'Montserrat', sans-serif;
-	color: black;
-	font-size: 20px;
-	text-decoration: underline;
-	margin-top: 2%;
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {
+
+	#jum{
+		background-color: white;
+		height:100vh ;
+
+	}
+
+
+	#about{
+		font-family: 'Montserrat', sans-serif;
+		color: black;
+		font-size: 20px;
+		text-decoration: underline;
+		margin-top: 30vh;
+	}
+
+	.lead{
+		text-decoration: none;
+	}
 }
 
-.lead{
-	text-decoration: none;
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+	#jum{
+		background-color: white;
+		height:100vh ;
+	}
+
+
+	#about{
+		font-family: 'Montserrat', sans-serif;
+		color: black;
+		font-size: 20px;
+		text-decoration: underline;
+		margin-top: 2%;
+	}
+
+	.lead{
+		text-decoration: none;
+	}
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) {
+
+	 #jum{
+	 	background-color: white;
+	 	height:100vh ;
+	 }
+
+
+	 #about{
+	 	font-family: 'Montserrat', sans-serif;
+	 	color: black;
+	 	font-size: 20px;
+	 	text-decoration: underline;
+	 	margin-top: 10vh;
+	 }
+
+	 .lead{
+	 	text-decoration: none;
+	 }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+	#jum{
+		background-color: white;
+		height:100vh ;
+	}
+
+
+	#about{
+		font-family: 'Montserrat', sans-serif;
+		color: black;
+		font-size: 20px;
+		text-decoration: underline;
+		margin-top: 15vh;
+	}
+
+	.lead{
+		text-decoration: none;
+	}
+ }
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+	#jum{
+		background-color: white;
+		height:100vh ;
+	}
+
+
+	#about{
+		font-family: 'Montserrat', sans-serif;
+		color: black;
+		font-size: 20px;
+		text-decoration: underline;
+		margin-top: 15vh;
+	}
+
+	.lead{
+		text-decoration: none;
+	}
+
 }

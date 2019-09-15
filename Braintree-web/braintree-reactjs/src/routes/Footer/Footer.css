@@ -1,38 +1,36 @@
 
 /* specially small devices (portrait phones, less than 576px)*/
 @media (max-width: 359px) {
+	#info2{
 
-#info2{
-	display: none;
-}
+		width: 100%;
+		height: auto;
+		background-color: LightSteelBlue ;
+	}
 
+	#legal-list{
+		white-space:nowrap;
+	}
 
-#info1{
+	#heading1,#heading2,#heading3{
+		color: white;
+		margin-top: 5%;
+	}
 
-	width: 100%;
-	height: auto;
-}
+	#priv{
+		margin-top: -50%;
+	}
 
-#list{
+	#heading6{
+		margin-top: -17%;
+		margin-left: -15%;
+		white-space: nowrap;
+	}
 
-	margin-left: 10%;
-}
-
-#doc{
-
-	color: white;
-
-}
-
-#ptr{
-
-	margin-left: 25%;
-}
-
-#pi,#pi2{
-
-	margin-left: 5%;
-}
+	#legal-list{
+	  margin-left: -10%;
+		margin-top: 5%;
+	}
 
 }
 
@@ -41,37 +39,35 @@
 @media (min-width: 360px) and  (max-width: 575.98px) {
 
 	#info2{
-	display: none;
-}
 
+		width: 100%;
+		height: auto;
+		background-color: LightSteelBlue ;
+	}
 
-#info1{
+	#legal-list{
+		white-space:nowrap;
+	}
 
-	width: 100%;
-	height: auto;
-}
+	#heading1,#heading2,#heading3{
+		color: white;
+		margin-top: 5%;
+	}
 
-#list{
+	#priv{
+		margin-top: -50%;
+	}
 
-	margin-left: 15%;
-}
+	#heading6{
+		margin-top: -5vh;
+		margin-left: -5vw;
+		white-space: nowrap;
+	}
 
-#doc{
-
-	color: white;
-	margin-left: 5%;
-
-}
-
-#ptr{
-
-	margin-left: 28%;
-}
-
-#pi,#pi2{
-
-	margin-left: 5%;
-}
+	#legal-list{
+	  margin-left: -8vw;
+		margin-top: 3vh;
+	}
 
 }
 
@@ -79,28 +75,34 @@
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
 
-#info2{
+	#info2{
 
-	width: 100%;
-	height: auto;
-}
+		width: 100%;
+		height: auto;
+		background-color: LightSteelBlue ;
+	}
 
+	#legal-list{
+		white-space:nowrap;
+	}
 
-#info1{
+	#heading1,#heading2,#heading3{
+		color: white;
+		margin-top: 5%;
+	}
 
-    display:none ;
+	#priv{ margin-top: -50%;}
 
-}
+	#heading6{
+		margin-top: -1vh;
+		margin-left: -1vw;
+		white-space: nowrap;
+	}
 
-#heading1,#heading2,#heading3{
-
-	color: white;
-}
-
-.pi2,.pi3{
-
-	margin-left: 5%;
-}
+	#legal-list{
+	  margin-left: -4vw;
+		margin-top: 8vh;
+	}
 
 }
 
@@ -108,57 +110,59 @@
 /* Medium devices (tablets, 768px and up)*/
  @media (min-width: 767px) and (max-width: 991.98px) {
 
-#info2{
+	 #info2{
 
-	width: 100%;
-	height: auto;
-}
+ 		width: 100%;
+ 		height: auto;
+ 		background-color: LightSteelBlue ;
+ 	}
 
+ 	#legal-list{
+ 		white-space:nowrap;
+ 	}
 
-#info1{
+ 	#heading1,#heading2,#heading3{
+ 		color: white;
+ 		margin-top: 5%;
+ 	}
 
-    display:none ;
+ 	#priv{ margin-top: -50%;}
 
-}
+ 	#heading6{
+ 		margin-top: -2vh;
+ 		white-space: nowrap;
+ 	}
 
-#heading1,#heading2,#heading3{
-
-	color: white;
-}
-
-.pi2,.pi3{
-
-	margin-left: 5%;
-}
-
+ 	#legal-list{
+ 	  margin-left: -2vw;
+ 		margin-top: 10vh;
+ 	}
 
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
 
-#info2{
 
-	width: 100%;
-	height: auto;
-}
+	#info2{
 
+		width: 100%;
+		height: auto;
+		background-color: LightSteelBlue ;
+	}
 
-#info1{
+	#legal-list{
+		white-space:nowrap;
+	}
 
-    display:none ;
+	#heading1,#heading2,#heading3{
+		color: white;
+		margin-top: 2vh;
+	}
 
-}
-
-#heading1,#heading2,#heading3{
-
-	color: white;
-}
-
-.pi2,.pi3{
-
-	margin-left: 5%;
-}
+	.pi2,.pi3{
+		margin-left: 5%;
+	}
 
  }
 

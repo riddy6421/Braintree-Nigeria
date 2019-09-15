@@ -1,5 +1,59 @@
 /* specially small devices (portrait phones, less than 576px)*/
 @media (max-width: 359px){
+  #sl{
+    margin-top: 5%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6vw;
+  }
+
+
+  #card1-hd,#card1-title,#card1-text,#card1-btn,
+  #card2-hd,#card2-title,#card2-text{
+  font-size: 3vw;
+  }
+
+  #card2-btn{
+    margin-top: -10vw;
+    font-size: 3vw;
+  }
+
+  #card1{
+    width: 80vw;
+    height: 72vw;
+  }
+
+  #card2{
+    width: 80vw;
+    height: 72vw;
+    margin-left: 3vw;
+  }
+
+  #mode-main{
+    width: 100vw;
+    height: 100vh;
+  }
+
+
+  #s-mode{
+    font-size: 7vw;
+    margin-top: 4vh;
+  }
+
+  #math-cards-1,#math-cards-2,#math-cards-3{
+    height: 12vw;
+    width: 100%;
+    margin-top: 8vw;
+  }
+
+  #alg,#geo,#stat,#mens,#int,#s&l{
+
+  }
+
+  #mode2-cont{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+  }
 
 }
 
@@ -7,7 +61,38 @@
 
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (min-width: 360px) and  (max-width: 575.98px) {
+  #sl{
+    margin-top: 5%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6vw;
+  }
 
+  #card1-hd,#card1-title,#card1-text,#card1-btn,
+  #card2-hd,#card2-title,#card2-text{
+  font-size: 3vw;
+  }
+
+  #card2-btn{
+    margin-top: -1vw;
+    font-size: 3vw;
+  }
+
+  #card1{
+    width: 80vw;
+    height: 72vw;
+  }
+
+  #card2{
+    width: 80vw;
+    height: 72vw;
+    margin-left: 3vw;
+  }
+
+  #mode-main{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+  }
 }
 
 
@@ -41,7 +126,7 @@
 #sl{
   margin-top: 5%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 50px
+  font-size: 3vw;
 }
 
 #neg{

@@ -6,10 +6,7 @@ import matlogo from '../braintree/downloads/mat_img_launch.png';
 
 class Head extends Component {
 
-  componentDidMount(){
-
-       document.getElementById("top").style.backgroundColor = "#364696"
-  }
+  componentDidMount(){document.getElementById("top").style.backgroundColor = "#364696"}
 
   render() {
 
@@ -18,8 +15,8 @@ class Head extends Component {
   <div id="top" className="container-fluid">
 
   {/*Brand begin*/}
-  <div id="brand" className="container">
-    <img id="logo" src={logo} className="rounded"  alt=""/>
+  <div id="brand_br" className="container">
+    <img id="logo_br" src={logo} className="rounded"  alt=""/>
   </div>
 
 

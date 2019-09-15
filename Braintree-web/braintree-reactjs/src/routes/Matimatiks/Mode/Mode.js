@@ -50,6 +50,7 @@ class Mode extends Component {
   componentDidMount(){
 
     var that = this
+
      window.sessionStorage.setItem('user',onAuth.currentUser.uid)
 
        window.scrollTo(0,0);
@@ -168,6 +169,7 @@ class Mode extends Component {
 
           if (this.state.login && this.state.mode == 0) {
 
+
           /*Set click listeners to all topic buttons*/
           document.getElementById('alg').addEventListener("click",function () {
 
@@ -205,12 +207,15 @@ class Mode extends Component {
 
           })
 
+          alert("g")
+
         }
   }
 
 
 componentDidUpdate(){
   var that = this
+
   // eslint-disable-next-line
   if(this.state.exam == 1 && this.state.continue == 0){
     document.getElementById("begin").addEventListener("click", function () {
@@ -225,6 +230,8 @@ componentDidUpdate(){
 
       })
 }
+
+
 }
 
   generateRandom(nof){
@@ -274,9 +281,9 @@ componentDidUpdate(){
 
        return (
            <div>
-            {this.SiginInPrompt()}
-           <div>
-             <Header login={this.state.login} name={this.props.name}/>
+        {this.SiginInPrompt()}
+           <div className="container-fluid">
+             <Header login={this.state.login} name={this.props.name} adjust={true}/>
            </div>
 
 
@@ -290,20 +297,20 @@ componentDidUpdate(){
            <div className="container-fluid d-flex justify-content-center">
 
            <div id="card1" className="card text-white bg-primary mb-3" >
-             <div className="card-header">Mode A</div>
+             <div id="card1-hd" className="card-header">Mode A</div>
              <div className="card-body">
-             <h5 className="card-title">Practice Exam Questions</h5>
-             <p className="card-text">In this mode, the exam is untimed. Practice questions pertaning to different math topics are available.</p>
+             <h5 id="card1-title" className="card-title">Practice Exam Questions</h5>
+             <p id="card1-text" className="card-text">In this mode, the exam is untimed. Practice questions pertaning to different math topics are available.</p>
              <button id="card1-btn" type="button" className="btn btn-outline-dark">Launch</button>
             </div>
             </div>
 
 
            <div id="card2" className="card text-white bg-success mb-3">
-             <div className="card-header">Mode B</div>
+             <div  id="card2-hd" className="card-header">Mode B</div>
              <div className="card-body">
-             <h5 className="card-title">Mock Exam</h5>
-             <p className="card-text">In this mode, the exam is timed and results are computed strategically to determing your strength and/or weakneses</p>
+             <h5 id="card2-title" className="card-title">Mock Exam</h5>
+             <p id="card2-text" className="card-text">In this mode, the exam is timed and results are computed strategically to determing your strength and/or weakneses</p>
              <button id="card2-btn" type="button" className="btn btn-outline-dark">Launch</button>
            </div>
          </div>
@@ -330,11 +337,12 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
      //// TODO: other topics
     else{
       window.sessionStorage.setItem('first',false)
+
      return (
        <div>
 
-       <div>
-         <Header login={this.props.login} name={this.props.name}/>
+       <div className="container-fluid">
+         <Header login={this.props.login} name={this.props.name} adjust={true}/>
        </div>
 
        <div id="mode2-cont" className="jumbotron">
@@ -378,8 +386,8 @@ else if (this.state.login && this.state.mode == 0){// practice question mode cli
      if(this.state.continue == 0 && this.state.exam == 0){
        return(
        <div>
-       <div>
-         <Header login={this.props.login} name={this.props.name}/>
+       <div className="container-fluid">
+         <Header login={this.props.login} name={this.props.name} adjust={true}/>
        </div>
 
        <div id="card-exam" className="card container justify-content-center bg-warning">

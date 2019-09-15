@@ -55,9 +55,9 @@ class Homepage extends Component {
 
         topic = document.getElementById('q1');
 
-        arr1 = document.getElementById('prev');
+        arr1 = document.getElementById('prev_home');
 
-        arr2 = document.getElementById('next');
+        arr2 = document.getElementById('next_home');
 
        // eslint-disable-next-line
        if(context.state.ques == 0)
@@ -243,13 +243,13 @@ See sample tutorial Q&A's
 
    <img id ="Qimg1" src={Q1} className="rounded mx-auto d-block" alt="sample question 1"/>
 
-   <button id="prev" type="button" className="btn btn-outline-primary">&laquo;</button>
+   <button id="prev_home" type="button" className="btn btn-outline-primary">&laquo;</button>
 
 
    <button id="A1" type="button" className="btn btn-outline-primary">See Answer</button>
 
 
-   <button id="next" type="button" className="btn btn-outline-primary">&raquo;</button>
+   <button id="next_home" type="button" className="btn btn-outline-primary">&raquo;</button>
 
 
      </div>

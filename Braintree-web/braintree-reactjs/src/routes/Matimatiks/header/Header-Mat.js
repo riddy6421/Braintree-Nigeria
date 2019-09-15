@@ -27,15 +27,15 @@ const uiConfig = {
 
 class Header_Mat extends Component {
 
-
-
   constructor() {
    super();
    this.state = {
      name: null,
      LoggedIn:false,
      progress:false,
-     mode:null
+     mode:null,
+     adjust:null,
+     sWidth: null
    }
 
    this.checkIfUserRegistered = this.checkIfUserRegistered.bind(this);
@@ -46,11 +46,16 @@ class Header_Mat extends Component {
    this.setState({LoggedIn:this.props.login})
    this.setState({progress:false})
    this.setState({mode:this.props.mode})
+   this.setState({adjust:this.props.adjust})
+   this.setState({width:window.screen.width})
   }
 
   componentDidMount(){
 
+    var width = window.innerWidth;
+
     var modal = document.getElementById('download-modal');
+
 
   if(this.state.LoggedIn){
       this.setState({name:this.props.name})
@@ -58,6 +63,7 @@ class Header_Mat extends Component {
       this.checkIfUserRegistered();
    }
 
+  
    document.getElementById('bt-li3').addEventListener("click", function () {
 
         modal.style.display = "block"
@@ -67,11 +73,9 @@ class Header_Mat extends Component {
    window.onclick = function(event) {
      // eslint-disable-next-line
      if (event.target == modal) {
-
            modal.style.display = "none"
      }
    }
-
 
   }
 
@@ -86,11 +90,56 @@ if(this.props.name){
 
   var username = firstname[0]
 
+
   if(username != null){
      var mSignin = document.getElementById("bt-li");
+     var logo = document.getElementById("logo");
 
-     mSignin.innerHTML = "Hi, "+username
+      mSignin.innerHTML = "My Matimatiks"
 
+     var userMsg = mSignin.innerHTML
+     var link2 = document.getElementById('bt-li2')
+     var link3 = document.getElementById('bt-li3')
+
+  
+     if(that.state.adjust){
+      if(that.state.width < 360){
+        mSignin.style.marginLeft = "5.2vw"
+        link2.style.marginLeft = "5.2vw"
+        link3.style.marginLeft = "5.2vw"
+      }
+
+      else if(that.state.width >=360 && that.state.width < 576 ){
+        mSignin.style.marginLeft = "6vw"
+        link2.style.marginLeft = "6vw"
+        link3.style.marginLeft = "6vw"
+       
+        logo.style.marginLeft = "2vw"
+      }
+
+      else if(that.state.width >=576  && that.state.width < 767){
+        mSignin.style.marginLeft = "8vw"
+        link2.style.marginLeft = "8vw"
+        link3.style.marginLeft = "8vw"
+
+        logo.style.marginLeft = "8vw"
+      }
+
+      else if(that.state.width >=767  && that.state.width < 991){
+        mSignin.style.marginLeft = "6vw"
+        link2.style.marginLeft = "6vw"
+        link3.style.marginLeft = "6vw"
+
+        logo.style.marginLeft = "5vw"
+      }
+      else if(that.state.width >=991  && that.state.width < 1200){
+        mSignin.style.marginLeft = "10vw"
+        link2.style.marginLeft = "10vw"
+        link3.style.marginLeft = "10vw"
+
+        logo.style.marginLeft = "40vw"
+      }
+    }
   /*replace the sign in dropdown with account properties */
   $('#signin-cont').replaceWith('<div id="d-menu" class="dropdown-menu"><a id="item1" class="dropdown-item" href="/Matimatiks/report">Progress Report</a><a id="item2" class="dropdown-item" href="#">Settings</a><a id="item3" class="dropdown-item" href="#">Help</a><div class="dropdown-divider"></div><button id="item4" type="button" class="btn">Log out</button></div>');
 
@@ -205,17 +254,6 @@ var user = onAuth.currentUser
       });
 
       }
-
-
-//  if(first == true){
-//       document.getElementById('signInAlert').style.display = "block"
-//       setTimeout(function(){
-//         document.getElementById('signInAlert').style.display = "none"
-//       },2000);
-//
-// }
-
-
 });
 
 }
@@ -236,13 +274,15 @@ var user = onAuth.currentUser
         </div>
 
 
-        <div className="d-flex justify-content-end">
+        <div id="opt-cont" className="d-flex justify-content-end">
 
             <div id="brand" className="container">
-              <a href="/"> <img id="logo" src={logo} className="rounded"  alt=""/></a>
+              <a href="/"> <img id="logo" src={logo} className="rounded" alt=""/></a>
             </div>
 
-               <div id="bt-li"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Log In</div>
+            <div id="bt-li"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Log In</div>
+            
+            <a id="bt-li2" href="#">Community</a>
                <div id="signin-cont" className="dropdown-menu">
                  <div id="signin-item" className="dropdown-item">
                      <div className="container">
@@ -252,7 +292,6 @@ var user = onAuth.currentUser
                 </div>
               </div>
 
-              <a id="bt-li2" href="#">Community</a>
 
               <a id="bt-li3"  data-toggle="modal" data-target="#exampleModal">Downloads</a>
         </div>

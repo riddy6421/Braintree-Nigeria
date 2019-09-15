@@ -25,8 +25,8 @@ class GetStarted extends Component {
 
         <div id="body" className="jumbotron">
       	 <div id="select" className="container text-center">
-            <h1>Select From Our Application(s)</h1>
-            <h1>Below!</h1>
+            <h1 id="header-g1">Select From Our Application(s)</h1>
+            <h1 id="header-g2">Below!</h1>
            </div>
 
 		<div className="card container justify-content-center">

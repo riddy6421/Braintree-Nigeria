@@ -23,10 +23,10 @@ class Footer extends Component {
          <div id="heading4" className="col"></div>
          <div id="heading5" className="col">
             <ul id="legal-list" className="nav flex-column">
-              <li className="nav-item">
+              <li id="priv" className="nav-item">
               <a className="nav-link" href="">Privacy Policy</a>
               </li>
-              <li className="nav-item">
+              <li id="term"  className="nav-item">
               <a className="nav-link" href="">Terms Of Service</a>
               </li>
              </ul>

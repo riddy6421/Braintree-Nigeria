@@ -1,32 +1,232 @@
-#app1{
-	font-family: 'Montserrat', sans-serif;
-	background-color: white;
-	color: black;
-	font-size: 20px;
-	height: 100vh;
+
+
+/* specially small devices (portrait phones, less than 576px)*/
+@media (max-width: 359px) {
+
+	#app1{
+		font-family: 'Montserrat', sans-serif;
+		background-color: white;
+		color: black;
+		font-size: 20px;
+		height: 100vh;
+	}
+
+	.mlogo{
+		height: 15vh;
+		width: 20vw;
+	}
+
+	#mat{
+		margin-top: 30vh;
+		font-size: 7vw;;
+	}
+
+
+	#android{
+		width: 30vw;
+		margin-bottom: 10%;
+	}
+
+	a:visited {
+	    background-color: transparent;
+	    text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
 }
 
-.mlogo{
 
-	height: 15%;
-	width: 8%;
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (min-width: 360px) and  (max-width: 575.98px) {
+	#app1{
+		font-family: 'Montserrat', sans-serif;
+		background-color: white;
+		color: black;
+		font-size: 20px;
+		height: 100vh;
+	}
+
+	.mlogo{
+		height: 15vh;
+		width: 20vw;
+	}
+
+	#mat{
+		margin-top: 30vh;
+		font-size: 7vw;;
+	}
+
+
+	#android{
+		width: 40vw;
+		margin-bottom: 10%;
+	}
+
+	a:visited {
+	    background-color: transparent;
+	    text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
 }
 
-#mat{
-	margin-top: 2%;
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+	#app1{
+		font-family: 'Montserrat', sans-serif;
+		background-color: white;
+		color: black;
+		font-size: 20px;
+		height: 100vh;
+	}
+
+	.mlogo{
+		height: 15vh;
+		width: 20vw;
+	}
+
+	#mat{
+		margin-top: 30vh;
+		font-size: 7vw;;
+	}
+
+
+	#android{
+		width: 40vw;
+		margin-bottom: 10%;
+	}
+
+	a:visited {
+	    background-color: transparent;
+	    text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
 }
 
 
-#android{
-	width: 20%;
-	margin-bottom: 10%;
+/* Medium devices (tablets, 768px and up)*/
+ @media (min-width: 767px) and (max-width: 991.98px) {
+
+	 #app1{
+ 		font-family: 'Montserrat', sans-serif;
+ 		background-color: white;
+ 		color: black;
+ 		font-size: 20px;
+ 		height: 100vh;
+ 	}
+
+ 	.mlogo{
+ 		height: 30vh;
+ 		width: 20vw;
+ 	}
+
+ 	#mat{
+ 		margin-top: 15vh;
+ 		font-size: 7vw;;
+ 	}
+
+
+ 	#android{
+ 		width: 40vw;
+ 		margin-bottom: 10%;
+ 	}
+
+ 	a:visited {
+ 	    background-color: transparent;
+ 	    text-decoration: none;
+ 	}
+
+ 	a:hover {
+ 		text-decoration: none;
+ 	}
+
+
 }
 
-a:visited {
-    background-color: transparent;
-    text-decoration: none;
-}
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
 
-a:hover {
-	text-decoration: none;
+	#app1{
+		font-family: 'Montserrat', sans-serif;
+		background-color: white;
+		color: black;
+		font-size: 20px;
+		height: 100vh;
+	}
+
+	.mlogo{
+
+		height: 15%;
+		width: 8%;
+	}
+
+	#mat{
+		margin-top: 2%;
+	}
+
+
+	#android{
+		width: 20%;
+		margin-bottom: 10%;
+	}
+
+	a:visited {
+	    background-color: transparent;
+	    text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+ }
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+	#app1{
+		font-family: 'Montserrat', sans-serif;
+		background-color: white;
+		color: black;
+		font-size: 20px;
+		height: 100vh;
+	}
+
+	.mlogo{
+
+		height: 15%;
+		width: 8%;
+	}
+
+	#mat{
+		margin-top: 2%;
+	}
+
+
+	#android{
+		width: 20%;
+		margin-bottom: 10%;
+	}
+
+	a:visited {
+	    background-color: transparent;
+	    text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+
 }
